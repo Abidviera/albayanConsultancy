@@ -1,0 +1,1352 @@
+<!-- albayan-landing-page.component.html -->
+<div class="app">
+  <!-- Header -->
+  <header class="header" [class.header-scrolled]="isScrolled">
+    <div class="header-container">
+      <div class="header-logo">
+   
+      
+        <img src="albayan.png" alt="">
+      </div>
+
+      <nav class="desktop-nav">
+        <button (click)="scrollToSection('home')" class="nav-link">Home</button>
+        <button (click)="scrollToSection('services')" class="nav-link">Services</button>
+        <button (click)="scrollToSection('about')" class="nav-link">About</button>
+        <button (click)="scrollToSection('projects')" class="nav-link">Success Stories</button>
+        <button (click)="scrollToSection('contact')" class="nav-link">Contact</button>
+      </nav>
+
+      <button class="mobile-menu-button" (click)="isMobileMenuOpen = !isMobileMenuOpen">
+        <i class="fas" [ngClass]="isMobileMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+      </button>
+    </div>
+
+    <div class="mobile-nav" *ngIf="isMobileMenuOpen">
+      <nav class="mobile-nav-content">
+        <button (click)="scrollToSection('home')" class="mobile-nav-link">Home</button>
+        <button (click)="scrollToSection('services')" class="mobile-nav-link">Services</button>
+        <button (click)="scrollToSection('about')" class="mobile-nav-link">About</button>
+        <button (click)="scrollToSection('projects')" class="mobile-nav-link">Success Stories</button>
+        <button (click)="scrollToSection('contact')" class="mobile-nav-link">Contact</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="floating-shapes">
+      <div class="shape shape-square"></div>
+      <div class="shape shape-circle"></div>
+    </div>
+
+    <div class="hero-container">
+      <div class="background-images">
+        <div *ngFor="let slide of heroSlides; let i = index"
+             class="background-slide"
+             [class.active]="i === currentSlide"
+             [class.exit]="i === previousSlide">
+          <div class="bg-image" [style.backgroundImage]="'url(' + slide.image + ')'"></div>
+          <div class="bg-overlay"></div>
+        </div>
+      </div>
+
+      <div class="content-wrapper">
+        <div class="content-grid">
+          <div class="text-content">
+            <div class="slide-counter">
+              <span class="counter-current">0{{currentSlide + 1}}</span>
+              <div class="counter-progress">
+                <div class="progress-fill" [style.width]="progressWidth + '%'"></div>
+              </div>
+              <span class="counter-total">0{{heroSlides.length}}</span>
+            </div>
+
+            <div class="title-container">
+              <h1 class="hero-title">
+                <span *ngFor="let word of getCurrentWords(); let i = index"
+                      class="title-word"
+                      [class.accent]="isAccentWord(word)"
+                      [style.animationDelay]="i * 0.1 + 's'">
+                  {{word}}
+                </span>
+              </h1>
+              <p class="hero-subtitle">{{heroSlides[currentSlide].subtitle}}</p>
+            </div>
+
+            <div class="button-group">
+              <button class="btn btn-primary" (click)="scrollToSection('contact')">
+                <span class="btn-text">GET IN TOUCH</span>
+                <span class="btn-text-hover">GET IN TOUCH</span>
+                <div class="btn-overlay"></div>
+              </button>
+              <button class="btn btn-secondary" (click)="scrollToSection('services')">
+                EXPLORE SERVICES
+              </button>
+            </div>
+          </div>
+
+          <div class="slide-navigation">
+            <div class="nav-slides">
+              <button *ngFor="let slide of heroSlides; let index = index"
+                      class="nav-slide-item"
+                      [class.active]="index === currentSlide"
+                      [style.height]="index === currentSlide ? '192px' : '96px'"
+                      (click)="goToSlide(index)">
+                <div class="nav-slide-bg" [style.backgroundImage]="'url(' + slide.image + ')'"></div>
+                <div class="nav-slide-overlay"></div>
+                <div class="nav-slide-content">
+                  <div class="nav-slide-number">0{{index + 1}}</div>
+                  <div class="nav-slide-title" *ngIf="index === currentSlide">
+                    {{slide.title.split(' ').slice(0, 3).join(' ')}}
+                  </div>
+                </div>
+                <div class="nav-slide-progress" *ngIf="index === currentSlide"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span class="scroll-text">SCROLL</span>
+        <i class="fas fa-chevron-down scroll-icon"></i>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stats-container">
+        <div class="stats-grid">
+          <div *ngFor="let stat of statsData; let i = index" class="stat-item">
+            <div class="stat-value">{{stat.value}}{{i === 3 ? '%' : '+'}}</div>
+            <div class="stat-label">{{stat.label}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <div class="services-container">
+      <h2 class="services-title">OUR SERVICES</h2>
+      <div class="services-grid">
+        <div *ngFor="let service of services; let i = index" class="service-card">
+          <div class="service-icon-wrapper">
+            <div class="service-icon">{{service.icon}}</div>
+          </div>
+          <h3 class="service-title">{{service.title}}</h3>
+          <p class="service-description">{{service.description}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Services Section -->
+  <section class="services-detailed-section">
+    <div class="container">
+      <h2 class="section-title">EXPLORE OUR SERVICES<br />IN DETAIL</h2>
+      <p class="section-subtitle">
+        Click on any service below to discover comprehensive details, benefits, our process, and successful services we've completed
+      </p>
+
+      <div class="services-grid">
+        <div *ngFor="let service of detailedServices; let i = index" 
+             class="service-card" 
+             (click)="selectedService = service">
+          <div class="service-image-container">
+            <img [src]="service.images[0]" [alt]="service.title" class="service-image" />
+          </div>
+          <h3 class="service-title">{{service.title}}</h3>
+          <p class="service-subtitle">{{service.subtitle}}</p>
+          <div class="learn-more">
+            <span>Learn More</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" *ngIf="selectedService" (click)="selectedService = null">
+      <div class="modal-container">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <button class="close-button" (click)="selectedService = null">
+            <span class="close-icon">×</span>
+          </button>
+
+          <div class="modal-hero-image">
+            <img [src]="selectedService.images[0]" [alt]="selectedService.title" />
+          </div>
+
+          <div class="modal-body">
+            <div class="modal-title-section">
+              <h2 class="modal-main-title">{{selectedService.title}}</h2>
+              <p class="modal-subtitle">{{selectedService.subtitle}}</p>
+            </div>
+
+            <div class="modal-description">
+              <p>{{selectedService.description}}</p>
+            </div>
+
+            <div class="modal-stats">
+              <div *ngFor="let stat of selectedService.stats; let i = index" class="stat-item">
+                <div class="stat-value">{{stat.value}}</div>
+                <div class="stat-label">{{stat.label}}</div>
+              </div>
+            </div>
+
+            <div class="modal-section">
+              <div class="section-header">
+                <span class="section-icon">✓</span>
+                <h3>Key Benefits</h3>
+              </div>
+              <div class="benefits-grid">
+                <div *ngFor="let benefit of selectedService.benefits; let i = index" class="benefit-item">
+                  <span class="check-icon">✓</span>
+                  <p>{{benefit}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-section">
+              <div class="section-header">
+                <span class="section-icon">●</span>
+                <h3>What We Provide</h3>
+              </div>
+              <div class="features-grid">
+                <div *ngFor="let feature of selectedService.features; let i = index" class="feature-item">
+                  <span class="feature-dot"></span>
+                  <p>{{feature}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-section">
+              <div class="section-header">
+                <span class="section-icon">⏱</span>
+                <h3>Our Process</h3>
+              </div>
+              <div class="process-list">
+                <div *ngFor="let step of selectedService.process; let i = index" class="process-step">
+                  <div class="step-number">{{i + 1}}</div>
+                  <div class="step-content">
+                    <p>{{step}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-secondary-image" *ngIf="selectedService.images[1]">
+              <img [src]="selectedService.images[1]" [alt]="selectedService.title + ' Example'" />
+            </div>
+
+            <div class="modal-cta">
+              <h3>Ready to Get Started?</h3>
+              <p class="cta-description">
+                Contact us today for fast and reliable service. Let us handle your documentation needs!
+              </p>
+              <a href="#contact" (click)="selectedService = null" class="cta-button">
+                Request Free Consultation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="jurisdiction" class="jurisdiction-section">
+  <div class="container">
+    <h2 class="section-title">JURISDICTION OPTIONS</h2>
+    <p class="section-subtitle">
+      Choose the right business setup for your needs - Mainland or Freezone
+    </p>
+
+    <div class="jurisdiction-grid">
+      <div *ngFor="let jurisdiction of JURISDICTIONS; let i = index" class="jurisdiction-card">
+        <div class="jurisdiction-icon">{{jurisdiction.icon}}</div>
+        <h3 class="jurisdiction-title">{{jurisdiction.title}}</h3>
+        <p class="jurisdiction-description">{{jurisdiction.description}}</p>
+
+        <div class="jurisdiction-features">
+          <h4>Benefits:</h4>
+          <ul>
+            <li *ngFor="let feature of jurisdiction.features; let j = index">
+              <span class="check-icon">✓</span>
+              {{feature}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Business Support Section -->
+<section class="business-support-section">
+  <div class="container">
+    <h2 class="section-title">BUSINESS SUPPORT SERVICES</h2>
+    <p class="section-subtitle">
+      Complete support for all your business needs in UAE
+    </p>
+
+    <div class="services-grid">
+      <div *ngFor="let service of BUSINESS_SUPPORT; let i = index" class="service-card">
+        <div class="service-icon-wrapper">
+          <div class="service-icon">{{service.icon}}</div>
+        </div>
+        <h3 class="service-title">{{service.title}}</h3>
+        <p class="service-description">{{service.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Freezone Benefits Section -->
+<section class="freezone-benefits-section">
+  <div class="container">
+    <h2 class="section-title">FREEZONE COMPANY FORMATION</h2>
+    <p class="section-subtitle">
+      Dubai Mainland & Freezone Business Setup Features
+    </p>
+
+    <div class="benefits-grid">
+      <div *ngFor="let benefit of FREEZONE_BENEFITS; let i = index" class="benefit-card">
+        <div class="benefit-icon">{{benefit.icon}}</div>
+        <h3 class="benefit-title">{{benefit.title}}</h3>
+        <p class="benefit-description">{{benefit.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Freezone Setup Process -->
+<section class="process-section">
+  <div class="container">
+    <h2 class="section-title">HOW TO START A BUSINESS IN A UAE FREE ZONE?</h2>
+    <p class="section-subtitle">
+      Find the Key Steps to Set Up a Business in a UAE Free Zone
+    </p>
+
+    <div class="steps-grid">
+      <div *ngFor="let step of FREEZONE_STEPS; let index = index" class="step-card">
+        <div class="icon-container">
+          <div class="step-icon">{{step.icon}}</div>
+        </div>
+        <div class="step-number">{{step.number}}</div>
+        <h3 class="step-title">{{step.title}}</h3>
+        <p class="step-description">{{step.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+               alt="Al Bayan Team"
+               class="about-img" />
+        </div>
+
+        <div class="about-content">
+            <h2 class="about-title">
+          ABOUT {{COMPANY_INFO.tradeName.english.split(' ').slice(0, 2).join(' ')}}<sup class="registered">®</sup>
+        </h2>
+        <p class="about-text">
+          Established in 2015, Al Bayan Typing Services has been a trusted partner for individuals and businesses in Ajman and across the UAE. With over {{yearsOfService}} years of excellence, we specialize in providing fast, accurate, and reliable typing, translation, and government documentation services.
+        </p>
+        <p class="about-text">
+          Our team of experienced professionals is dedicated to making your visa, Emirates ID, translation, and PRO service needs as smooth and hassle-free as possible. We pride ourselves on our direct access to government systems, ensuring quick turnaround times.
+        </p>
+        <p class="about-text mb-10">
+          From simple document typing to complex company formation in mainland (Ajman, Dubai, Sharjah) and freezones (Rakez, SAIF Zone, Dubai Free Zones), Al Bayan Typing Services handles it all with professionalism, confidentiality, and a commitment to 100% customer satisfaction.
+        </p>
+
+  <div class="company-details">
+          <h4>Official License Details:</h4>
+          <ul>
+            <li><strong>License Number:</strong> {{COMPANY_INFO.licenseNumber}}</li>
+            <li><strong>Register Number:</strong> {{COMPANY_INFO.registerNumber}}</li>
+            <li><strong>ACCI Number:</strong> {{COMPANY_INFO.acciNumber}}</li>
+            <li><strong>Established:</strong> 2015</li>
+            <li><strong>License Valid Until:</strong> 2027</li>
+          </ul>
+        </div>
+        
+          <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h4 class="feature-title">Licensed & Certified</h4>
+          <p class="feature-description">
+            Officially registered with license number 70510
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h4 class="feature-title">Expert Team</h4>
+          <p class="feature-description">
+            Professional typists and PRO specialists
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h4 class="feature-title">Fast Processing</h4>
+          <p class="feature-description">
+            Quick turnaround with express services
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h4 class="feature-title">100% Confidential</h4>
+          <p class="feature-description">
+            Your documents are secure and private
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects/Success Stories Carousel -->
+  <section id="projects" class="projects-carousel">
+    <div class="carousel-container">
+      <div class="carousel-header">
+        <div>
+          <h2 class="section-title">SUCCESS STORIES</h2>
+          <p class="section-subtitle">Explore our portfolio of completed services</p>
+        </div>
+
+        <div class="carousel-controls">
+          <button (click)="prevProject()" class="control-button" aria-label="Previous">
+            <i class="fas fa-chevron-left control-icon"></i>
+          </button>
+          <button (click)="nextProject()" class="control-button" aria-label="Next">
+            <i class="fas fa-chevron-right control-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="desktop-carousel">
+        <div *ngFor="let project of getVisibleProjects(); let i = index" class="project-card">
+          <div class="image-container">
+            <img [src]="project.image" [alt]="project.title" class="project-image" />
+          </div>
+          <div class="project-content">
+            <div class="project-category">{{project.category}}</div>
+            <h3 class="project-title">{{project.title}}</h3>
+            <p class="project-description">{{project.description}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-dots">
+       <!-- Line 366 - Remove the aria-label attribute -->
+<button *ngFor="let project of projects; let index = index"
+        (click)="currentProjectIndex = index"
+        class="progress-dot"
+        [class.active]="index === currentProjectIndex"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section">
+    <div class="container">
+      <h2 class="section-title">HOW WE WORK</h2>
+
+      <div class="steps-grid">
+        <div *ngFor="let step of processSteps; let index = index" class="step-card">
+          <div class="icon-container">
+            <div class="step-icon">{{step.icon}}</div>
+          </div>
+          <div class="step-number">{{step.number}}</div>
+          <h3 class="step-title">{{step.title}}</h3>
+          <p class="step-description">{{step.description}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost Calculator -->
+  <section class="cost-calculator">
+    <div class="calculator-container">
+      <div class="header-section">
+        <h2 class="section-title">INSTANT COST<br />CALCULATOR</h2>
+        <p class="section-description">
+          Get a quick estimate for your service requirements. Contact us for detailed quotations.
+        </p>
+      </div>
+
+      <div class="calculator-grid">
+        <div class="calculator-form">
+          <div class="form-header">
+            <h3>Calculate Service Cost</h3>
+          </div>
+
+          <form (submit)="calculateCost($event)" class="cost-form">
+            <div class="form-group">
+              <label class="form-label">Service Type *</label>
+              <select [(ngModel)]="calculatorData.serviceType" name="serviceType" required class="form-select">
+                <option value="">Select Service Type</option>
+                <option value="visa-residence">Residence Visa</option>
+                <option value="visa-visit">Visit Visa</option>
+                <option value="emirates-id">Emirates ID</option>
+                <option value="translation">Document Translation</option>
+                <option value="pro-services">PRO Services</option>
+                <option value="medical-fitness">Medical Fitness</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Number of Documents/Services *</label>
+              <input type="number" [(ngModel)]="calculatorData.quantity" name="quantity" placeholder="e.g., 1" required min="1" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Processing Speed *</label>
+              <select [(ngModel)]="calculatorData.urgency" name="urgency" required class="form-select">
+                <option value="">Select Speed</option>
+                <option value="standard">Standard (3-5 days)</option>
+                <option value="express">Express (1-2 days)</option>
+                <option value="urgent">Urgent (Same day)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="calculate-button">
+              Calculate Estimate
+            </button>
+          </form>
+        </div>
+
+        <div class="results-section">
+          <div *ngIf="estimatedCost !== null; else placeholder" class="results-content">
+            <div class="estimate-card">
+              <div class="estimate-header">
+                <h3 class="estimate-title">Estimated Cost</h3>
+              </div>
+              <div class="estimate-amount">AED {{estimatedCost}}</div>
+              <p class="estimate-disclaimer">
+                This is an approximate estimate. Final cost may vary based on specific requirements and document complexity.
+              </p>
+            </div>
+
+            <div class="included-list">
+              <h4 class="list-title">What's Included</h4>
+              <div class="list-items">
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <span>Professional typing and processing</span>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <span>Government submission fees</span>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <span>Document verification</span>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <span>SMS status updates</span>
+                </div>
+                <div class="list-item">
+                  <div class="list-bullet"></div>
+                  <span>Customer support</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cta-section">
+              <h4 class="cta-title">Want a Detailed Quote?</h4>
+              <p class="cta-description">
+                Get a comprehensive, itemized estimate with no hidden costs
+              </p>
+              <a href="#contact" class="cta-button">
+                Request Detailed Quote
+              </a>
+            </div>
+          </div>
+
+          <ng-template #placeholder>
+            <div class="placeholder-section">
+              <div class="placeholder-content">
+                <div class="placeholder-title">Enter Your Service Details</div>
+                <p class="placeholder-description">
+                  Fill in the form to get an instant cost estimate
+                </p>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <div class="grid">
+        <div class="content-col">
+          <h2 class="section-title">
+            WHY CHOOSE<br />
+            AL BAYAN<sup class="trademark">®</sup>
+          </h2>
+
+          <div class="description">
+            <p class="text">
+              With Al Bayan Typing Services, you're partnering with a trusted name in Ajman's document processing industry. Our decade-long experience, combined with direct government system access, ensures your documents are handled efficiently and accurately.
+            </p>
+            <p class="text">
+              We understand the value of your time. That's why we offer express services, SMS updates, and home delivery options. Our transparent pricing means no surprises – just honest, reliable service every time.
+            </p>
+          </div>
+
+          <div class="features">
+            <div class="feature-item">
+              <div class="bullet"></div>
+              <p class="feature-text">
+                <strong>Direct Government Access:</strong> Tasheel, AMER, GDRFA, and ICP systems integration
+              </p>
+            </div>
+            <div class="feature-item">
+              <div class="bullet"></div>
+              <p class="feature-text">
+                <strong>Licensed & Registered:</strong> Official license number 70510 since 2015
+              </p>
+            </div>
+            <div class="feature-item">
+              <div class="bullet"></div>
+              <p class="feature-text">
+                <strong>Multi-Service Hub:</strong> Typing, Translation, PRO, and Government services under one roof
+              </p>
+            </div>
+            <div class="feature-item">
+              <div class="bullet"></div>
+              <p class="feature-text">
+                <strong>Customer First:</strong> Your satisfaction and confidentiality are our top priorities
+              </p>
+            </div>
+          </div>
+
+          <a href="#contact" class="cta-button">
+            Start Your Service
+          </a>
+        </div>
+
+        <div class="image-col">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+               alt="Al Bayan Services"
+               class="main-image" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Features Section -->
+  <section class="main-features">
+    <div class="container">
+      <div class="features-header">
+        <h2>WHAT MAKES US<br />DIFFERENT</h2>
+        <p>
+          Beyond just typing – we bring technology, transparency, and dedication to make your documentation experience exceptional
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div *ngFor="let feature of specialFeatures; let index = index" class="feature-card">
+          <div class="feature-icon">{{feature.icon}}</div>
+          <h4>{{feature.title}}</h4>
+          <p>{{feature.description}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unique Services Section -->
+  <section class="unique-services">
+    <div class="container">
+      <div class="services-header">
+        <h2>THE AL BAYAN<br />ADVANTAGE</h2>
+      </div>
+
+      <div class="services-grid">
+        <div *ngFor="let service of uniqueServices; let index = index" class="service-card">
+          <div class="service-image-container">
+            <img [src]="service.image" [alt]="service.title" class="service-image" />
+          </div>
+          <h3>{{service.title}}</h3>
+          <p>{{service.description}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Factors -->
+  <section class="trust-factors">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-number">100%</div>
+          <p class="trust-label">Accuracy Guaranteed</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-number">Zero</div>
+          <p class="trust-label">Hidden Charges</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-number">24/7</div>
+          <p class="trust-label">Emergency Support</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-number">10+</div>
+          <p class="trust-label">Years Experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Showcase -->
+  <section class="team-showcase">
+    <div class="background-pattern"></div>
+
+    <div class="container">
+      <div class="section-header">
+        <div class="header-decoration">
+          <div class="decoration-line"></div>
+          <div class="decoration-text">OUR STRENGTH</div>
+          <div class="decoration-line"></div>
+        </div>
+        <h2 class="section-title">
+          THE AL BAYAN<sup>®</sup> TEAM
+        </h2>
+        <p class="section-description">
+          Meet the dedicated professionals who make your documentation needs effortless
+        </p>
+      </div>
+
+      <div class="tab-navigation">
+        <button class="tab-btn" [class.active]="activeTab === 'team'" (click)="activeTab = 'team'">
+          OUR TEAM
+        </button>
+        <button class="tab-btn" [class.active]="activeTab === 'expertise'" (click)="activeTab = 'expertise'">
+          OUR EXPERTISE
+        </button>
+      </div>
+
+      <div *ngIf="activeTab === 'team'" class="team-grid">
+        <div *ngFor="let member of teamMembers; let index = index" class="team-card">
+          <div class="card-image-container">
+            <img [src]="member.image" [alt]="member.name" class="card-image" />
+            <div class="image-overlay"></div>
+          </div>
+
+          <div class="card-hover-content">
+            <h3 class="member-name">{{member.name}}</h3>
+            <p class="member-role">{{member.role}}</p>
+            <p class="member-description">{{member.description}}</p>
+          </div>
+
+          <div class="card-content">
+            <h3 class="member-name">{{member.name}}</h3>
+            <p class="member-role">{{member.role}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 'expertise'" class="expertise-grid">
+        <div *ngFor="let item of expertise; let index = index" class="expertise-card">
+          <div class="expertise-icon">
+            <div class="icon-container">{{item.icon}}</div>
+          </div>
+          <div class="expertise-content">
+            <h3 class="expertise-title">{{item.title}}</h3>
+            <p class="expertise-description">{{item.description}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="achievements-bar">
+        <div class="achievements-grid">
+          <div *ngFor="let achievement of achievements; let index = index" class="achievement-item">
+            <div class="achievement-icon-container">
+              <div class="achievement-icon" [style.background]="'linear-gradient(135deg, ' + achievement.color + '40, ' + achievement.color + '20)'">
+                <div class="icon-wrapper">
+                  <i [class]="achievement.icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="achievement-number">{{achievement.number}}</div>
+            <div class="achievement-label">{{achievement.label}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h3 class="cta-title">Ready to Experience Professional Service?</h3>
+        <p class="cta-description">
+          Join thousands of satisfied clients who trusted Al Bayan with their documentation needs
+        </p>
+        <button class="cta-button" (click)="scrollToSection('contact')">
+          <span>CONTACT US TODAY</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before After Section -->
+  <section class="before-after-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">TRANSFORMATION<br />JOURNEY</h2>
+        <p class="section-description">
+          See how we've evolved to provide better, faster, and more comprehensive services
+        </p>
+      </div>
+
+      <div class="projects-list">
+        <div *ngFor="let project of beforeAfterProjects; let index = index" class="project-card">
+          <div class="project-content">
+            <div class="grid-container">
+              <div class="project-info">
+                <div class="location-badge">{{project.location}}</div>
+                <h3 class="project-title">{{project.title}}</h3>
+                <p class="project-description">{{project.description}}</p>
+
+                <div class="comparison-labels">
+                  <div class="comparison-item">
+                    <div class="comparison-title">Before</div>
+                    <p class="comparison-subtitle">Traditional methods</p>
+                  </div>
+                  <div class="comparison-item">
+                    <div class="comparison-title">After</div>
+                    <p class="comparison-subtitle">Modern solutions</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="before-after-slider">
+                <div class="slider-container">
+                  <div class="image-after">
+                    <img [src]="project.after" [alt]="project.title + ' - After'" class="slider-image" />
+                  </div>
+
+                  <div class="image-before" [style.clip-path]="'inset(0 ' + (100 - beforeAfterSliders[index]) + '% 0 0)'">
+                    <img [src]="project.before" [alt]="project.title + ' - Before'" class="slider-image" />
+                  </div>
+
+                  <div class="slider-line" [style.left]="beforeAfterSliders[index] + '%'">
+                    <div class="slider-handle">
+                      <div class="handle-icon">
+                        <div class="handle-line"></div>
+                        <div class="handle-line"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <input type="range" min="0" max="100" 
+                         [value]="beforeAfterSliders[index]"
+                         (input)="handleSliderChange(index, $event)"
+                         class="slider-control" />
+
+                  <div class="slider-label before-label">BEFORE</div>
+                  <div class="slider-label after-label">AFTER</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-container">
+        <a href="#contact" class="cta-button">
+          Experience Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="certifications-section">
+    <div class="certifications-container">
+      <div class="certifications-content mb-24">
+        <div class="text-center mb-16">
+          <h2 class="mb-6">LICENSED &<br />CERTIFIED CENTER</h2>
+          <p class="section-description">
+            Al Bayan Typing Services is officially registered and licensed by the Ajman Economic Department. All our services comply with UAE government regulations.
+          </p>
+        </div>
+
+        <div class="certifications-grid">
+          <div class="certification-card">
+            <div class="icon-container">
+              <i class="fas fa-award cert-icon"></i>
+            </div>
+            <h4 class="cert-title">Official License</h4>
+            <p class="cert-description">
+              License Number: 70510<br />
+              Valid until: 2027
+            </p>
+          </div>
+
+          <div class="certification-card">
+            <div class="icon-container">
+              <i class="fas fa-check-circle cert-icon"></i>
+            </div>
+            <h4 class="cert-title">Government Approved</h4>
+            <p class="cert-description">
+              Authorized for all typing and PRO services
+            </p>
+          </div>
+
+          <div class="certification-card">
+            <div class="icon-container">
+              <i class="fas fa-shield-alt cert-icon"></i>
+            </div>
+            <h4 class="cert-title">Certified Translators</h4>
+            <p class="cert-description">
+              Legal translation certification recognized nationwide
+            </p>
+          </div>
+
+          <div class="certification-card">
+            <div class="icon-container">
+              <i class="fas fa-users cert-icon"></i>
+            </div>
+            <h4 class="cert-title">Trained Staff</h4>
+            <p class="cert-description">
+              All staff trained in UAE government procedures
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="achievements-section">
+        <div class="text-center mb-16">
+          <h2 class="achievements-title mb-6">
+            OUR ACHIEVEMENTS<br />& MILESTONES
+          </h2>
+          <p class="achievements-description">
+            Numbers that speak for our commitment to excellence and customer satisfaction
+          </p>
+        </div>
+
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <div class="achievement-icon-container">
+              <i class="fas fa-chart-line achievement-icon"></i>
+            </div>
+            <div class="achievement-stat">50000+</div>
+            <h4 class="achievement-label">Documents Processed</h4>
+            <p class="achievement-description">
+              Successfully completed and delivered
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon-container">
+              <i class="fas fa-check-circle achievement-icon"></i>
+            </div>
+            <div class="achievement-stat">98%</div>
+            <h4 class="achievement-label">Client Satisfaction</h4>
+            <p class="achievement-description">
+              Based on customer feedback surveys
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon-container">
+              <i class="fas fa-award achievement-icon"></i>
+            </div>
+            <div class="achievement-stat">10+</div>
+            <h4 class="achievement-label">Years of Service</h4>
+            <p class="achievement-description">
+              Serving the community since 2015
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon-container">
+              <i class="fas fa-shield-alt achievement-icon"></i>
+            </div>
+            <div class="achievement-stat">100%</div>
+            <h4 class="achievement-label">Compliance Record</h4>
+            <p class="achievement-description">
+              Perfect government compliance history
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="gallery-container">
+      <h2 class="gallery-title">GALLERY OF<br />OUR SERVICES</h2>
+
+      <div class="gallery-grid">
+        <div *ngFor="let image of galleryImages; let index = index" class="gallery-item">
+          <img [src]="image" [alt]="'Service ' + (index + 1)" class="gallery-image" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">CLIENT TESTIMONIALS</h2>
+        <p class="section-subtitle">Hear what our clients say about our services</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+          </svg>
+        </div>
+
+        <div class="stars-container">
+          <div *ngFor="let star of [1,2,3,4,5]" class="star">
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+
+        <div class="testimonial-content">
+          <p class="testimonial-text">"{{testimonials[currentTestimonial].text}}"</p>
+
+          <div class="client-info">
+            <h4 class="client-name">{{testimonials[currentTestimonial].name}}</h4>
+            <p class="client-location">{{testimonials[currentTestimonial].location}}</p>
+            <p class="client-project">{{testimonials[currentTestimonial].project}}</p>
+          </div>
+        </div>
+
+        <div class="navigation-dots">
+          <button *ngFor="let testimonial of testimonials; let index = index"
+                  class="dot"
+                  [class.active]="index === currentTestimonial"
+                  (click)="currentTestimonial = index"></button>
+        </div>
+      </div>
+
+      <div class="client-count">
+        <div class="count-number">25000+</div>
+        <p class="count-label">Happy Clients & Counting</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">FREQUENTLY ASKED<br />QUESTIONS</h2>
+        <p class="section-description">
+          Find answers to common questions about our services
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div *ngFor="let faq of faqs; let index = index" class="faq-item">
+          <button class="faq-question" [class.active]="openFAQ === index" (click)="openFAQ = openFAQ === index ? null : index">
+            <span>{{faq.question}}</span>
+            <span class="faq-icon">{{openFAQ === index ? '−' : '+'}}</span>
+          </button>
+          <div class="faq-answer" *ngIf="openFAQ === index">
+            <p>{{faq.answer}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Quote Section -->
+  <section class="quick-quote">
+    <div class="container">
+      <div class="quote-content">
+        <h2 class="quote-title">GET A QUICK QUOTE</h2>
+        <p class="quote-subtitle">
+          Tell us about your requirements and we'll get back to you within 24 hours
+        </p>
+
+        <form (submit)="handleFormSubmit($event)" class="quote-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Service Type *</label>
+              <select [(ngModel)]="formData.serviceType" name="serviceType" required class="form-select">
+                <option value="">Select Service</option>
+                <option value="visa">Visa Services</option>
+                <option value="emirates-id">Emirates ID</option>
+                <option value="translation">Translation</option>
+                <option value="pro">PRO Services</option>
+                <option value="medical">Medical Fitness</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Urgency *</label>
+              <select [(ngModel)]="formData.urgency" name="urgency" required class="form-select">
+                <option value="">Select Urgency</option>
+                <option value="standard">Standard (3-5 days)</option>
+                <option value="express">Express (1-2 days)</option>
+                <option value="urgent">Urgent (Same day)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Name *</label>
+              <input type="text" [(ngModel)]="formData.name" name="name" placeholder="Your full name" required class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Phone *</label>
+              <input type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="+971 XX XXX XXXX" required class="form-input" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" [(ngModel)]="formData.email" name="email" placeholder="your.emailexample.com" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea [(ngModel)]="formData.message" name="message" placeholder="Tell us about your requirements..." rows="4" class="form-textarea"></textarea>
+          </div>
+
+          <button type="submit" class="submit-button">
+            <i class="fas fa-paper-plane"></i>
+            <span>SEND INQUIRY</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">GET IN TOUCH</h2>
+        <p class="section-description">
+          Visit us at our office in Ajman or reach out through any of these channels
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3 class="contact-title">Visit Us</h3>
+          <p class="contact-text">
+            Shop No. 6, Rashideya 2<br />
+            Ajman, United Arab Emirates
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3 class="contact-title">Call Us</h3>
+          <p class="contact-text">
+            <a href="tel:+97165745454">+971 6 574 5454</a><br />
+            <a href="tel:+971501234567">+971 50 123 4567</a>
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="contact-title">Email Us</h3>
+          <p class="contact-text">
+            <a href="mailto:infoalbayantyping.ae">infoalbayantyping.ae</a><br />
+            <a href="mailto:supportalbayantyping.ae">supportalbayantyping.ae</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="working-hours">
+        <h3 class="hours-title">Working Hours</h3>
+        <div class="hours-grid">
+          <div class="hours-item">
+            <span class="day">Saturday - Thursday</span>
+            <span class="time">8:00 AM - 8:00 PM</span>
+          </div>
+          <div class="hours-item">
+            <span class="day">Friday</span>
+            <span class="time">4:00 PM - 8:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-new">
+    <div class="footer-top-border"></div>
+
+    <div class="footer-container">
+      <div class="newsletter-section">
+        <h3 class="newsletter-title">STAY UPDATED</h3>
+        <p class="newsletter-subtitle">
+          Subscribe to receive updates on new services, government regulation changes, and special offers
+        </p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" required class="newsletter-input" />
+          <button type="submit" class="newsletter-button">
+            SUBSCRIBE
+            <i class="fas fa-paper-plane send-icon"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="footer-content">
+        <div class="company-info">
+          <h3 class="company-title">
+            AL BAYAN<sup class="registered">®</sup>
+            <div class="title-underline"></div>
+          </h3>
+          <p class="company-description">
+            Licensed typing center in Ajman providing professional visa, Emirates ID, translation, and PRO services since 2015.
+          </p>
+          <p class="company-tagline">Your Trusted Documentation Partner</p>
+
+          <div class="social-buttons">
+            <a href="tel:+97165745454" class="social-button">
+              <i class="fas fa-phone social-icon"></i>
+              <span class="social-text">Call Now</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="quick-links">
+          <h4 class="section-title">QUICK LINKS</h4>
+          <div class="links-list">
+            <button (click)="scrollToSection('home')" class="link-item">
+              <span class="link-arrow">→</span>
+              Home
+            </button>
+            <button (click)="scrollToSection('services')" class="link-item">
+              <span class="link-arrow">→</span>
+              Services
+            </button>
+            <button (click)="scrollToSection('about')" class="link-item">
+              <span class="link-arrow">→</span>
+              About
+            </button>
+            <button (click)="scrollToSection('projects')" class="link-item">
+              <span class="link-arrow">→</span>
+              Success Stories
+            </button>
+            <button (click)="scrollToSection('contact')" class="link-item">
+              <span class="link-arrow">→</span>
+              Contact
+            </button>
+          </div>
+        </div>
+
+        <div class="services">
+          <h4 class="section-title">OUR SERVICES</h4>
+          <div class="services-list">
+            <div class="service-item">
+              <div class="service-bullet"></div>
+              Visa Processing
+            </div>
+            <div class="service-item">
+              <div class="service-bullet"></div>
+              Emirates ID Services
+            </div>
+            <div class="service-item">
+              <div class="service-bullet"></div>
+              Translation Services
+            </div>
+            <div class="service-item">
+              <div class="service-bullet"></div>
+              PRO Services
+            </div>
+            <div class="service-item">
+              <div class="service-bullet"></div>
+              Medical Fitness
+            </div>
+            <div class="service-item">
+              <div class="service-bullet"></div>
+              Freezone Licenses
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info">
+          <h4 class="section-title">CONTACT</h4>
+          <div class="contact-list">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <p class="contact-text">Shop No. 6, Rashideya 2<br />Ajman, UAE</p>
+            </div>
+
+            <div class="contact-item">
+              <i class="fas fa-phone contact-icon"></i>
+              <div class="contact-text">
+                <a href="tel:+97165745454" class="phone-link">+971 6 574 5454</a>
+                <a href="tel:+971501234567" class="phone-link">+971 50 123 4567</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <a href="mailto:infoalbayantyping.ae" class="contact-text email-link">
+                infoalbayantyping.ae
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider bottom-divider"></div>
+
+      <div class="bottom-bar">
+        <p class="copyright">
+          &copy; 2026 AL BAYAN<sup class="registered">®</sup> TYPING SERVICES. All rights reserved. | License No. 70510 | Serving Ajman since 2015
+        </p>
+
+        <div class="legal-links">
+          <button class="legal-link">Privacy Policy</button>
+          <span class="separator">•</span>
+          <button class="legal-link">Terms of Service</button>
+        </div>
+      </div>
+    </div>
+
+    <button *ngIf="showScrollTop" (click)="scrollToTop()" class="scroll-top-button">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </footer>
+</div>

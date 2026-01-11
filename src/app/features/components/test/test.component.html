@@ -1,0 +1,171 @@
+<!-- Jurisdiction Section -->
+<section id="jurisdiction" class="jurisdiction-section">
+  <div class="container">
+    <h2 class="section-title">JURISDICTION OPTIONS</h2>
+    <p class="section-subtitle">
+      Choose the right business setup for your needs - Mainland or Freezone
+    </p>
+
+    <div class="jurisdiction-grid">
+      <div *ngFor="let jurisdiction of JURISDICTIONS; let i = index" class="jurisdiction-card">
+        <div class="jurisdiction-icon">{{jurisdiction.icon}}</div>
+        <h3 class="jurisdiction-title">{{jurisdiction.title}}</h3>
+        <p class="jurisdiction-description">{{jurisdiction.description}}</p>
+
+        <div class="jurisdiction-features">
+          <h4>Benefits:</h4>
+          <ul>
+            <li *ngFor="let feature of jurisdiction.features; let j = index">
+              <span class="check-icon">✓</span>
+              {{feature}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Business Support Section -->
+<section class="business-support-section">
+  <div class="container">
+    <h2 class="section-title">BUSINESS SUPPORT SERVICES</h2>
+    <p class="section-subtitle">
+      Complete support for all your business needs in UAE
+    </p>
+
+    <div class="services-grid">
+      <div *ngFor="let service of BUSINESS_SUPPORT; let i = index" class="service-card">
+        <div class="service-icon-wrapper">
+          <div class="service-icon">{{service.icon}}</div>
+        </div>
+        <h3 class="service-title">{{service.title}}</h3>
+        <p class="service-description">{{service.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Freezone Benefits Section -->
+<section class="freezone-benefits-section">
+  <div class="container">
+    <h2 class="section-title">FREEZONE COMPANY FORMATION</h2>
+    <p class="section-subtitle">
+      Dubai Mainland & Freezone Business Setup Features
+    </p>
+
+    <div class="benefits-grid">
+      <div *ngFor="let benefit of FREEZONE_BENEFITS; let i = index" class="benefit-card">
+        <div class="benefit-icon">{{benefit.icon}}</div>
+        <h3 class="benefit-title">{{benefit.title}}</h3>
+        <p class="benefit-description">{{benefit.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Freezone Setup Process -->
+<section class="process-section">
+  <div class="container">
+    <h2 class="section-title">HOW TO START A BUSINESS IN A UAE FREE ZONE?</h2>
+    <p class="section-subtitle">
+      Find the Key Steps to Set Up a Business in a UAE Free Zone
+    </p>
+
+    <div class="steps-grid">
+      <div *ngFor="let step of FREEZONE_STEPS; let index = index" class="step-card">
+        <div class="icon-container">
+          <div class="step-icon">{{step.icon}}</div>
+        </div>
+        <div class="step-number">{{step.number}}</div>
+        <h3 class="step-title">{{step.title}}</h3>
+        <p class="step-description">{{step.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+             alt="Al Bayan Team"
+             class="about-img">
+      </div>
+
+      <div class="about-content">
+        <h2 class="about-title">
+          ABOUT {{COMPANY_INFO.tradeName.english.split(' ').slice(0, 2).join(' ')}}<sup class="registered">®</sup>
+        </h2>
+        <p class="about-text">
+          Established in 2015, Al Bayan Typing Services has been a trusted partner for individuals and businesses in Ajman and across the UAE. With over {{yearsOfService}} years of excellence, we specialize in providing fast, accurate, and reliable typing, translation, and government documentation services.
+        </p>
+        <p class="about-text">
+          Our team of experienced professionals is dedicated to making your visa, Emirates ID, translation, and PRO service needs as smooth and hassle-free as possible. We pride ourselves on our direct access to government systems, ensuring quick turnaround times.
+        </p>
+        <p class="about-text mb-10">
+          From simple document typing to complex company formation in mainland (Ajman, Dubai, Sharjah) and freezones (Rakez, SAIF Zone, Dubai Free Zones), Al Bayan Typing Services handles it all with professionalism, confidentiality, and a commitment to 100% customer satisfaction.
+        </p>
+
+        <div class="company-details">
+          <h4>Official License Details:</h4>
+          <ul>
+            <li><strong>License Number:</strong> {{COMPANY_INFO.licenseNumber}}</li>
+            <li><strong>Register Number:</strong> {{COMPANY_INFO.registerNumber}}</li>
+            <li><strong>ACCI Number:</strong> {{COMPANY_INFO.acciNumber}}</li>
+            <li><strong>Established:</strong> 2015</li>
+            <li><strong>License Valid Until:</strong> 2027</li>
+          </ul>
+        </div>
+
+        <a href="#contact" class="cta-button">
+          Get Started
+        </a>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-award"></i>
+        </div>
+        <h4 class="feature-title">Licensed & Certified</h4>
+        <p class="feature-description">
+          Officially registered with license number {{COMPANY_INFO.licenseNumber}}
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h4 class="feature-title">Expert Team</h4>
+        <p class="feature-description">
+          Professional typists and PRO specialists
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h4 class="feature-title">Fast Processing</h4>
+        <p class="feature-description">
+          Quick turnaround with express services
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h4 class="feature-title">100% Confidential</h4>
+        <p class="feature-description">
+          Your documents are secure and private
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
