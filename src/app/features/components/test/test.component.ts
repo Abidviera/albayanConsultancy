@@ -1,30 +1,8 @@
-// albayan-landing-page.component.ts
-import { Component, OnInit, HostListener } from '@angular/core';
-interface Jurisdiction {
-  title: string;
-  description: string;
-  icon: string;
-  features: string[];
-}
+import { Component, OnInit, AfterViewInit, HostListener, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-interface BusinessSupport {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-interface FreezoneBenefit {
-  title: string;
-  icon: string;
-  description: string;
-}
-
-interface FreezoneStep {
-  number: string;
-  title: string;
-  description: string;
-  icon: string;
-}
+declare const gsap: any;
+declare const ScrollTrigger: any;
 
 @Component({
   selector: 'app-test',
@@ -33,136 +11,193 @@ interface FreezoneStep {
   styleUrl: './test.component.scss'
 })
 export class TestComponent {
-  // Company Legal Information
-  COMPANY_INFO = {
-    tradeName: {
-      english: 'AL BAYAN TYPING SERVICES',
-    },
-    licenseNumber: '70510',
-    registerNumber: '71028',
-    acciNumber: '80063',
-  };
+ isMobileMenuOpen = false;
 
-  // Jurisdictions
-  JURISDICTIONS: Jurisdiction[] = [
-    {
-      title: 'Mainland',
-      description: 'Dubai, Ajman, Sharjah Economic Department licenses',
-      icon: '🏙️',
-      features: [
-        'Unrestricted Market Access',
-        'Direct Access to Government Contracts',
-        'Greater Business Flexibility',
-        'Enhanced Brand Reputation'
-      ]
-    },
-    {
-      title: 'Free Zones',
-      description: 'Rakez, SAIF Zone, Dubai Free Zones, Ajman Free Zone',
-      icon: '🌐',
-      features: [
-        '100% Foreign Ownership',
-        'Corporate Tax-Friendly Structure',
-        'Simplified Banking',
-        'Easy to Hire and Sponsor Professionals'
-      ]
+  constructor() {}
+
+  ngOnInit(): void {
+    // Ensure GSAP is available
+    if (typeof gsap !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
     }
-  ];
+  }
 
-  // Business Support Services
-  BUSINESS_SUPPORT: BusinessSupport[] = [
-    {
-      icon: '🏦',
-      title: 'Bank Account Opening',
-      description: 'Assistance with opening corporate bank accounts in major UAE banks'
-    },
-    {
-      icon: '📄',
-      title: 'Visa Services',
-      description: 'Complete visa processing for employees, partners, and family members'
-    },
-    {
-      icon: '📋',
-      title: 'Document Clearing Services',
-      description: 'Clearing documents from customs, municipalities, and government departments'
-    },
-    {
-      icon: '💼',
-      title: 'PRO Services',
-      description: 'Full PRO support for all government-related transactions and renewals'
-    },
-    {
-      icon: '🔄',
-      title: 'Company License Renewals',
-      description: 'Timely renewal of trade licenses for mainland and freezone companies'
+  ngAfterViewInit(): void {
+    this.runInitialAnimations();
+    this.setupScrollAnimations();
+    
+    // Refresh ScrollTrigger after view initialization
+    if (typeof ScrollTrigger !== 'undefined') {
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
     }
-  ];
+  }
 
-  // Freezone Benefits
-  FREEZONE_BENEFITS: FreezoneBenefit[] = [
-    {
-      title: 'Company Formation in 1-2 Business Days',
-      icon: '⚡',
-      description: 'Fast-track setup with minimal paperwork'
-    },
-    {
-      title: 'Easy to Open a Bank Account',
-      icon: '💳',
-      description: 'Banking support for corporate accounts'
-    },
-    {
-      title: 'Minimal Paperwork',
-      icon: '📝',
-      description: 'Streamlined documentation process'
-    },
-    {
-      title: '100% Foreign Ownership',
-      icon: '🌍',
-      description: 'Complete control of your business'
-    },
-    {
-      title: 'Dubai Investor Visa',
-      icon: '✈️',
-      description: 'Residence visa for investors and partners'
+  ngOnDestroy(): void {
+    // Clean up ScrollTrigger instances
+    // if (typeof ScrollTrigger !== 'undefined') {
+    //   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    // }
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.refresh();
     }
-  ];
+  }
 
-  // Freezone Setup Steps
-  FREEZONE_STEPS: FreezoneStep[] = [
-    {
-      number: '1',
-      title: 'Select a Legal Structure',
-      description: 'Choose the appropriate business structure: FZ LLC, FZ Establishment, or Branch Office',
-      icon: '⚖️'
-    },
-    {
-      number: '2',
-      title: 'Pick a Trade Name',
-      description: 'Reserve and approve your company name with the freezone authority',
-      icon: '✍️'
-    },
-    {
-      number: '3',
-      title: 'Apply for the Business License',
-      description: 'Submit application with required documents and business activity details',
-      icon: '📋'
-    },
-    {
-      number: '4',
-      title: 'Select an Office Space',
-      description: 'Choose flexi-desk, office, or warehouse space based on your needs',
-      icon: '🏢'
-    },
-    {
-      number: '5',
-      title: 'Secure Approvals and Obtain License',
-      description: 'Receive final approvals and collect your business license',
-      icon: '✅'
-    }
-  ];
+  toggleMobileNav(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 
-  // Computed property
-  get yearsOfService(): number {
-    return new Date().getFullYear() - 2015;
+  private runInitialAnimations(): void {
+    if (typeof gsap === 'undefined') return;
+
+    const onLoadTl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+    onLoadTl
+      .to("header", {
+        "--border-width": "100%",
+        duration: 3,
+      }, 0)
+      .from(".desktop-nav a, .social-sidebar a", {
+        y: -100,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+      }, 0)
+      .to(".social-sidebar", {
+        "--border-height": "100%",
+        duration: 10,
+      }, 0)
+      .to(".hero-content h1", {
+        opacity: 1,
+        duration: 1,
+      }, 0)
+      .to(".hero-content h1", {
+        delay: 0.5,
+        duration: 1.2,
+        color: "#b1560e",
+        "-webkit-text-stroke": "0px #b1560e",
+      }, 0)
+      .from(".hero-content .line", {
+        x: 100,
+        delay: 1,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+      }, 0)
+      .to(".hero-bottle-wrapper", {
+        opacity: 1,
+        scale: 1,
+        delay: 1.5,
+        duration: 1.3,
+        ease: "power3.out",
+      }, 0)
+      .to(".hero-stamp", {
+        opacity: 1,
+        scale: 1,
+        delay: 2,
+        duration: 0.2,
+        ease: "back.out(3)",
+      }, 0)
+      .to(".hero-stamp", {
+        y: "+=5",
+        x: "-=3",
+        repeat: 2,
+        yoyo: true,
+        duration: 0.05,
+        ease: "power1.inOut",
+      }, 0);
+  }
+
+  private setupScrollAnimations(): void {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    const headerOffset = header.clientHeight - 1;
+
+    // Use matchMedia for responsive behavior
+    ScrollTrigger.matchMedia({
+      // Desktop scroll animations
+      "(min-width: 769px)": () => {
+        // 1. Bottle animates from hero to intro
+        this.pinAndAnimate({
+          trigger: ".hero",
+          endTrigger: ".section-intro",
+          pin: ".hero-bottle-wrapper",
+          animations: [
+            { target: ".hero-bottle", vars: { rotate: 0, scale: 0.8 } }
+          ],
+          headerOffset,
+        });
+
+        // 2. Bottle shifts right during intro
+        this.pinAndAnimate({
+          trigger: ".section-intro",
+          endTrigger: ".timeline-entry:nth-child(even)",
+          pin: ".hero-bottle-wrapper",
+          animations: [
+            { target: ".hero-bottle", vars: { rotate: 10, scale: 0.7 } },
+            { target: ".hero-bottle-wrapper", vars: { x: "30%" } }
+          ],
+          headerOffset,
+        });
+
+        // 3. Bottle shifts left during timeline
+        this.pinAndAnimate({
+          trigger: ".timeline-entry:nth-child(even)",
+          endTrigger: ".timeline-entry:nth-child(odd)",
+          pin: ".hero-bottle-wrapper",
+          animations: [
+            { target: ".hero-bottle", vars: { rotate: -10, scale: 0.7 } },
+            { target: ".hero-bottle-wrapper", vars: { x: "-25%" } }
+          ],
+          headerOffset,
+        });
+      },
+
+      // Mobile fallback
+      "(max-width: 768px)": () => {
+        gsap.to(".hero-bottle-wrapper", {
+          opacity: 1,
+          duration: 1,
+          delay: 0.5,
+        });
+      }
+    });
+  }
+
+  private pinAndAnimate(config: {
+    trigger: string;
+    endTrigger: string;
+    pin: string;
+    animations: Array<{ target: string; vars: any }>;
+    headerOffset: number;
+    markers?: boolean;
+  }): void {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: config.trigger,
+        start: `top top+=${config.headerOffset}`,
+        endTrigger: config.endTrigger,
+        end: `top top+=${config.headerOffset}`,
+        scrub: true,
+        pin: config.pin,
+        pinSpacing: false,
+        markers: config.markers || false,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    config.animations.forEach(({ target, vars }) => {
+      tl.to(target, vars);
+    });
   }
 }
