@@ -320,6 +320,7 @@ main {
 
   .hero-bottle-wrapper {
     height: 25rem;
+    
   }
 
   .hero-stamp {
@@ -589,9 +590,13 @@ main {
 }
 
 .timeline-description {
-  font-size: 1.05rem;
+  font-size: 1.05rem !important;
   color: var(--black);
   line-height: 1.6;
+
+  p{
+    font-size: 1.08rem !important;
+  }
 }
 
 /* === Responsive Timeline Section === */

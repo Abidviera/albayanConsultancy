@@ -23,7 +23,8 @@ export class TestComponent {
   }
 
   ngAfterViewInit(): void {
-    this.runInitialAnimations();
+    // Don't run initial animations immediately
+    // this.runInitialAnimations();
     this.setupScrollAnimations();
     
     // Refresh ScrollTrigger after view initialization
@@ -123,13 +124,28 @@ export class TestComponent {
 
     const headerOffset = header.clientHeight - 1;
 
+    // Wait for the test component's vintage hero section to become visible
+    const testHero = document.querySelector('.vintage-hero');
+    if (!testHero) return;
+
+    // Create a ScrollTrigger to detect when test component hero becomes visible
+    ScrollTrigger.create({
+      trigger: testHero,
+      start: "top 80%", // Start when test hero is 80% from top of viewport
+      once: true, // Only trigger once
+      onEnter: () => {
+        // Run initial animations when test component becomes visible
+        this.runInitialAnimations();
+      }
+    });
+
     // Use matchMedia for responsive behavior
     ScrollTrigger.matchMedia({
       // Desktop scroll animations
       "(min-width: 769px)": () => {
         // 1. Bottle animates from hero to intro
         this.pinAndAnimate({
-          trigger: ".hero",
+          trigger: ".vintage-hero",
           endTrigger: ".section-intro",
           pin: ".hero-bottle-wrapper",
           animations: [
@@ -165,10 +181,17 @@ export class TestComponent {
 
       // Mobile fallback
       "(max-width: 768px)": () => {
-        gsap.to(".hero-bottle-wrapper", {
-          opacity: 1,
-          duration: 1,
-          delay: 0.5,
+        ScrollTrigger.create({
+          trigger: testHero,
+          start: "bottom top",
+          once: true,
+          onEnter: () => {
+            gsap.to(".hero-bottle-wrapper", {
+              opacity: 1,
+              duration: 1,
+              delay: 0.5,
+            });
+          }
         });
       }
     });
