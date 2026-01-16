@@ -76,6 +76,7 @@ $tablet-breakpoint: 1024px;
 .app {
   width: 100%;
   min-height: 100vh;
+ 
 }
 
 /* Global container */
@@ -1641,12 +1642,6 @@ $tablet-breakpoint: 1024px;
   margin-bottom: 20px;
 }
 
-.line {
-  height: 1px;
-  background: #1a1a1a;
-  margin-bottom: 4px;
-  width: 60%;
-}
 
 .signature-label {
   font-size: 10px;
@@ -3153,20 +3148,25 @@ $tablet-breakpoint: 1024px;
   padding-right: 40px;
 }
 
-@media (max-width: $mobile-breakpoint) {
-  .achievements-bar {
-    margin: 0 -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
+
 
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: $spacing-md;
 }
-
+@media (max-width: $mobile-breakpoint) {
+  .achievements-bar {
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .achievements-grid {
+ 
+  grid-template-columns: repeat(1, 1fr);
+  
+}
+}
 @media (min-width: $mobile-breakpoint) {
   .achievements-grid {
     grid-template-columns: repeat(4, 1fr);
