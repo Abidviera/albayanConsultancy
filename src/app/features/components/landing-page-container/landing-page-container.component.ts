@@ -99,40 +99,35 @@ export class LandingPageContainerComponent {
   // Hero slides data
   heroSlides = [
     {
-      title: 'AL BAYAN TYPING SERVICES',
+      title: 'AL BAYAN BUSINESSMEN SERVICES',
       subtitle:
         'Your Trusted Partner for All Typing, Translation & PRO Services in Ajman Since 2015',
-      image:
-        'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      image: '/hero1.webp',
       accent: 'BAYAN',
     },
     {
       title: 'COMPLETE BUSINESS SOLUTIONS',
       subtitle:
         'Mainland & Freezone Company Formation | Ajman | Dubai | Sharjah | Rakez',
-      image:
-        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      image: '/hero3.webp',
       accent: 'BUSINESS',
     },
     {
       title: 'LICENSED & CERTIFIED CENTER',
       subtitle: `License No. ${this.COMPANY_INFO.licenseNumber} | Officially Registered Since 2015`,
-      image:
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      image: '/hero5.webp',
       accent: 'LICENSED',
     },
     {
       title: 'YOUR TRUSTED DOCUMENT PARTNER',
       subtitle: 'Complete Visa, Emirates ID, and Government Services Solutions',
-      image:
-        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      image: '/hero4.webp',
       accent: 'PARTNER',
     },
     {
       title: 'EXCELLENCE IN DOCUMENTATION',
       subtitle: 'Certified Translation and PRO Services Since 2015',
-      image:
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      image: '/hero6.webp',
       accent: 'EXCELLENCE',
     },
   ];
@@ -231,31 +226,31 @@ export class LandingPageContainerComponent {
   // Business Support Services
   BUSINESS_SUPPORT = [
     {
-      icon: '🏦',
+      icon: 'bi-bank2',
       title: 'Bank Account Opening',
       description:
         'Assistance with opening corporate bank accounts in major UAE banks',
     },
     {
-      icon: '📄',
+      icon: 'bi-file-earmark-text',
       title: 'Visa Services',
       description:
         'Complete visa processing for employees, partners, and family members',
     },
     {
-      icon: '📋',
+      icon: 'bi-clipboard-check',
       title: 'Document Clearing Services',
       description:
         'Clearing documents from customs, municipalities, and government departments',
     },
     {
-      icon: '💼',
+      icon: 'bi-briefcase',
       title: 'PRO Services',
       description:
         'Full PRO support for all government-related transactions and renewals',
     },
     {
-      icon: '🔄',
+      icon: 'bi-arrow-repeat',
       title: 'Company License Renewals',
       description:
         'Timely renewal of trade licenses for mainland and freezone companies',
@@ -298,34 +293,34 @@ export class LandingPageContainerComponent {
       title: 'Select a Legal Structure',
       description:
         'Choose the appropriate business structure: FZ LLC, FZ Establishment, or Branch Office',
-      icon: '⚖️',
+      icon: 'bi-diagram-3',
     },
     {
       number: '2',
       title: 'Pick a Trade Name',
       description:
         'Reserve and approve your company name with the freezone authority',
-      icon: '✍️',
+      icon: 'bi-pencil-square',
     },
     {
       number: '3',
       title: 'Apply for the Business License',
       description:
         'Submit application with required documents and business activity details',
-      icon: '📋',
+      icon: 'bi-file-earmark-text',
     },
     {
       number: '4',
       title: 'Select an Office Space',
       description:
         'Choose flexi-desk, office, or warehouse space based on your needs',
-      icon: '🏢',
+      icon: 'bi-building',
     },
     {
       number: '5',
       title: 'Secure Approvals and Obtain License',
       description: 'Receive final approvals and collect your business license',
-      icon: '✅',
+      icon: 'bi-patch-check',
     },
   ];
 
@@ -378,10 +373,7 @@ export class LandingPageContainerComponent {
       subtitle: 'Complete visa solutions for all your UAE requirements',
       description:
         'Our comprehensive visa services cover all types of residence visas, visit visas, employment visas, and visa renewals. We handle the entire process from application to approval, ensuring compliance with UAE immigration regulations.',
-      images: [
-        'https://images.unsplash.com/photo-1436450412740-6b988f486c6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1521791136064-7986c2920216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
+      images: ['/services/visa2.webp', '/services/visaproccesing.webp'],
       stats: [
         { value: '5000+', label: 'Visas Processed' },
         { value: '98%', label: 'Approval Rate' },
@@ -416,10 +408,7 @@ export class LandingPageContainerComponent {
       subtitle: 'Fast and reliable Emirates ID solutions',
       description:
         'Complete Emirates ID services including new applications, renewals, and modifications. We ensure your Emirates ID is processed quickly and accurately with minimal hassle.',
-      images: [
-        'https://images.unsplash.com/photo-1586281380349-632531db7ed4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
+      images: ['/services/emiratedId.webp', '/services/emiratedId2.webp'],
       stats: [
         { value: '10000+', label: 'IDs Processed' },
         { value: '100%', label: 'Accuracy' },
@@ -454,10 +443,7 @@ export class LandingPageContainerComponent {
       subtitle: 'Certified and accurate translation services',
       description:
         'Professional translation services for legal, commercial, and personal documents. Our certified translators ensure accuracy and compliance with UAE legal requirements.',
-      images: [
-        'https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
+      images: ['/services/translation2.webp', '/services/translation.webp'],
       stats: [
         { value: '15000+', label: 'Documents Translated' },
         { value: '100%', label: 'Certified' },
@@ -762,28 +748,28 @@ export class LandingPageContainerComponent {
   // Process steps
   processSteps = [
     {
-      icon: '📋',
+      icon: 'bi-file-earmark-text',
       number: '01',
       title: 'Submit Documents',
       description:
         'Visit our office or send your documents. We verify all requirements and provide a checklist.',
     },
     {
-      icon: '⚙️',
+      icon: 'bi-gear',
       number: '02',
       title: 'Processing & Typing',
       description:
         'Our expert typists prepare and submit your applications to the relevant government departments.',
     },
     {
-      icon: '✅',
+      icon: 'bi-check-circle',
       number: '03',
       title: 'Approval & Updates',
       description:
         'Track your application status. We provide regular updates via SMS and phone calls.',
     },
     {
-      icon: '📦',
+      icon: 'bi-box-seam',
       number: '04',
       title: 'Collection & Delivery',
       description:
@@ -971,30 +957,24 @@ export class LandingPageContainerComponent {
     {
       title: 'Complete Document Processing',
       location: 'Ajman',
-      before:
-        'https://images.unsplash.com/photo-1568992687947-868a62a9f521?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      after:
-        'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      before: '/traditional.png',
+      after: '/modern.png',
       description:
         'Transformed from manual paper-based processing to fully digital document management system.',
     },
     {
       title: 'Service Expansion',
       location: 'Ajman',
-      before:
-        'https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      after:
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      before: '',
+      after: '',
       description:
         'Expanded from basic typing to comprehensive government and PRO services.',
     },
     {
       title: 'Customer Experience',
       location: 'Ajman',
-      before:
-        'https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      after:
-        'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      before: '',
+      after: '',
       description:
         'Enhanced customer experience with digital tracking and SMS updates.',
     },
@@ -1052,52 +1032,51 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Special features
   specialFeatures = [
     {
-      icon: '📱',
+      icon: 'bi-chat-dots',
       title: 'SMS Updates',
       description:
         'Receive real-time SMS notifications on your application status and progress',
     },
     {
-      icon: '⚡',
+      icon: 'bi-lightning-charge',
       title: 'Express Services',
       description:
         'Urgent processing available for time-sensitive visa and document requirements',
     },
     {
-      icon: '🔒',
+      icon: 'bi-shield-lock',
       title: 'Secure Processing',
       description:
         'All documents handled with utmost confidentiality and secure storage systems',
     },
     {
-      icon: '💯',
+      icon: 'bi-patch-check',
       title: 'Quality Guarantee',
       description:
         '100% accuracy guarantee on all typing and translation services',
     },
     {
-      icon: '🚚',
+      icon: 'bi-truck',
       title: 'Home Delivery',
       description:
         'Document collection and delivery service available within Ajman emirate',
     },
     {
-      icon: '💰',
+      icon: 'bi-currency-dollar',
       title: 'Transparent Pricing',
       description:
         'Clear pricing with no hidden fees. Get detailed quotations upfront',
     },
     {
-      icon: '🌐',
+      icon: 'bi-translate',
       title: 'Multi-Language Support',
       description:
         'Staff fluent in Arabic, English, Hindi, and Urdu for better communication',
     },
     {
-      icon: '📞',
+      icon: 'bi-headset',
       title: '24/7 Support',
       description:
         'Emergency contact available for urgent queries and time-sensitive matters',

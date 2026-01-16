@@ -16,7 +16,7 @@ export class TestComponent {
   constructor() {}
 
   ngOnInit(): void {
-    // Ensure GSAP is available
+   
     if (typeof gsap !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
     }

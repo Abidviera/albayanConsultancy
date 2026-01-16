@@ -243,30 +243,141 @@
     </div>
   </section>
 
-  <section id="jurisdiction" class="jurisdiction-section">
+  <!-- ================== VINTAGE DOCUMENT JURISDICTION SECTION ================== -->
+<section id="jurisdiction" class="jurisdiction-vintage-section">
   <div class="container">
-    <h2 class="section-title">JURISDICTION OPTIONS</h2>
-    <p class="section-subtitle">
-      Choose the right business setup for your needs - Mainland or Freezone
-    </p>
+    
+    <!-- Section Header with Typewriter Style -->
+    <div class="section-header-vintage">
+      <div class="typewriter-line"></div>
+      <h2 class="section-title-vintage">Business Setup Options</h2>
+      <p class="section-subtitle-vintage">
+        Choose the right structure for your business venture in the UAE
+      </p>
+    </div>
 
-    <div class="jurisdiction-grid">
-      <div *ngFor="let jurisdiction of JURISDICTIONS; let i = index" class="jurisdiction-card">
-        <div class="jurisdiction-icon">{{jurisdiction.icon}}</div>
-        <h3 class="jurisdiction-title">{{jurisdiction.title}}</h3>
-        <p class="jurisdiction-description">{{jurisdiction.description}}</p>
+    <!-- Document-Style Cards -->
+    <div class="jurisdiction-documents">
+      
+      <!-- Mainland Document -->
+      <div *ngFor="let jurisdiction of JURISDICTIONS; let i = index" 
+           class="jurisdiction-document"
+           [class.document-left]="i === 0"
+           [class.document-right]="i === 1">
+        
+        <!-- Document Header with Stamp -->
+        <div class="document-header">
+          <div class="stamp-wrapper">
+            <div class="official-stamp">
+              <span class="stamp-icon">{{jurisdiction.icon}}</span>
+              <div class="stamp-text">OFFICIAL</div>
+            </div>
+          </div>
+          <div class="document-title-box">
+            <div class="document-type">{{i === 0 ? 'FORM A' : 'FORM B'}}</div>
+            <h3 class="document-title">{{jurisdiction.title}}</h3>
+          </div>
+        </div>
 
-        <div class="jurisdiction-features">
-          <h4>Benefits:</h4>
-          <ul>
-            <li *ngFor="let feature of jurisdiction.features; let j = index">
-              <span class="check-icon">✓</span>
-              {{feature}}
-            </li>
-          </ul>
+        <!-- Typewriter Line Separator -->
+        <div class="typewriter-separator">
+          <span class="separator-dot"></span>
+          <span class="separator-line"></span>
+          <span class="separator-dot"></span>
+        </div>
+
+        <!-- Document Body -->
+        <div class="document-body">
+          <!-- Location Info -->
+          <div class="info-field">
+            <label class="field-label">Jurisdiction Coverage:</label>
+            <div class="field-value">{{jurisdiction.description}}</div>
+          </div>
+
+          <!-- Benefits Section -->
+          <div class="benefits-section">
+            <div class="section-heading">
+              <span class="heading-number">{{i + 1}}.</span>
+              <span class="heading-text">Key Benefits</span>
+            </div>
+            
+            <div class="benefits-list">
+              <div *ngFor="let feature of jurisdiction.features; let idx = index" 
+                   class="benefit-row">
+                <div class="benefit-number">{{idx + 1}}</div>
+                <div class="benefit-text">{{feature}}</div>
+                <div class="benefit-check">✓</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Document Footer -->
+          <div class="document-footer">
+            <div class="signature-line">
+              <div class="line"></div>
+              <div class="signature-label">Authorized Representative</div>
+            </div>
+            <button class="document-action-btn" (click)="scrollToSection('contact')">
+              <span class="btn-icon">→</span>
+              <span class="btn-text">PROCEED WITH {{jurisdiction.title.toUpperCase()}}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Document Hole Punches -->
+        <div class="hole-punch top"></div>
+        <div class="hole-punch bottom"></div>
+
+        <!-- Paper Texture Overlay -->
+        <div class="paper-texture"></div>
+      </div>
+    </div>
+
+    <!-- Information Box -->
+    <div class="info-box-vintage">
+      <div class="info-box-header">
+        <div class="info-icon">ℹ</div>
+        <h4>Important Information</h4>
+      </div>
+      <div class="info-box-content">
+        <div class="info-row">
+          <strong>Processing Time:</strong> 
+          <span>Mainland: 2-3 weeks | Freezone: 1-2 business days</span>
+        </div>
+        <div class="info-row">
+          <strong>Our Services:</strong> 
+          <span>Complete assistance from application to license issuance</span>
+        </div>
+        <div class="info-row">
+          <strong>Consultation:</strong> 
+          <span>Free expert consultation to determine the best option for your business</span>
         </div>
       </div>
     </div>
+
+    <!-- Stats Ticker -->
+    <div class="stats-ticker">
+      <div class="ticker-item">
+        <div class="ticker-number">500+</div>
+        <div class="ticker-label">Companies Formed</div>
+      </div>
+      <div class="ticker-divider">|</div>
+      <div class="ticker-item">
+        <div class="ticker-number">100%</div>
+        <div class="ticker-label">Success Rate</div>
+      </div>
+      <div class="ticker-divider">|</div>
+      <div class="ticker-item">
+        <div class="ticker-number">10+</div>
+        <div class="ticker-label">Years Experience</div>
+      </div>
+      <div class="ticker-divider">|</div>
+      <div class="ticker-item">
+        <div class="ticker-number">Licensed</div>
+        <div class="ticker-label">PRO Services</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -279,14 +390,15 @@
     </p>
 
     <div class="services-grid">
-      <div *ngFor="let service of BUSINESS_SUPPORT; let i = index" class="service-card">
-        <div class="service-icon-wrapper">
-          <div class="service-icon">{{service.icon}}</div>
-        </div>
-        <h3 class="service-title">{{service.title}}</h3>
-        <p class="service-description">{{service.description}}</p>
-      </div>
+  <div *ngFor="let service of BUSINESS_SUPPORT" class="service-card">
+    <div class="service-icon-wrapper">
+      <i class="bi {{ service.icon }} service-icon"></i>
     </div>
+    <h3 class="service-title">{{ service.title }}</h3>
+    <p class="service-description">{{ service.description }}</p>
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -316,16 +428,20 @@
       Find the Key Steps to Set Up a Business in a UAE Free Zone
     </p>
 
-    <div class="steps-grid">
-      <div *ngFor="let step of FREEZONE_STEPS; let index = index" class="step-card">
-        <div class="icon-container">
-          <div class="step-icon">{{step.icon}}</div>
-        </div>
-        <div class="step-number">{{step.number}}</div>
-        <h3 class="step-title">{{step.title}}</h3>
-        <p class="step-description">{{step.description}}</p>
-      </div>
+ <div class="steps-grid">
+  <div *ngFor="let step of FREEZONE_STEPS; let index = index" class="step-card">
+
+    <div class="icon-container">
+      <i class="bi {{ step.icon }} step-icon"></i>
     </div>
+
+    <div class="step-number">{{ step.number }}</div>
+    <h3 class="step-title">{{ step.title }}</h3>
+    <p class="step-description">{{ step.description }}</p>
+
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -462,7 +578,7 @@
       <div class="steps-grid">
         <div *ngFor="let step of processSteps; let index = index" class="step-card">
           <div class="icon-container">
-            <div class="step-icon">{{step.icon}}</div>
+             <i class="bi {{ step.icon }} step-icon"></i>
           </div>
           <div class="step-number">{{step.number}}</div>
           <h3 class="step-title">{{step.title}}</h3>
@@ -657,13 +773,19 @@
         </p>
       </div>
 
-      <div class="features-grid">
-        <div *ngFor="let feature of specialFeatures; let index = index" class="feature-card">
-          <div class="feature-icon">{{feature.icon}}</div>
-          <h4>{{feature.title}}</h4>
-          <p>{{feature.description}}</p>
-        </div>
-      </div>
+   <div class="features-grid">
+  <div *ngFor="let feature of specialFeatures; let index = index" class="feature-card">
+
+    <div class="feature-icon">
+      <i class="bi {{ feature.icon }}"></i>
+    </div>
+
+    <h4>{{ feature.title }}</h4>
+    <p>{{ feature.description }}</p>
+
+  </div>
+</div>
+
     </div>
   </section>
 
