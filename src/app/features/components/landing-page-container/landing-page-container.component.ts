@@ -59,7 +59,10 @@ export class LandingPageContainerComponent {
     { value: 0, label: 'Success Rate' },
   ];
   showScrollTop = false;
-
+COMPANY_CONTACT = {
+  phone: '+971501234567', 
+  whatsappNumber: '9605719902', 
+};
   formData = {
     serviceType: '',
     urgency: '',

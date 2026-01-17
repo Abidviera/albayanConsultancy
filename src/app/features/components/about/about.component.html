@@ -1,18 +1,16 @@
 <!-- about.component.html -->
 <app-nav-bar></app-nav-bar>
 <div class="about-page">
-  
   <!-- Page Hero Section -->
   <section class="page-hero">
     <div class="hero-overlay"></div>
     <div class="container">
-      <h1 class="page-title" data-aos="fade-down" [attr.data-aos-delay]="'100'">ABOUT US</h1>
-      <p class="page-subtitle" data-aos="fade-up" [attr.data-aos-delay]="'200'">Licensed & Trusted Documentation Partner Since 2015</p>
-      <div class="scroll-indicator" data-aos="fade-up" [attr.data-aos-delay]="'300'">
-        <div class="mouse">
-          <div class="wheel"></div>
-        </div>
-      </div>
+      <h1 class="page-title" data-aos="fade-down" [attr.data-aos-delay]="'100'">
+        ABOUT US
+      </h1>
+      <p class="page-subtitle" data-aos="fade-up" [attr.data-aos-delay]="'200'">
+        Licensed & Trusted Documentation Partner Since 2015
+      </p>
     </div>
   </section>
 
@@ -20,76 +18,126 @@
   <section id="company-overview" class="section-white">
     <div class="container">
       <div class="about-grid">
-        <div class="about-image" data-aos="fade-right" [attr.data-aos-delay]="'200'" data-aos-duration="800">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-               alt="Al Bayan Team"
-               class="about-img"
-               data-aos="zoom-in" 
-               [attr.data-aos-delay]="'300'"
-               data-aos-duration="600" />
-          <div class="image-frame" data-aos="zoom-out" [attr.data-aos-delay]="'400'"></div>
+        <div
+          class="about-image"
+          data-aos="fade-right"
+          [attr.data-aos-delay]="'200'"
+          data-aos-duration="800"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+            alt="Al Bayan Team"
+            class="about-img"
+            data-aos="zoom-in"
+            [attr.data-aos-delay]="'300'"
+            data-aos-duration="600"
+          />
+          <div
+            class="image-frame"
+            data-aos="zoom-out"
+            [attr.data-aos-delay]="'400'"
+          ></div>
         </div>
 
         <div class="about-content">
-          <h2 class="section-title" 
-              data-aos="fade-down" 
-              [attr.data-aos-delay]="'150'"
-              data-aos-anchor-placement="top-bottom">
-            ABOUT {{COMPANY_TRADEMARK.english}}<sup class="registered">®</sup>
+          <h2
+            class="section-title"
+            data-aos="fade-down"
+            [attr.data-aos-delay]="'150'"
+            data-aos-anchor-placement="top-bottom"
+          >
+            ABOUT {{ COMPANY_TRADEMARK.english }}<sup class="registered">®</sup>
           </h2>
-          
-          <p class="about-text" 
-             data-aos="fade-left" 
-             [attr.data-aos-delay]="'250'"
-             data-aos-duration="600">
-            Established in 2015, Al Bayan Typing Services has been a trusted partner for individuals and businesses in Ajman and across the UAE. With over {{yearsOfService}} years of excellence, we specialize in providing fast, accurate, and reliable typing, translation, and government documentation services.
+
+          <p
+            class="about-text"
+            data-aos="fade-left"
+            [attr.data-aos-delay]="'250'"
+            data-aos-duration="600"
+          >
+            Established in 2015, Al Bayan Typing Services has been a trusted
+            partner for individuals and businesses in Ajman and across the UAE.
+            With over {{ yearsOfService }} years of excellence, we specialize in
+            providing fast, accurate, and reliable typing, translation, and
+            government documentation services.
           </p>
-          
-          <p class="about-text" 
-             data-aos="fade-left" 
-             [attr.data-aos-delay]="'350'"
-             data-aos-duration="600">
-            Our team of experienced professionals is dedicated to making your visa, Emirates ID, translation, and PRO service needs as smooth and hassle-free as possible. We pride ourselves on our direct access to government systems, ensuring quick turnaround times.
+
+          <p
+            class="about-text"
+            data-aos="fade-left"
+            [attr.data-aos-delay]="'350'"
+            data-aos-duration="600"
+          >
+            Our team of experienced professionals is dedicated to making your
+            visa, Emirates ID, translation, and PRO service needs as smooth and
+            hassle-free as possible. We pride ourselves on our direct access to
+            government systems, ensuring quick turnaround times.
           </p>
-          
-          <p class="about-text" 
-             data-aos="fade-left" 
-             [attr.data-aos-delay]="'450'"
-             data-aos-duration="600">
-            From simple document typing to complex company formation in mainland (Ajman, Dubai, Sharjah) and freezones (Rakez, SAIF Zone, Dubai Free Zones), Al Bayan Typing Services handles it all with professionalism, confidentiality, and a commitment to 100% customer satisfaction.
+
+          <p
+            class="about-text"
+            data-aos="fade-left"
+            [attr.data-aos-delay]="'450'"
+            data-aos-duration="600"
+          >
+            From simple document typing to complex company formation in mainland
+            (Ajman, Dubai, Sharjah) and freezones (Rakez, SAIF Zone, Dubai Free
+            Zones), Al Bayan Typing Services handles it all with
+            professionalism, confidentiality, and a commitment to 100% customer
+            satisfaction.
           </p>
 
           <!-- Stats Counter -->
-          <div class="company-stats" 
-               data-aos="fade-up" 
-               [attr.data-aos-delay]="'550'"
-               data-aos-duration="800">
+          <div
+            class="company-stats"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="'550'"
+            data-aos-duration="800"
+          >
             <div class="stats-grid">
-              <div class="stat-item" 
-                   data-aos="zoom-in" 
-                   [attr.data-aos-delay]="'600'">
-                <div class="stat-number" 
-                     data-aos="count-up" 
-                     [attr.data-aos-delay]="'700'"
-                     data-aos-duration="2000">{{yearsOfService}}+</div>
+              <div
+                class="stat-item"
+                data-aos="zoom-in"
+                [attr.data-aos-delay]="'600'"
+              >
+                <div
+                  class="stat-number"
+                  data-aos="count-up"
+                  [attr.data-aos-delay]="'700'"
+                  data-aos-duration="2000"
+                >
+                  {{ yearsOfService }}+
+                </div>
                 <div class="stat-label">Years of Service</div>
               </div>
-              <div class="stat-item" 
-                   data-aos="zoom-in" 
-                   [attr.data-aos-delay]="'650'">
-                <div class="stat-number" 
-                     data-aos="count-up" 
-                     [attr.data-aos-delay]="'750'"
-                     data-aos-duration="2000">50000+</div>
+              <div
+                class="stat-item"
+                data-aos="zoom-in"
+                [attr.data-aos-delay]="'650'"
+              >
+                <div
+                  class="stat-number"
+                  data-aos="count-up"
+                  [attr.data-aos-delay]="'750'"
+                  data-aos-duration="2000"
+                >
+                  50000+
+                </div>
                 <div class="stat-label">Documents Processed</div>
               </div>
-              <div class="stat-item" 
-                   data-aos="zoom-in" 
-                   [attr.data-aos-delay]="'700'">
-                <div class="stat-number" 
-                     data-aos="count-up" 
-                     [attr.data-aos-delay]="'800'"
-                     data-aos-duration="2000">25000+</div>
+              <div
+                class="stat-item"
+                data-aos="zoom-in"
+                [attr.data-aos-delay]="'700'"
+              >
+                <div
+                  class="stat-number"
+                  data-aos="count-up"
+                  [attr.data-aos-delay]="'800'"
+                  data-aos-duration="2000"
+                >
+                  25000+
+                </div>
                 <div class="stat-label">Happy Clients</div>
               </div>
             </div>
@@ -103,33 +151,47 @@
   <section id="mission-vision" class="mission-vision-section">
     <div class="container">
       <div class="mission-vision-grid">
-        <div class="mission-card" 
-             data-aos="fade-right" 
-             [attr.data-aos-delay]="'200'"
-             data-aos-offset="200">
-          <div class="card-icon" 
-               data-aos="pulse" 
-               [attr.data-aos-delay]="'400'"
-               data-aos-iteration="2"
-               data-aos-duration="1000">🎯</div>
-          <h3 data-aos="fade-down" [attr.data-aos-delay]="'300'">Our Mission</h3>
+        <div
+          class="mission-card"
+          data-aos="fade-right"
+          [attr.data-aos-delay]="'200'"
+          data-aos-offset="200"
+        >
+          <div
+            class="card-icon"
+            data-aos="pulse"
+            [attr.data-aos-delay]="'400'"
+            data-aos-iteration="2"
+            data-aos-duration="1000"
+          >
+            🎯
+          </div>
+          <h3 data-aos="fade-down" [attr.data-aos-delay]="'300'">
+            Our Mission
+          </h3>
           <p data-aos="fade-up" [attr.data-aos-delay]="'400'">
-            {{COMPANY_MISSION_VISION.mission}}
+            {{ COMPANY_MISSION_VISION.mission }}
           </p>
         </div>
-        
-        <div class="vision-card" 
-             data-aos="fade-left" 
-             [attr.data-aos-delay]="'300'"
-             data-aos-offset="200">
-          <div class="card-icon" 
-               data-aos="pulse" 
-               [attr.data-aos-delay]="'500'"
-               data-aos-iteration="2"
-               data-aos-duration="1000">👁️</div>
+
+        <div
+          class="vision-card"
+          data-aos="fade-left"
+          [attr.data-aos-delay]="'300'"
+          data-aos-offset="200"
+        >
+          <div
+            class="card-icon"
+            data-aos="pulse"
+            [attr.data-aos-delay]="'500'"
+            data-aos-iteration="2"
+            data-aos-duration="1000"
+          >
+            👁️
+          </div>
           <h3 data-aos="fade-down" [attr.data-aos-delay]="'350'">Our Vision</h3>
           <p data-aos="fade-up" [attr.data-aos-delay]="'450'">
-            {{COMPANY_MISSION_VISION.vision}}
+            {{ COMPANY_MISSION_VISION.vision }}
           </p>
         </div>
       </div>
@@ -139,160 +201,222 @@
   <!-- License & Registration Section -->
   <section id="license-details" class="license-registration-section">
     <div class="container">
-      <div class="section-header" 
-           data-aos="fade-up" 
-           data-aos-anchor-placement="top-bottom">
-        <h2 class="section-title" 
-            data-aos="fade-down" 
-            [attr.data-aos-delay]="'100'">
+      <div
+        class="section-header"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+      >
+        <h2
+          class="section-title"
+          data-aos="fade-down"
+          [attr.data-aos-delay]="'100'"
+        >
           OFFICIAL LICENSE &<br />REGISTRATION DETAILS
         </h2>
-        <p class="section-description" 
-           data-aos="fade-down" 
-           [attr.data-aos-delay]="'200'">
+        <p
+          class="section-description"
+          data-aos="fade-down"
+          [attr.data-aos-delay]="'200'"
+        >
           Officially licensed and registered with UAE authorities since 2015
         </p>
-        <div class="underline" 
-             data-aos="zoom-in" 
-             [attr.data-aos-delay]="'300'"></div>
+        <div
+          class="underline"
+          data-aos="zoom-in"
+          [attr.data-aos-delay]="'300'"
+        ></div>
       </div>
 
       <div class="license-grid">
         <!-- Trademark Details Card -->
-        <div class="license-card" 
-             data-aos="flip-left" 
-             [attr.data-aos-delay]="'200'"
-             data-aos-duration="600">
-          <div class="license-icon" 
-               data-aos="tada" 
-               [attr.data-aos-delay]="'400'">
+        <div
+          class="license-card"
+          data-aos="flip-left"
+          [attr.data-aos-delay]="'200'"
+          data-aos-duration="600"
+        >
+          <div
+            class="license-icon"
+            data-aos="tada"
+            [attr.data-aos-delay]="'400'"
+          >
             <i class="fas fa-file-contract"></i>
           </div>
-          <h3 data-aos="fade-down" [attr.data-aos-delay]="'300'">Trademark Details</h3>
+          <h3 data-aos="fade-down" [attr.data-aos-delay]="'300'">
+            Trademark Details
+          </h3>
           <div class="license-content">
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'350'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'350'"
+            >
               <strong>English:</strong>
-              <span>{{COMPANY_TRADEMARK.english}}</span>
+              <span>{{ COMPANY_TRADEMARK.english }}</span>
             </div>
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'400'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'400'"
+            >
               <strong>Arabic:</strong>
-              <span>{{COMPANY_TRADEMARK.arabic}}</span>
+              <span>{{ COMPANY_TRADEMARK.arabic }}</span>
             </div>
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'450'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'450'"
+            >
               <strong>Legal Form:</strong>
-              <span>{{COMPANY_TRADEMARK.legalForm.english}} ({{COMPANY_TRADEMARK.legalForm.arabic}})</span>
+              <span
+                >{{ COMPANY_TRADEMARK.legalForm.english }} ({{
+                  COMPANY_TRADEMARK.legalForm.arabic
+                }})</span
+              >
             </div>
           </div>
         </div>
 
         <!-- License Details Card -->
-        <div class="license-card" 
-             data-aos="flip-left" 
-             [attr.data-aos-delay]="'300'"
-             data-aos-duration="600">
-          <div class="license-icon" 
-               data-aos="tada" 
-               [attr.data-aos-delay]="'500'">
+        <div
+          class="license-card"
+          data-aos="flip-left"
+          [attr.data-aos-delay]="'300'"
+          data-aos-duration="600"
+        >
+          <div
+            class="license-icon"
+            data-aos="tada"
+            [attr.data-aos-delay]="'500'"
+          >
             <i class="fas fa-id-card"></i>
           </div>
-          <h3 data-aos="fade-down" [attr.data-aos-delay]="'350'">License Details</h3>
+          <h3 data-aos="fade-down" [attr.data-aos-delay]="'350'">
+            License Details
+          </h3>
           <div class="license-content">
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'400'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'400'"
+            >
               <strong>License Number:</strong>
-              <span>{{COMPANY_LICENSE_DETAILS.licenseNumber}}</span>
+              <span>{{ COMPANY_LICENSE_DETAILS.licenseNumber }}</span>
             </div>
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'450'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'450'"
+            >
               <strong>Register Number:</strong>
-              <span>{{COMPANY_LICENSE_DETAILS.registerNumber}}</span>
+              <span>{{ COMPANY_LICENSE_DETAILS.registerNumber }}</span>
             </div>
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'500'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'500'"
+            >
               <strong>ACCI Number:</strong>
-              <span>{{COMPANY_LICENSE_DETAILS.acciNumber}}</span>
+              <span>{{ COMPANY_LICENSE_DETAILS.acciNumber }}</span>
             </div>
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'550'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'550'"
+            >
               <strong>Valid Until:</strong>
-              <span>{{COMPANY_LICENSE_DETAILS.expiryDate}}</span>
+              <span>{{ COMPANY_LICENSE_DETAILS.expiryDate }}</span>
             </div>
           </div>
         </div>
 
         <!-- Proprietor Details Card -->
-        <div class="license-card" 
-             data-aos="flip-left" 
-             [attr.data-aos-delay]="'400'"
-             data-aos-duration="600">
-          <div class="license-icon" 
-               data-aos="tada" 
-               [attr.data-aos-delay]="'600'">
+        <div
+          class="license-card"
+          data-aos="flip-left"
+          [attr.data-aos-delay]="'400'"
+          data-aos-duration="600"
+        >
+          <div
+            class="license-icon"
+            data-aos="tada"
+            [attr.data-aos-delay]="'600'"
+          >
             <i class="fas fa-user-tie"></i>
           </div>
-          <h3 data-aos="fade-down" [attr.data-aos-delay]="'350'">Proprietor Details</h3>
+          <h3 data-aos="fade-down" [attr.data-aos-delay]="'350'">
+            Proprietor Details
+          </h3>
           <div class="license-content">
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'400'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'400'"
+            >
               <strong>Name (English):</strong>
-              <span>{{PROPRIETOR_DETAILS.name.english}}</span>
+              <span>{{ PROPRIETOR_DETAILS.name.english }}</span>
             </div>
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'450'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'450'"
+            >
               <strong>Name (Arabic):</strong>
-              <span>{{PROPRIETOR_DETAILS.name.arabic}}</span>
+              <span>{{ PROPRIETOR_DETAILS.name.arabic }}</span>
             </div>
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'500'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'500'"
+            >
               <strong>Role:</strong>
-              <span>{{PROPRIETOR_DETAILS.role}}</span>
+              <span>{{ PROPRIETOR_DETAILS.role }}</span>
             </div>
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'550'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'550'"
+            >
               <strong>Ownership:</strong>
-              <span>{{PROPRIETOR_DETAILS.ownershipShare}}</span>
+              <span>{{ PROPRIETOR_DETAILS.ownershipShare }}</span>
             </div>
-            <div class="license-row" 
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="'600'">
+            <div
+              class="license-row"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="'600'"
+            >
               <strong>Nationality:</strong>
-              <span>{{PROPRIETOR_DETAILS.nationality}}</span>
+              <span>{{ PROPRIETOR_DETAILS.nationality }}</span>
             </div>
           </div>
         </div>
 
         <!-- Licensed Activities Card -->
-        <div class="license-card" 
-             data-aos="flip-left" 
-             [attr.data-aos-delay]="'500'"
-             data-aos-duration="600">
-          <div class="license-icon" 
-               data-aos="tada" 
-               [attr.data-aos-delay]="'700'">
+        <div
+          class="license-card"
+          data-aos="flip-left"
+          [attr.data-aos-delay]="'500'"
+          data-aos-duration="600"
+        >
+          <div
+            class="license-icon"
+            data-aos="tada"
+            [attr.data-aos-delay]="'700'"
+          >
             <i class="fas fa-list-check"></i>
           </div>
-          <h3 data-aos="fade-down" [attr.data-aos-delay]="'350'">Licensed Activities</h3>
+          <h3 data-aos="fade-down" [attr.data-aos-delay]="'350'">
+            Licensed Activities
+          </h3>
           <div class="license-content">
-            <div *ngFor="let activity of COMPANY_ACTIVITIES; let i = index" 
-                 class="activity-item"
-                 data-aos="fade-right" 
-                 [attr.data-aos-delay]="(400 + (i * 50)).toString()">
+            <div
+              *ngFor="let activity of COMPANY_ACTIVITIES; let i = index"
+              class="activity-item"
+              data-aos="fade-right"
+              [attr.data-aos-delay]="(400 + i * 50).toString()"
+            >
               <i class="fas fa-check-circle"></i>
-              <span>{{activity}}</span>
+              <span>{{ activity }}</span>
             </div>
           </div>
         </div>
@@ -300,23 +424,31 @@
 
       <!-- Important Dates -->
       <div class="dates-section">
-        <div class="date-card" 
-             data-aos="zoom-in-up" 
-             [attr.data-aos-delay]="'600'">
+        <div
+          class="date-card"
+          data-aos="zoom-in-up"
+          [attr.data-aos-delay]="'600'"
+        >
           <div class="date-label">Issue Date</div>
-          <div class="date-value">{{COMPANY_LICENSE_DETAILS.issueDate}}</div>
+          <div class="date-value">{{ COMPANY_LICENSE_DETAILS.issueDate }}</div>
         </div>
-        <div class="date-card" 
-             data-aos="zoom-in-up" 
-             [attr.data-aos-delay]="'700'">
+        <div
+          class="date-card"
+          data-aos="zoom-in-up"
+          [attr.data-aos-delay]="'700'"
+        >
           <div class="date-label">Last Renewed</div>
-          <div class="date-value">{{COMPANY_LICENSE_DETAILS.printedDate}}</div>
+          <div class="date-value">
+            {{ COMPANY_LICENSE_DETAILS.printedDate }}
+          </div>
         </div>
-        <div class="date-card" 
-             data-aos="zoom-in-up" 
-             [attr.data-aos-delay]="'800'">
+        <div
+          class="date-card"
+          data-aos="zoom-in-up"
+          [attr.data-aos-delay]="'800'"
+        >
           <div class="date-label">Expiry Date</div>
-          <div class="date-value">{{COMPANY_LICENSE_DETAILS.expiryDate}}</div>
+          <div class="date-value">{{ COMPANY_LICENSE_DETAILS.expiryDate }}</div>
         </div>
       </div>
     </div>
@@ -325,48 +457,70 @@
   <!-- Company Activities Section -->
   <section id="activities" class="activities-section">
     <div class="container">
-      <h2 class="section-title" 
-          data-aos="fade-down" 
-          [attr.data-aos-delay]="'100'">
+      <h2
+        class="section-title"
+        data-aos="fade-down"
+        [attr.data-aos-delay]="'100'"
+      >
         LICENSED ACTIVITIES
       </h2>
-      <p class="section-subtitle" 
-         data-aos="fade-down" 
-         [attr.data-aos-delay]="'200'">
-        Official activities as per our trade license issued by Ajman Economic Department
+      <p
+        class="section-subtitle"
+        data-aos="fade-down"
+        [attr.data-aos-delay]="'200'"
+      >
+        Official activities as per our trade license issued by Ajman Economic
+        Department
       </p>
-      <div class="underline" 
-           data-aos="zoom-in" 
-           [attr.data-aos-delay]="'300'"></div>
+      <div
+        class="underline"
+        data-aos="zoom-in"
+        [attr.data-aos-delay]="'300'"
+      ></div>
 
       <div class="activities-grid">
-        <div *ngFor="let activity of COMPANY_ACTIVITIES; let i = index" 
-             class="activity-card"
-             data-aos="fade-up" 
-             [attr.data-aos-delay]="(i * 150).toString()"
-             data-aos-duration="600">
-          <div class="activity-number" 
-               data-aos="zoom-in" 
-               [attr.data-aos-delay]="(i * 150 + 200).toString()">{{i + 1}}</div>
-          <h3 class="activity-title" 
-              data-aos="fade-down" 
-              [attr.data-aos-delay]="(i * 150 + 250).toString()">
-            {{activity}}
-          </h3>
-          <div class="activity-icon" 
-               data-aos="tada" 
-               [attr.data-aos-delay]="(i * 150 + 350).toString()">
-            <i class="fas" [ngClass]="{
-              'fa-user-tie': activity.includes('Businessmen'),
-              'fa-print': activity.includes('Typing'),
-              'fa-file-alt': activity.includes('Information'),
-              'fa-gears': activity.includes('Administrative')
-            }"></i>
+        <div
+          *ngFor="let activity of COMPANY_ACTIVITIES; let i = index"
+          class="activity-card"
+          data-aos="fade-up"
+          [attr.data-aos-delay]="(i * 150).toString()"
+          data-aos-duration="600"
+        >
+          <div
+            class="activity-number"
+            data-aos="zoom-in"
+            [attr.data-aos-delay]="(i * 150 + 200).toString()"
+          >
+            {{ i + 1 }}
           </div>
-          <div class="activity-description" 
-               data-aos="fade-up" 
-               [attr.data-aos-delay]="(i * 150 + 400).toString()">
-            Professional {{activity.toLowerCase()}} with certified expertise
+          <h3
+            class="activity-title"
+            data-aos="fade-down"
+            [attr.data-aos-delay]="(i * 150 + 250).toString()"
+          >
+            {{ activity }}
+          </h3>
+          <div
+            class="activity-icon"
+            data-aos="tada"
+            [attr.data-aos-delay]="(i * 150 + 350).toString()"
+          >
+            <i
+              class="fas"
+              [ngClass]="{
+                'fa-user-tie': activity.includes('Businessmen'),
+                'fa-print': activity.includes('Typing'),
+                'fa-file-alt': activity.includes('Information'),
+                'fa-gears': activity.includes('Administrative'),
+              }"
+            ></i>
+          </div>
+          <div
+            class="activity-description"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="(i * 150 + 400).toString()"
+          >
+            Professional {{ activity.toLowerCase() }} with certified expertise
           </div>
         </div>
       </div>
@@ -375,69 +529,98 @@
 
   <!-- Team Showcase Section -->
   <section id="team" class="team-showcase">
-    <div class="background-pattern" 
-         data-aos="fade-in" 
-         data-aos-duration="2000"></div>
+    <div
+      class="background-pattern"
+      data-aos="fade-in"
+      data-aos-duration="2000"
+    ></div>
 
     <div class="container">
-      <div class="section-header" 
-           data-aos="fade-up" 
-           data-aos-anchor-placement="top-bottom">
+      <div
+        class="section-header"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+      >
         <div class="header-decoration">
-          <div class="decoration-line" 
-               data-aos="zoom-in" 
-               [attr.data-aos-delay]="'100'"></div>
-          <div class="decoration-text" 
-               data-aos="fade-down" 
-               [attr.data-aos-delay]="'150'">OUR STRENGTH</div>
-          <div class="decoration-line" 
-               data-aos="zoom-in" 
-               [attr.data-aos-delay]="'200'"></div>
+          <div
+            class="decoration-line"
+            data-aos="zoom-in"
+            [attr.data-aos-delay]="'100'"
+          ></div>
+          <div
+            class="decoration-text"
+            data-aos="fade-down"
+            [attr.data-aos-delay]="'150'"
+          >
+            OUR STRENGTH
+          </div>
+          <div
+            class="decoration-line"
+            data-aos="zoom-in"
+            [attr.data-aos-delay]="'200'"
+          ></div>
         </div>
-        <h2 class="section-title" 
-            data-aos="fade-down" 
-            [attr.data-aos-delay]="'250'">
+        <h2
+          class="section-title"
+          data-aos="fade-down"
+          [attr.data-aos-delay]="'250'"
+        >
           THE AL BAYAN<sup>®</sup> TEAM
         </h2>
-        <p class="section-description" 
-           data-aos="fade-down" 
-           [attr.data-aos-delay]="'300'">
-          Meet the dedicated professionals who make your documentation needs effortless
+        <p
+          class="section-description"
+          data-aos="fade-down"
+          [attr.data-aos-delay]="'300'"
+        >
+          Meet the dedicated professionals who make your documentation needs
+          effortless
         </p>
       </div>
 
       <div class="team-grid">
-        <div *ngFor="let member of teamMembers; let i = index" 
-             class="team-card"
-             data-aos="zoom-in" 
-             [attr.data-aos-delay]="(i * 150).toString()"
-             data-aos-duration="600">
-          <div class="card-image-container" 
-               data-aos="zoom-in" 
-               [attr.data-aos-delay]="(i * 150 + 100).toString()">
-            <img [src]="member.image" 
-                 [alt]="member.name" 
-                 class="card-image" 
-                 data-aos="zoom-in" 
-                 [attr.data-aos-delay]="(i * 150 + 150).toString()" />
-            <div class="image-overlay" 
-                 data-aos="fade-in" 
-                 [attr.data-aos-delay]="(i * 150 + 200).toString()"></div>
+        <div
+          *ngFor="let member of teamMembers; let i = index"
+          class="team-card"
+          data-aos="zoom-in"
+          [attr.data-aos-delay]="(i * 150).toString()"
+          data-aos-duration="600"
+        >
+          <div
+            class="card-image-container"
+            data-aos="zoom-in"
+            [attr.data-aos-delay]="(i * 150 + 100).toString()"
+          >
+            <img
+              [src]="member.image"
+              [alt]="member.name"
+              class="card-image"
+              data-aos="zoom-in"
+              [attr.data-aos-delay]="(i * 150 + 150).toString()"
+            />
+            <div
+              class="image-overlay"
+              data-aos="fade-in"
+              [attr.data-aos-delay]="(i * 150 + 200).toString()"
+            ></div>
           </div>
 
-          <div class="card-hover-content" 
-               data-aos="fade-up" 
-               [attr.data-aos-delay]="(i * 150 + 300).toString()">
-            <h3 class="member-name">{{member.name}}</h3>
-            <p class="member-role">{{member.role}}</p>
-            <p class="member-description">{{member.description}}</p>
+          <div
+            class="card-hover-content"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="(i * 150 + 300).toString()"
+          >
+            <h3 class="member-name">{{ member.name }}</h3>
+            <p class="member-role">{{ member.role }}</p>
+            <p class="member-description">{{ member.description }}</p>
           </div>
 
-          <div class="card-content" 
-               data-aos="fade-up" 
-               [attr.data-aos-delay]="(i * 150 + 250).toString()">
-            <h3 class="member-name">{{member.name}}</h3>
-            <p class="member-role">{{member.role}}</p>
+          <div
+            class="card-content"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="(i * 150 + 250).toString()"
+          >
+            <h3 class="member-name">{{ member.name }}</h3>
+            <p class="member-role">{{ member.role }}</p>
           </div>
         </div>
       </div>
@@ -445,30 +628,50 @@
       <!-- Achievements Bar -->
       <div class="achievements-bar">
         <div class="achievements-grid">
-          <div *ngFor="let achievement of achievements; let i = index" 
-               class="achievement-item"
-               data-aos="zoom-in" 
-               [attr.data-aos-delay]="(i * 150).toString()">
-            <div class="achievement-icon-container" 
-                 data-aos="rotate-c" 
-                 [attr.data-aos-delay]="(i * 150 + 300).toString()">
-              <div class="achievement-icon" 
-                   [style.background]="'linear-gradient(135deg, ' + achievement.color + '40, ' + achievement.color + '20)'">
+          <div
+            *ngFor="let achievement of achievements; let i = index"
+            class="achievement-item"
+            data-aos="zoom-in"
+            [attr.data-aos-delay]="(i * 150).toString()"
+          >
+            <div
+              class="achievement-icon-container"
+              data-aos="rotate-c"
+              [attr.data-aos-delay]="(i * 150 + 300).toString()"
+            >
+              <div
+                class="achievement-icon"
+                [style.background]="
+                  'linear-gradient(135deg, ' +
+                  achievement.color +
+                  '40, ' +
+                  achievement.color +
+                  '20)'
+                "
+              >
                 <div class="icon-wrapper">
-                  <i [class]="achievement.icon" 
-                     data-aos="tada" 
-                     [attr.data-aos-delay]="(i * 150 + 400).toString()"></i>
+                  <i
+                    [class]="achievement.icon"
+                    data-aos="tada"
+                    [attr.data-aos-delay]="(i * 150 + 400).toString()"
+                  ></i>
                 </div>
               </div>
             </div>
-            <div class="achievement-number" 
-                 data-aos="count-up" 
-                 [attr.data-aos-delay]="(i * 150 + 400).toString()"
-                 data-aos-duration="2000">{{achievement.number}}</div>
-            <div class="achievement-label" 
-                 data-aos="fade-up" 
-                 [attr.data-aos-delay]="(i * 150 + 450).toString()">
-              {{achievement.label}}
+            <div
+              class="achievement-number"
+              data-aos="count-up"
+              [attr.data-aos-delay]="(i * 150 + 400).toString()"
+              data-aos-duration="2000"
+            >
+              {{ achievement.number }}
+            </div>
+            <div
+              class="achievement-label"
+              data-aos="fade-up"
+              [attr.data-aos-delay]="(i * 150 + 450).toString()"
+            >
+              {{ achievement.label }}
             </div>
           </div>
         </div>
@@ -479,28 +682,33 @@
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="container">
-      <h2 class="cta-title" 
-          data-aos="fade-down" 
-          [attr.data-aos-delay]="'100'">
+      <h2 class="cta-title" data-aos="fade-down" [attr.data-aos-delay]="'100'">
         Ready to Experience Professional Service?
       </h2>
-      <p class="cta-description" 
-         data-aos="fade-up" 
-         [attr.data-aos-delay]="'200'">
-        Join thousands of satisfied clients who trusted Al Bayan with their documentation needs
+      <p
+        class="cta-description"
+        data-aos="fade-up"
+        [attr.data-aos-delay]="'200'"
+      >
+        Join thousands of satisfied clients who trusted Al Bayan with their
+        documentation needs
       </p>
-      <a routerLink="/contact" 
-         class="cta-button"
-         data-aos="zoom-in" 
-         [attr.data-aos-delay]="'300'">
+      <a
+        routerLink="/contact"
+        class="cta-button"
+        data-aos="zoom-in"
+        [attr.data-aos-delay]="'300'"
+      >
         <span>CONTACT US TODAY</span>
-        <span class="arrow" 
-              data-aos="pulse" 
-              [attr.data-aos-delay]="'400'"
-              data-aos-iteration="infinite">→</span>
+        <span
+          class="arrow"
+          data-aos="pulse"
+          [attr.data-aos-delay]="'400'"
+          data-aos-iteration="infinite"
+          >→</span
+        >
       </a>
     </div>
   </section>
-
 </div>
 <app-footer></app-footer>
