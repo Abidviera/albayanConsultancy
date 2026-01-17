@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import * as AOS from 'aos';
 @Component({
   selector: 'app-about',
   standalone: false,
@@ -7,8 +9,76 @@ import { Component } from '@angular/core';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
- 
-  // Company Information
+ isBrowser: boolean;
+  private aosInitialized = false;
+
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
+
+  ngOnInit(): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    this.initializeAOS();
+    window.scrollTo(0, 0);
+  }
+
+  ngOnDestroy(): void {
+    // Clean up if needed
+  }
+
+  private initializeAOS(): void {
+    if (!this.isBrowser || this.aosInitialized) {
+      return;
+    }
+
+    AOS.init({
+      // Global settings:
+      disable: false,
+      startEvent: 'DOMContentLoaded',
+      initClassName: 'aos-init',
+      animatedClassName: 'aos-animate',
+      useClassNames: false,
+      disableMutationObserver: false,
+      debounceDelay: 50,
+      throttleDelay: 99,
+      
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 120,
+      delay: 0,
+      duration: 800,
+      easing: 'ease-in-out-cubic',
+      once: true,
+      mirror: false,
+      anchorPlacement: 'top-bottom',
+    });
+
+    this.aosInitialized = true;
+
+    // Custom animation for count-up
+    this.setupCustomAnimations();
+  }
+
+  private setupCustomAnimations(): void {
+    // This sets up the custom "count-up" animation for numbers
+    AOS.refreshHard();
+
+    // Add resize listener for AOS refresh
+    window.addEventListener('resize', () => {
+      AOS.refresh();
+    });
+
+    // Add load listener to refresh AOS after images load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 500);
+    });
+  }
+
+  // Company Information - keep all your existing properties
   COMPANY_TRADEMARK = {
     english: 'AL BAYAN TYPING SERVICES',
     arabic: 'البيان لخدمات الطباعة',
@@ -112,11 +182,6 @@ export class AboutComponent {
 
   get yearsOfService(): number {
     return new Date().getFullYear() - 2015;
-  }
-
-  ngOnInit(): void {
-    // Scroll to top when component loads
-    window.scrollTo(0, 0);
   }
 
   scrollToSection(sectionId: string): void {

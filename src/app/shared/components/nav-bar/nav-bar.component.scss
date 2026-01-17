@@ -1,0 +1,108 @@
+// header.component.scss
+$color-primary: #1a1a1a;
+$mobile-breakpoint: 768px;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+
+  &.header-scrolled {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  img {
+    width: 200px;
+  }
+}
+
+.desktop-nav {
+  display: none;
+  gap: 40px;
+
+  @media (min-width: $mobile-breakpoint) {
+    display: flex;
+  }
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
+  padding: 0;
+  transition: opacity 0.2s ease;
+  color: #000000;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.mobile-menu-button {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 0;
+  color: #000000;
+
+  @media (min-width: $mobile-breakpoint) {
+    display: none;
+  }
+}
+
+.mobile-nav {
+  display: block;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+
+  @media (min-width: $mobile-breakpoint) {
+    display: none;
+  }
+}
+
+.mobile-nav-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+}
+
+.mobile-nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
+  text-align: left;
+  padding: 8px 0;
+  transition: opacity 0.2s ease;
+  color: #000000;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}

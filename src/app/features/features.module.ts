@@ -6,6 +6,7 @@ import { LandingPageContainerComponent } from './components/landing-page-contain
 import { FormsModule } from '@angular/forms';
 import { TestComponent } from './components/test/test.component';
 import { AboutComponent } from './components/about/about.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AboutComponent } from './components/about/about.component';
   imports: [
     CommonModule,
     FeaturesRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class FeaturesModule { }

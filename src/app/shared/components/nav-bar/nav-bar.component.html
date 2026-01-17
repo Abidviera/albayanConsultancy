@@ -1,0 +1,55 @@
+<!-- header.component.html -->
+<header class="header" [class.header-scrolled]="isScrolled">
+  <div class="header-container">
+    <div class="header-logo" data-aos="fade-right" data-aos-delay="100">
+      <img src="albayan.png" alt="Al Bayan Logo" />
+    </div>
+
+    <nav class="desktop-nav">
+      <button (click)="navigateToSection('home')" class="nav-link" data-aos="fade-down" data-aos-delay="200">
+        Home
+      </button>
+      <button (click)="navigateToSection('services')" class="nav-link" data-aos="fade-down" data-aos-delay="250">
+        Services
+      </button>
+      <button (click)="navigateToSection('about')" class="nav-link" data-aos="fade-down" data-aos-delay="300">
+        About
+      </button>
+      <button (click)="navigateToSection('projects')" class="nav-link" data-aos="fade-down" data-aos-delay="350">
+        Success Stories
+      </button>
+      <button (click)="navigateToSection('contact')" class="nav-link" data-aos="fade-down" data-aos-delay="400">
+        Contact
+      </button>
+    </nav>
+
+    <button
+      class="mobile-menu-button"
+      (click)="toggleMobileMenu()"
+      data-aos="fade-left"
+      data-aos-delay="100"
+    >
+      <i class="fas" [ngClass]="isMobileMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+    </button>
+  </div>
+
+  <div class="mobile-nav" *ngIf="isMobileMenuOpen">
+    <nav class="mobile-nav-content">
+      <button (click)="navigateToSection('home')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="100">
+        Home
+      </button>
+      <button (click)="navigateToSection('services')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="150">
+        Services
+      </button>
+      <button (click)="navigateToSection('about')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="200">
+        About
+      </button>
+      <button (click)="navigateToSection('projects')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="250">
+        Success Stories
+      </button>
+      <button (click)="navigateToSection('contact')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="300">
+        Contact
+      </button>
+    </nav>
+  </div>
+</header>
