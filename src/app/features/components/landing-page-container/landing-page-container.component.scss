@@ -5520,3 +5520,127 @@ $tablet-breakpoint: 1024px;
     transform: translateX(0);
   }
 }
+
+// Add these styles to landing-page-container.component.scss
+
+/* Simplified About Section Preview */
+.about-section-preview {
+  background-color: #f5f5f5;
+  padding: $spacing-xl 0;
+
+  @media (min-width: $mobile-breakpoint) {
+    padding: 100px 0;
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 80px;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    .about-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+
+  .key-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-6;
+    margin: $spacing-8 0;
+    padding: $spacing-6;
+    background-color: $color-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+  }
+
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    font-size: $font-size-sm;
+    color: $color-gray-700;
+    font-weight: 500;
+
+    i {
+      font-size: $font-size-xl;
+      color: $color-accent;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      width: 100%;
+    }
+  }
+
+  .about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-4;
+    margin-top: $spacing-8;
+  }
+
+  .btn-learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-3;
+    background-color: $color-primary;
+    color: $color-white;
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    border: 2px solid $color-primary;
+
+    i {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+
+      i {
+        transform: translateX(4px);
+      }
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .btn-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: $color-primary;
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    border: 2px solid $color-primary;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      width: 100%;
+    }
+  }
+}

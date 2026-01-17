@@ -1,0 +1,280 @@
+<!-- about.component.html -->
+<div class="about-page">
+  
+  <!-- Page Hero Section -->
+  <section class="page-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <h1 class="page-title">ABOUT US</h1>
+      <p class="page-subtitle">Licensed & Trusted Documentation Partner Since 2015</p>
+    </div>
+  </section>
+
+  <!-- Company Overview Section -->
+  <section id="company-overview" class="section-white">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+               alt="Al Bayan Team"
+               class="about-img" />
+        </div>
+
+        <div class="about-content">
+          <h2 class="section-title">
+            ABOUT {{COMPANY_TRADEMARK.english}}<sup class="registered">®</sup>
+          </h2>
+          <p class="about-text">
+            Established in 2015, Al Bayan Typing Services has been a trusted partner for individuals and businesses in Ajman and across the UAE. With over {{yearsOfService}} years of excellence, we specialize in providing fast, accurate, and reliable typing, translation, and government documentation services.
+          </p>
+          <p class="about-text">
+            Our team of experienced professionals is dedicated to making your visa, Emirates ID, translation, and PRO service needs as smooth and hassle-free as possible. We pride ourselves on our direct access to government systems, ensuring quick turnaround times.
+          </p>
+          <p class="about-text">
+            From simple document typing to complex company formation in mainland (Ajman, Dubai, Sharjah) and freezones (Rakez, SAIF Zone, Dubai Free Zones), Al Bayan Typing Services handles it all with professionalism, confidentiality, and a commitment to 100% customer satisfaction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section id="mission-vision" class="mission-vision-section">
+    <div class="container">
+      <div class="mission-vision-grid">
+        <div class="mission-card">
+          <div class="card-icon">🎯</div>
+          <h3>Our Mission</h3>
+          <p>{{COMPANY_MISSION_VISION.mission}}</p>
+        </div>
+        
+        <div class="vision-card">
+          <div class="card-icon">👁️</div>
+          <h3>Our Vision</h3>
+          <p>{{COMPANY_MISSION_VISION.vision}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- License & Registration Section -->
+  <section id="license-details" class="license-registration-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">OFFICIAL LICENSE &<br />REGISTRATION DETAILS</h2>
+        <p class="section-description">
+          Officially licensed and registered with UAE authorities since 2015
+        </p>
+      </div>
+
+      <div class="license-grid">
+        <!-- Trademark Details Card -->
+        <div class="license-card">
+          <div class="license-icon">
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <h3>Trademark Details</h3>
+          <div class="license-content">
+            <div class="license-row">
+              <strong>English:</strong>
+              <span>{{COMPANY_TRADEMARK.english}}</span>
+            </div>
+            <div class="license-row">
+              <strong>Arabic:</strong>
+              <span>{{COMPANY_TRADEMARK.arabic}}</span>
+            </div>
+            <div class="license-row">
+              <strong>Legal Form:</strong>
+              <span>{{COMPANY_TRADEMARK.legalForm.english}} ({{COMPANY_TRADEMARK.legalForm.arabic}})</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- License Details Card -->
+        <div class="license-card">
+          <div class="license-icon">
+            <i class="fas fa-id-card"></i>
+          </div>
+          <h3>License Details</h3>
+          <div class="license-content">
+            <div class="license-row">
+              <strong>License Number:</strong>
+              <span>{{COMPANY_LICENSE_DETAILS.licenseNumber}}</span>
+            </div>
+            <div class="license-row">
+              <strong>Register Number:</strong>
+              <span>{{COMPANY_LICENSE_DETAILS.registerNumber}}</span>
+            </div>
+            <div class="license-row">
+              <strong>ACCI Number:</strong>
+              <span>{{COMPANY_LICENSE_DETAILS.acciNumber}}</span>
+            </div>
+            <div class="license-row">
+              <strong>Valid Until:</strong>
+              <span>{{COMPANY_LICENSE_DETAILS.expiryDate}}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proprietor Details Card -->
+        <div class="license-card">
+          <div class="license-icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <h3>Proprietor Details</h3>
+          <div class="license-content">
+            <div class="license-row">
+              <strong>Name (English):</strong>
+              <span>{{PROPRIETOR_DETAILS.name.english}}</span>
+            </div>
+            <div class="license-row">
+              <strong>Name (Arabic):</strong>
+              <span>{{PROPRIETOR_DETAILS.name.arabic}}</span>
+            </div>
+            <div class="license-row">
+              <strong>Role:</strong>
+              <span>{{PROPRIETOR_DETAILS.role}}</span>
+            </div>
+            <div class="license-row">
+              <strong>Ownership:</strong>
+              <span>{{PROPRIETOR_DETAILS.ownershipShare}}</span>
+            </div>
+            <div class="license-row">
+              <strong>Nationality:</strong>
+              <span>{{PROPRIETOR_DETAILS.nationality}}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Licensed Activities Card -->
+        <div class="license-card">
+          <div class="license-icon">
+            <i class="fas fa-list-check"></i>
+          </div>
+          <h3>Licensed Activities</h3>
+          <div class="license-content">
+            <div *ngFor="let activity of COMPANY_ACTIVITIES" class="activity-item">
+              <i class="fas fa-check-circle"></i>
+              <span>{{activity}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Important Dates -->
+      <div class="dates-section">
+        <div class="date-card">
+          <div class="date-label">Issue Date</div>
+          <div class="date-value">{{COMPANY_LICENSE_DETAILS.issueDate}}</div>
+        </div>
+        <div class="date-card">
+          <div class="date-label">Last Renewed</div>
+          <div class="date-value">{{COMPANY_LICENSE_DETAILS.printedDate}}</div>
+        </div>
+        <div class="date-card">
+          <div class="date-label">Expiry Date</div>
+          <div class="date-value">{{COMPANY_LICENSE_DETAILS.expiryDate}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Activities Section -->
+  <section id="activities" class="activities-section">
+    <div class="container">
+      <h2 class="section-title">LICENSED ACTIVITIES</h2>
+      <p class="section-subtitle">
+        Official activities as per our trade license issued by Ajman Economic Department
+      </p>
+
+      <div class="activities-grid">
+        <div *ngFor="let activity of COMPANY_ACTIVITIES; let i = index" 
+             class="activity-card">
+          <div class="activity-number">{{i + 1}}</div>
+          <h3 class="activity-title">{{activity}}</h3>
+          <div class="activity-icon">
+            <i class="fas" [ngClass]="{
+              'fa-user-tie': activity.includes('Businessmen'),
+              'fa-print': activity.includes('Typing'),
+              'fa-file-alt': activity.includes('Information'),
+              'fa-gears': activity.includes('Administrative')
+            }"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Showcase Section -->
+  <section id="team" class="team-showcase">
+    <div class="background-pattern"></div>
+
+    <div class="container">
+      <div class="section-header">
+        <div class="header-decoration">
+          <div class="decoration-line"></div>
+          <div class="decoration-text">OUR STRENGTH</div>
+          <div class="decoration-line"></div>
+        </div>
+        <h2 class="section-title">
+          THE AL BAYAN<sup>®</sup> TEAM
+        </h2>
+        <p class="section-description">
+          Meet the dedicated professionals who make your documentation needs effortless
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <div *ngFor="let member of teamMembers" class="team-card">
+          <div class="card-image-container">
+            <img [src]="member.image" [alt]="member.name" class="card-image" />
+            <div class="image-overlay"></div>
+          </div>
+
+          <div class="card-hover-content">
+            <h3 class="member-name">{{member.name}}</h3>
+            <p class="member-role">{{member.role}}</p>
+            <p class="member-description">{{member.description}}</p>
+          </div>
+
+          <div class="card-content">
+            <h3 class="member-name">{{member.name}}</h3>
+            <p class="member-role">{{member.role}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievements Bar -->
+      <div class="achievements-bar">
+        <div class="achievements-grid">
+          <div *ngFor="let achievement of achievements" class="achievement-item">
+            <div class="achievement-icon-container">
+              <div class="achievement-icon" [style.background]="'linear-gradient(135deg, ' + achievement.color + '40, ' + achievement.color + '20)'">
+                <div class="icon-wrapper">
+                  <i [class]="achievement.icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="achievement-number">{{achievement.number}}</div>
+            <div class="achievement-label">{{achievement.label}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Ready to Experience Professional Service?</h2>
+      <p class="cta-description">
+        Join thousands of satisfied clients who trusted Al Bayan with their documentation needs
+      </p>
+      <a routerLink="/contact" class="cta-button">
+        <span>CONTACT US TODAY</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+</div>

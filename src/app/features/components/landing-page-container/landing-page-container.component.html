@@ -543,91 +543,57 @@
   </div>
 </section>
 
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-               alt="Al Bayan Team"
-               class="about-img" />
-        </div>
+ <!-- Simplified About Section for Landing Page -->
+<!-- Replace the existing about section in landing-page-container.component.html -->
 
-        <div class="about-content">
-            <h2 class="about-title">
-          ABOUT {{COMPANY_INFO.tradeName.english.split(' ').slice(0, 2).join(' ')}}<sup class="registered">®</sup>
+<section id="about" class="about-section-preview">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+             alt="Al Bayan Team"
+             class="about-img" />
+      </div>
+
+      <div class="about-content">
+        <h2 class="about-title">
+          ABOUT AL BAYAN<sup class="registered">®</sup>
         </h2>
         <p class="about-text">
           Established in 2015, Al Bayan Typing Services has been a trusted partner for individuals and businesses in Ajman and across the UAE. With over {{yearsOfService}} years of excellence, we specialize in providing fast, accurate, and reliable typing, translation, and government documentation services.
         </p>
         <p class="about-text">
-          Our team of experienced professionals is dedicated to making your visa, Emirates ID, translation, and PRO service needs as smooth and hassle-free as possible. We pride ourselves on our direct access to government systems, ensuring quick turnaround times.
+          Our team of experienced professionals is dedicated to making your visa, Emirates ID, translation, and PRO service needs as smooth and hassle-free as possible.
         </p>
-        <p class="about-text mb-10">
-          From simple document typing to complex company formation in mainland (Ajman, Dubai, Sharjah) and freezones (Rakez, SAIF Zone, Dubai Free Zones), Al Bayan Typing Services handles it all with professionalism, confidentiality, and a commitment to 100% customer satisfaction.
-        </p>
-
-  <div class="company-details">
-          <h4>Official License Details:</h4>
-          <ul>
-            <li><strong>License Number:</strong> {{COMPANY_INFO.licenseNumber}}</li>
-            <li><strong>Register Number:</strong> {{COMPANY_INFO.registerNumber}}</li>
-            <li><strong>ACCI Number:</strong> {{COMPANY_INFO.acciNumber}}</li>
-            <li><strong>Established:</strong> 2015</li>
-            <li><strong>License Valid Until:</strong> 2027</li>
-          </ul>
+        
+        <!-- Key Highlights -->
+        <div class="key-highlights">
+          <div class="highlight-item">
+            <i class="fas fa-award"></i>
+            <span>Licensed Since 2015</span>
+          </div>
+          <div class="highlight-item">
+            <i class="fas fa-check-circle"></i>
+            <span>100% Success Rate</span>
+          </div>
+          <div class="highlight-item">
+            <i class="fas fa-users"></i>
+            <span>25,000+ Happy Clients</span>
+          </div>
         </div>
         
-          <a href="#contact" class="cta-button">Get Started</a>
-        </div>
-
-
-
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-award"></i>
-          </div>
-          <h4 class="feature-title">Licensed & Certified</h4>
-          <p class="feature-description">
-            Officially registered with license number 70510
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h4 class="feature-title">Expert Team</h4>
-          <p class="feature-description">
-            Professional typists and PRO specialists
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-clock"></i>
-          </div>
-          <h4 class="feature-title">Fast Processing</h4>
-          <p class="feature-description">
-            Quick turnaround with express services
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h4 class="feature-title">100% Confidential</h4>
-          <p class="feature-description">
-            Your documents are secure and private
-          </p>
+        <!-- Learn More Button -->
+        <div class="about-actions">
+          <a routerLink="/about" class="btn-learn-more">
+            <span>LEARN MORE ABOUT US</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn-contact">CONTACT US</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Mission & Vision Section -->
 <section class="mission-vision-section">
@@ -911,127 +877,6 @@
   </section>
 
 
-
-  <!-- License & Registration Section -->
-<section class="license-registration-section">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">OFFICIAL LICENSE &<br />REGISTRATION DETAILS</h2>
-      <p class="section-description">
-        Officially licensed and registered with UAE authorities since 2015
-      </p>
-    </div>
-
-    <div class="license-grid">
-      <div class="license-card">
-        <div class="license-icon">
-          <i class="fas fa-file-contract"></i>
-        </div>
-        <h3>Trademark Details</h3>
-        <div class="license-content">
-          <div class="license-row">
-            <strong>English:</strong>
-            <span>{{COMPANY_TRADEMARK.english}}</span>
-          </div>
-          <div class="license-row">
-            <strong>Arabic:</strong>
-            <span>{{COMPANY_TRADEMARK.arabic}}</span>
-          </div>
-          <div class="license-row">
-            <strong>Legal Form:</strong>
-            <span>{{COMPANY_TRADEMARK.legalForm.english}} ({{COMPANY_TRADEMARK.legalForm.arabic}})</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="license-card">
-        <div class="license-icon">
-          <i class="fas fa-id-card"></i>
-        </div>
-        <h3>License Details</h3>
-        <div class="license-content">
-          <div class="license-row">
-            <strong>License Number:</strong>
-            <span>{{COMPANY_LICENSE_DETAILS.licenseNumber}}</span>
-          </div>
-          <div class="license-row">
-            <strong>Register Number:</strong>
-            <span>{{COMPANY_LICENSE_DETAILS.registerNumber}}</span>
-          </div>
-          <div class="license-row">
-            <strong>ACCI Number:</strong>
-            <span>{{COMPANY_LICENSE_DETAILS.acciNumber}}</span>
-          </div>
-          <div class="license-row">
-            <strong>Valid Until:</strong>
-            <span>{{COMPANY_LICENSE_DETAILS.expiryDate}}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="license-card">
-        <div class="license-icon">
-          <i class="fas fa-user-tie"></i>
-        </div>
-        <h3>Proprietor Details</h3>
-        <div class="license-content">
-          <div class="license-row">
-            <strong>Name (English):</strong>
-            <span>{{PROPRIETOR_DETAILS.name.english}}</span>
-          </div>
-          <div class="license-row">
-            <strong>Name (Arabic):</strong>
-            <span>{{PROPRIETOR_DETAILS.name.arabic}}</span>
-          </div>
-          <div class="license-row">
-            <strong>Role:</strong>
-            <span>{{PROPRIETOR_DETAILS.role}}</span>
-          </div>
-          <div class="license-row">
-            <strong>Ownership:</strong>
-            <span>{{PROPRIETOR_DETAILS.ownershipShare}}</span>
-          </div>
-          <div class="license-row">
-            <strong>Nationality:</strong>
-            <span>{{PROPRIETOR_DETAILS.nationality}}</span>
-          </div>
-          <div class="license-row">
-            <strong>Passport:</strong>
-            <span>{{PROPRIETOR_DETAILS.passportNumber}}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="license-card">
-        <div class="license-icon">
-          <i class="fas fa-list-check"></i>
-        </div>
-        <h3>Licensed Activities</h3>
-        <div class="license-content">
-          <div *ngFor="let activity of COMPANY_ACTIVITIES" class="activity-item">
-            <i class="fas fa-check-circle"></i>
-            <span>{{activity}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="dates-section">
-      <div class="date-card">
-        <div class="date-label">Issue Date</div>
-        <div class="date-value">{{COMPANY_LICENSE_DETAILS.issueDate}}</div>
-      </div>
-      <div class="date-card">
-        <div class="date-label">Last Renewed</div>
-        <div class="date-value">{{COMPANY_LICENSE_DETAILS.printedDate}}</div>
-      </div>
-      <div class="date-card">
-        <div class="date-label">Expiry Date</div>
-        <div class="date-value">{{COMPANY_LICENSE_DETAILS.expiryDate}}</div>
-      </div>
-    </div>
-  </div>
-</section>
 
   <!-- Special Features Section -->
   <section class="main-features">
