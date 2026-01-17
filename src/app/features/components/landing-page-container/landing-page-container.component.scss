@@ -4781,7 +4781,7 @@ $tablet-breakpoint: 1024px;
 
 /* Mission & Vision Section */
 .mission-vision-section {
-  background-color: $color-light;
+
   padding: $spacing-20 0;
 
   @media (max-width: $mobile-breakpoint) {
@@ -4805,14 +4805,15 @@ $tablet-breakpoint: 1024px;
 .vision-card {
   background-color: $color-white;
   padding: $spacing-10;
-  border-radius: $border-radius-lg;
-  box-shadow: $shadow-md;
+
+
   transition: all 0.3s ease;
   text-align: center;
 
   &:hover {
     transform: translateY(-8px);
     box-shadow: $shadow-xl;
+     border-radius: $border-radius-lg;
   }
 
   .card-icon {

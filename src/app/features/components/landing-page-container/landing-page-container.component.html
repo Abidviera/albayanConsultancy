@@ -384,100 +384,7 @@
   </div>
 </section>
 
-<!-- Freezone Processing Section -->
-<section class="freezone-processing-section">
-  <div class="container">
-    <h2 class="section-title">FREEWONE LICENSE PROCESSING</h2>
-    <p class="section-subtitle">
-      Complete freezone company formation and license processing services across UAE
-    </p>
 
-    <div class="freezones-grid">
-      <div class="freezone-card">
-        <div class="freezone-icon">
-          <i class="fas fa-building-columns"></i>
-        </div>
-        <h3>Ajman Freezone</h3>
-        <ul class="freezone-services">
-          <li>Company Formation</li>
-          <li>License Processing</li>
-          <li>Visa Services</li>
-          <li>Documentation Support</li>
-        </ul>
-      </div>
-
-      <div class="freezone-card">
-        <div class="freezone-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <h3>RAKEZ</h3>
-        <p class="freezone-fullname">Ras Al Khaimah Economic Zone</p>
-        <ul class="freezone-services">
-          <li>Business Setup</li>
-          <li>Trade License</li>
-          <li>Office Space Solutions</li>
-          <li>Visa Processing</li>
-        </ul>
-      </div>
-
-      <div class="freezone-card">
-        <div class="freezone-icon">
-          <i class="fas fa-city"></i>
-        </div>
-        <h3>Dubai Freezones</h3>
-        <ul class="freezone-services">
-          <li>DIFC Setup</li>
-          <li>JAFZA Licensing</li>
-          <li>DMCC Formation</li>
-          <li>Dubai South</li>
-        </ul>
-      </div>
-
-      <div class="freezone-card">
-        <div class="freezone-icon">
-          <i class="fas fa-industry"></i>
-        </div>
-        <h3>Sharjah Freezones</h3>
-        <ul class="freezone-services">
-          <li>SAIF Zone Setup</li>
-          <li>Hamriyah Free Zone</li>
-          <li>Sharjah Airport Free Zone</li>
-          <li>Industrial License Processing</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="freezone-benefits">
-      <h3>Benefits of Freezone Setup</h3>
-      <div class="benefits-grid">
-        <div class="benefit">
-          <i class="fas fa-check-circle"></i>
-          <span>100% Foreign Ownership</span>
-        </div>
-        <div class="benefit">
-          <i class="fas fa-check-circle"></i>
-          <span>Tax Exemptions</span>
-        </div>
-        <div class="benefit">
-          <i class="fas fa-check-circle"></i>
-          <span>Full Repatriation of Profits</span>
-        </div>
-        <div class="benefit">
-          <i class="fas fa-check-circle"></i>
-          <span>Multiple Visa Options</span>
-        </div>
-        <div class="benefit">
-          <i class="fas fa-check-circle"></i>
-          <span>Customs Duty Benefits</span>
-        </div>
-        <div class="benefit">
-          <i class="fas fa-check-circle"></i>
-          <span>No Currency Restrictions</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Business Support Section -->
 <section class="business-support-section">
@@ -614,31 +521,6 @@
   </div>
 </section>
 
-<!-- Company Activities Section -->
-<section class="activities-section">
-  <div class="container">
-    <h2 class="section-title">LICENSED ACTIVITIES</h2>
-    <p class="section-subtitle">
-      Official activities as per our trade license issued by Ajman Economic Department
-    </p>
-
-    <div class="activities-grid">
-      <div *ngFor="let activity of COMPANY_ACTIVITIES; let i = index" 
-           class="activity-card">
-        <div class="activity-number">{{i + 1}}</div>
-        <h3 class="activity-title">{{activity}}</h3>
-        <div class="activity-icon">
-          <i class="fas" [ngClass]="{
-            'fa-user-tie': activity.includes('Businessmen'),
-            'fa-print': activity.includes('Typing'),
-            'fa-file-alt': activity.includes('Information'),
-            'fa-gears': activity.includes('Administrative')
-          }"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
   <!-- Projects/Success Stories Carousel -->
