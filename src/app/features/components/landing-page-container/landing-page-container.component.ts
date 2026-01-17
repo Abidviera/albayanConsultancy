@@ -5,6 +5,9 @@ import {
   OnDestroy,
   HostListener,
   ViewEncapsulation,
+  ChangeDetectorRef,
+  ElementRef,
+  ViewChild,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID, Inject } from '@angular/core';
@@ -34,11 +37,12 @@ interface CompanyInfo {
   encapsulation: ViewEncapsulation.None,
 })
 export class LandingPageContainerComponent {
-  // State management
+  @ViewChild('statsSection') statsSection!: ElementRef;
   currentSlide = 0;
   previousSlide = -1;
   progressWidth = 0;
   isMobileMenuOpen = false;
+  private statsAnimationRun = false;
   isScrolled = false;
   isBrowser: boolean;
   currentProjectIndex = 0;
@@ -77,8 +81,146 @@ export class LandingPageContainerComponent {
   private progressTimer: any;
   private statsTimer: any;
   private testimonialTimer: any;
+  COMPANY_TRADEMARK = {
+    english: 'AL BAYAN TYPING SERVICES',
+    arabic: 'البيان لخدمات الطباعة',
+    legalForm: {
+      english: 'Sole Establishment',
+      arabic: 'مؤسسة فردية',
+    },
+  };
 
-  COMPANY_INFO: CompanyInfo = {
+  COMPANY_LICENSE_DETAILS = {
+    licenseNumber: '70510',
+    registerNumber: '71028',
+    acciNumber: '80063',
+    issueDate: '2015-01-11',
+    expiryDate: '2027-01-02',
+    printedDate: '2026-01-06',
+  };
+  PROPRIETOR_DETAILS = {
+    name: {
+      arabic: 'حسن عبداهلل شهدهللا مندوس البلوضه',
+      english: 'HASSAN ABDULLA SHAHDAD AL MANDOOS ALBLOGSHI',
+    },
+    role: 'Owner - Proprietor',
+    ownershipShare: '100.00%',
+    nationality: 'United Arab Emirates (The UAE)',
+    passportNumber: 'AA0616182',
+  };
+
+  COMPANY_ACTIVITIES = [
+    'Administrative Services',
+    'Businessmen Services',
+    'Typing and Documents Photocopying Services',
+    'Commercial Information Services'
+  ];
+
+  COMPANY_ADDRESS = {
+    shop: 'Shop No. 6, Rashideya 2',
+    city: 'Ajman',
+    emirate: 'United Arab Emirates'
+  };
+
+  COMPANY_MISSION_VISION = {
+    mission: 'To deliver fast, reliable, and accurate typing and documentation solutions that simplify government and legal processes for our clients.',
+    vision: 'To be Ajman\'s leading typing center known for excellence, customer satisfaction, and innovative document solutions.'
+  };
+
+   SERVICES_BREAKDOWN = {
+    typingServices: [
+      'Visa applications (residence, visit, renewal)',
+      'Emirates ID application and renewal',
+      'Medical fitness typing',
+      'Immigration and labor typing'
+    ],
+    governmentServices: [
+      'Tasheel services',
+      'Amer and GDRFA services',
+      'ICP (Federal Authority for Identity & Citizenship) typing',
+      'Economic Department services (Trade License Renewal & Application)'
+    ],
+    translationServices: [
+      'English to Arabic and Arabic to English certified translations',
+      'Legal and technical documents'
+    ],
+    proServices: [
+      'Company formation support',
+      'Trade license processing',
+      'Document attestation and notarization'
+    ],
+    additionalServices: [
+      'Photocopying, printing, scanning'
+    ],
+    freezoneServices: [
+      'Ajman Freezone license processing',
+      'RAK Economic Zone (RAKEZ) license processing',
+      'Dubai Freezone license processing',
+      'Sharjah Freezone license processing'
+    ],
+    // NEW: Added as per requirements
+  
+    administrativeServices: [
+      'Document management services',
+      'Record keeping assistance',
+      'Administrative paperwork processing',
+      'Office documentation support'
+    ],
+    commercialInformationServices: [
+      'Market research documentation',
+      'Commercial data processing',
+      'Business information services',
+      'Trade documentation support'
+    ]
+  };
+
+  businessmenServices = [
+    {
+      title: 'Business Setup Consultation',
+      icon: 'bi-building',
+      description: 'Professional guidance for company formation in Ajman, Dubai, Sharjah'
+    },
+    {
+      title: 'Investor Visa Processing',
+      icon: 'bi-passport',
+      description: 'Complete investor visa solutions for business owners'
+    },
+    {
+      title: 'Commercial Registration',
+      icon: 'bi-file-earmark-text',
+      description: 'Commercial information services and business registration'
+    },
+    {
+      title: 'Administrative Support',
+      icon: 'bi-clipboard-data',
+      description: 'Comprehensive administrative services for businesses'
+    }
+  ];
+
+    freezoneDetailedServices = [
+    {
+      emirate: 'Ajman',
+      zones: ['Ajman Free Zone', 'Ajman Media Free Zone'],
+      services: ['License Processing', 'Company Formation', 'Visa Services']
+    },
+    {
+      emirate: 'Dubai',
+      zones: ['DIFC', 'JAFZA', 'DMCC', 'Dubai South', 'Dubai Silicon Oasis'],
+      services: ['Business Setup', 'Trade License', 'Office Space Solutions']
+    },
+    {
+      emirate: 'Sharjah',
+      zones: ['SAIF Zone', 'Hamriyah Free Zone', 'Sharjah Airport Free Zone'],
+      services: ['Industrial License', 'Commercial License', 'Warehouse Setup']
+    },
+    {
+      emirate: 'Ras Al Khaimah',
+      zones: ['RAKEZ (Ras Al Khaimah Economic Zone)'],
+      services: ['Business Formation', 'License Processing', 'Visa Services']
+    }
+  ];
+
+COMPANY_INFO: CompanyInfo = {
     tradeName: {
       english: 'AL BAYAN TYPING SERVICES',
       arabic: 'البيان لخدمات الطباعة',
@@ -743,6 +885,221 @@ export class LandingPageContainerComponent {
         'Package completion and follow-up',
       ],
     },
+     {
+    title: 'Typing Services',
+    subtitle: 'Professional document typing and processing',
+    description: 'Our comprehensive typing services cover all government and legal document requirements with accuracy and efficiency. Our experienced typists ensure error-free documentation for all your needs.',
+    images: ['/services/typing1.webp', '/services/typing2.webp'],
+    stats: [
+      { value: '100000+', label: 'Documents Typed' },
+      { value: '100%', label: 'Accuracy' },
+      { value: 'Same Day', label: 'Service Available' },
+    ],
+    benefits: [
+      'Government-approved typing formats',
+      'Expert typists with years of experience',
+      'Fast turnaround time',
+      'Error-free documentation',
+      'Confidential handling',
+      'Affordable pricing',
+    ],
+    features: [
+      'Visa application typing',
+      'Emirates ID application typing',
+      'Medical fitness forms',
+      'Immigration document typing',
+      'Labor contract typing',
+      'General document typing',
+    ],
+    process: [
+      'Submit your document requirements',
+      'Our typists prepare the documents',
+      'Quality check and verification',
+      'Final review with client',
+      'Document delivery',
+    ],
+  },
+
+  // Photocopying Services (New)
+  {
+    title: 'Photocopying & Printing',
+    subtitle: 'High-quality document reproduction services',
+    description: 'Professional photocopying, printing, and scanning services for all types of documents. We handle everything from single pages to bulk document processing with utmost quality.',
+    images: ['/services/photocopy1.webp', '/services/photocopy2.webp'],
+    stats: [
+      { value: '500000+', label: 'Pages Processed' },
+      { value: 'High', label: 'Quality Print' },
+      { value: 'Bulk', label: 'Discounts Available' },
+    ],
+    benefits: [
+      'High-quality color and B/W printing',
+      'Fast bulk photocopying',
+      'Document scanning services',
+      'Lamination and binding',
+      'Confidential document handling',
+      'Competitive pricing',
+    ],
+    features: [
+      'Color photocopying',
+      'Black & white printing',
+      'Document scanning',
+      'Lamination services',
+      'Spiral and hard binding',
+      'Bulk order processing',
+    ],
+    process: [
+      'Submit documents for copying/printing',
+      'Select paper quality and format',
+      'Process documents',
+      'Quality check',
+      'Collection or delivery',
+    ],
+  },
+
+  // Businessmen Services (New)
+  {
+    title: 'Businessmen Services',
+    subtitle: 'Complete business setup and support',
+    description: 'Comprehensive services for businessmen including company formation, investor visa processing, and commercial registration. We handle all legal and administrative requirements for your business.',
+    images: ['/services/businessmen1.webp', '/services/businessmen2.webp'],
+    stats: [
+      { value: '1000+', label: 'Businesses Served' },
+      { value: '100%', label: 'Success Rate' },
+      { value: 'Fast', label: 'Processing' },
+    ],
+    benefits: [
+      'Business setup consultation',
+      'Investor visa processing',
+      'Commercial registration',
+      'Legal documentation',
+      'Government liaison',
+      'Ongoing business support',
+    ],
+    features: [
+      'Company formation assistance',
+      'Investor visa applications',
+      'Commercial registration',
+      'Business licensing',
+      'Partner visa processing',
+      'Annual renewal services',
+    ],
+    process: [
+      'Initial business consultation',
+      'Document preparation and submission',
+      'Government approvals',
+      'License issuance',
+      'Post-setup support',
+    ],
+  },
+
+  // Commercial Information Services (New)
+  {
+    title: 'Commercial Information Services',
+    subtitle: 'Market research and business intelligence',
+    description: 'Professional commercial information services including market research, business intelligence, and commercial data processing. We provide valuable insights for business decision-making.',
+    images: ['/services/commercial1.webp', '/services/commercial2.webp'],
+    stats: [
+      { value: '500+', label: 'Reports Generated' },
+      { value: 'Accurate', label: 'Market Data' },
+      { value: 'Timely', label: 'Delivery' },
+    ],
+    benefits: [
+      'Market research reports',
+      'Business intelligence',
+      'Commercial data analysis',
+      'Industry insights',
+      'Competitor analysis',
+      'Customized reports',
+    ],
+    features: [
+      'Market analysis reports',
+      'Business feasibility studies',
+      'Commercial data processing',
+      'Industry trend analysis',
+      'Competitor intelligence',
+      'Custom research projects',
+    ],
+    process: [
+      'Define research requirements',
+      'Data collection and analysis',
+      'Report preparation',
+      'Client review and feedback',
+      'Final report delivery',
+    ],
+  },
+
+  // Administrative Services (New)
+  {
+    title: 'Administrative Services',
+    subtitle: 'Complete administrative support',
+    description: 'Professional administrative services including document management, record keeping, and office administration support. We help businesses streamline their administrative processes.',
+    images: ['/services/admin1.webp', '/services/admin2.webp'],
+    stats: [
+      { value: '24/7', label: 'Support Available' },
+      { value: 'Efficient', label: 'Processing' },
+      { value: 'Confidential', label: 'Handling' },
+    ],
+    benefits: [
+      'Document management',
+      'Record keeping',
+      'Office administration',
+      'Filing system setup',
+      'Administrative workflow',
+      'Process optimization',
+    ],
+    features: [
+      'Document organization',
+      'Record maintenance',
+      'Administrative paperwork',
+      'Office documentation',
+      'Process documentation',
+      'Administrative consulting',
+    ],
+    process: [
+      'Assess administrative needs',
+      'Develop process plan',
+      'Implement solutions',
+      'Training and support',
+      'Ongoing maintenance',
+    ],
+  },
+
+  // Freezone License Processing (New)
+  {
+    title: 'Freezone License Processing',
+    subtitle: 'Complete freezone company setup services',
+    description: 'Professional assistance with freezone company formation and license processing across all UAE freezones including Ajman, RAK, Dubai, and Sharjah freezones.',
+    images: ['/services/freezone1.webp', '/services/freezone2.webp'],
+    stats: [
+      { value: '500+', label: 'Freezone Companies' },
+      { value: '48hrs', label: 'Fast Setup' },
+      { value: '100%', label: 'Foreign Ownership' },
+    ],
+    benefits: [
+      'Ajman Freezone processing',
+      'RAKEZ license setup',
+      'Dubai Freezones (DIFC, JAFZA, DMCC)',
+      'Sharjah Freezones (SAIF Zone)',
+      '100% foreign ownership',
+      'Tax exemptions',
+    ],
+    features: [
+      'Company name reservation',
+      'License application',
+      'Office space solutions',
+      'Visa processing',
+      'Bank account assistance',
+      'Annual renewal services',
+    ],
+    process: [
+      'Freezone selection consultation',
+      'Document preparation',
+      'License application submission',
+      'Government approvals',
+      'License issuance',
+      'Post-setup support',
+    ],
+  }
   ];
 
   // Process steps
@@ -1108,42 +1465,95 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+  constructor(
+    @Inject(PLATFORM_ID) platformId: Object,
+    private cdRef: ChangeDetectorRef,
+    private elementRef: ElementRef,
+  ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
-
-  ngOnInit() {
-    // Only run browser-specific code in browser environment
+  ngAfterViewInit() {
     if (!this.isBrowser) {
       return;
     }
 
-    // Setup scroll event listener
+    this.statsData = [
+      { value: 0, label: 'Years of Service' },
+      { value: 0, label: 'Documents Processed' },
+      { value: 0, label: 'Happy Clients' },
+      { value: 0, label: 'Success Rate' },
+    ];
+    this.cdRef.detectChanges();
+
+    this.setupScrollAnimation();
+  }
+
+
+  private setupScrollAnimation() {
+    if (!this.isBrowser || typeof IntersectionObserver === 'undefined') {
+      // Fallback: animate after 1 second if IntersectionObserver not supported
+      setTimeout(() => {
+        this.animateStats();
+      }, 1000);
+      return;
+    }
+
+    // Create intersection observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !this.statsAnimationRun) {
+            // Start animation when stats section is visible
+            this.statsAnimationRun = true;
+            this.animateStats();
+
+            // Optionally unobserve after animation starts
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.3, // Trigger when 30% of element is visible
+      },
+    );
+
+    // Find stats section in the DOM
+    setTimeout(() => {
+      const statsElement =
+        this.elementRef.nativeElement.querySelector('#stats');
+      if (statsElement) {
+        observer.observe(statsElement);
+      } else {
+        // Fallback if element not found
+        setTimeout(() => {
+          this.animateStats();
+        }, 1000);
+      }
+    }, 100);
+  }
+
+  ngOnInit() {
+    if (!this.isBrowser) {
+      return;
+    }
+
     if (typeof window !== 'undefined') {
       this.handleScroll();
       window.addEventListener('scroll', this.handleScroll.bind(this));
     }
 
-    // Hero slider interval
     this.intervalTimer = setInterval(() => {
       this.nextSlide();
     }, 5000);
 
-    // Progress bar animation
     this.progressTimer = setInterval(() => {
-      this.progressWidth =
-        this.progressWidth >= 100 ? 0 : this.progressWidth + 2;
+      this.progressWidth = this.progressWidth >= 100 ? 0 : this.progressWidth + 2;
     }, 100);
 
-    // Animate stats
-    this.statsTimer = setTimeout(() => {
-      this.animateStats();
-    }, 500);
-
-    // Testimonial rotation
     this.testimonialTimer = setInterval(() => {
-      this.currentTestimonial =
-        (this.currentTestimonial + 1) % this.testimonials.length;
+      this.currentTestimonial = (this.currentTestimonial + 1) % this.testimonials.length;
     }, 6000);
   }
 
@@ -1207,22 +1617,40 @@ export class LandingPageContainerComponent {
     ];
 
     let progress = 0;
-    const duration = 2000;
+    const duration = 2000; // 2 seconds animation
     const startTime = Date.now();
 
     const animate = () => {
       const elapsed = Date.now() - startTime;
       progress = Math.min(elapsed / duration, 1);
 
-      this.statsData = targets.map((target) => ({
-        value: Math.floor(target.value * progress),
-        label: target.label,
-      }));
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+      this.statsData = targets.map((target, index) => {
+        // Different easing for each stat for staggered effect
+        const delay = index * 200; // 200ms delay between each counter
+        const adjustedProgress = Math.max(
+          0,
+          (elapsed - delay) / (duration - delay),
+        );
+        const easedProgress =
+          1 - Math.pow(1 - Math.min(adjustedProgress, 1), 4);
+
+        return {
+          value: Math.floor(target.value * easedProgress),
+          label: target.label,
+        };
+      });
+
+      this.cdRef.detectChanges();
 
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
+        // Ensure final values are set
         this.statsData = targets;
+        this.cdRef.detectChanges();
       }
     };
 
@@ -1292,7 +1720,7 @@ export class LandingPageContainerComponent {
     const visible = [];
     for (let i = 0; i < 3; i++) {
       visible.push(
-        this.projects[(this.currentProjectIndex + i) % this.projects.length]
+        this.projects[(this.currentProjectIndex + i) % this.projects.length],
       );
     }
     return visible;
