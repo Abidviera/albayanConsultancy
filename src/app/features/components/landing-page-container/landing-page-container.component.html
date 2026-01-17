@@ -187,11 +187,9 @@
         <div class="stats-grid">
           <div *ngFor="let stat of statsData; let i = index" 
                class="stat-item" 
-               [attr.data-aos]="'zoom-in'"
-               [attr.data-aos-delay]="(i * 100 + 900).toString()">
+             >
             <div class="stat-value" 
-                 [attr.data-aos]="'count-up'"
-                 [attr.data-aos-delay]="(i * 100 + 1000).toString()">
+               >
               {{ stat.value }}{{ i === 3 ? "%" : "+" }}
             </div>
             <div class="stat-label">{{ stat.label }}</div>

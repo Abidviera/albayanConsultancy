@@ -41,6 +41,7 @@ export class LandingPageContainerComponent {
   @ViewChild('statsSection') statsSection!: ElementRef;
   currentSlide = 0;
   previousSlide = -1;
+   private aosInitialized = false;
   progressWidth = 0;
   isMobileMenuOpen = false;
   private statsAnimationRun = false;
@@ -1466,31 +1467,27 @@ COMPANY_INFO: CompanyInfo = {
     },
   ];
 
-  constructor(
+   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     private cdRef: ChangeDetectorRef,
     private elementRef: ElementRef,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
-
-     // Initialize AOS
-    if (this.isBrowser) {
-      AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false,
-        offset: 100
-      });
-    }
   }
-  ngAfterViewInit() {
+
+   ngAfterViewInit() {
     if (!this.isBrowser) {
       return;
     }
- setTimeout(() => {
-      AOS.refresh();
-    }, 500);
+
+    // Refresh AOS to detect new elements
+    setTimeout(() => {
+      if (typeof AOS !== 'undefined' && this.aosInitialized) {
+        AOS.refresh();
+      }
+    }, 100);
+
+    // Initialize stats
     this.statsData = [
       { value: 0, label: 'Years of Service' },
       { value: 0, label: 'Documents Processed' },
@@ -1499,6 +1496,7 @@ COMPANY_INFO: CompanyInfo = {
     ];
     this.cdRef.detectChanges();
 
+    // Setup scroll animations
     this.setupScrollAnimation();
   }
 
@@ -1547,44 +1545,21 @@ COMPANY_INFO: CompanyInfo = {
       }
     }, 100);
   }
-
   ngOnInit() {
     if (!this.isBrowser) {
       return;
     }
-  AOS.init({
-      // Global settings:
-      disable: false,
-      startEvent: 'DOMContentLoaded',
-      initClassName: 'aos-init',
-      animatedClassName: 'aos-animate',
-      useClassNames: false,
-      disableMutationObserver: false,
-      debounceDelay: 50,
-      throttleDelay: 99,
-      
-      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-      offset: 120,
-      delay: 0,
-      duration: 800,
-      easing: 'ease-in-out-cubic',
-      once: true,
-      mirror: false,
-      anchorPlacement: 'top-bottom',
-    });
 
-    // Refresh AOS on window resize
-    if (this.isBrowser) {
-      window.addEventListener('resize', () => {
-        AOS.refresh();
-      });
-    }
+    // Initialize AOS once
+    this.initializeAOS();
 
+    // Set up scroll listener
     if (typeof window !== 'undefined') {
       this.handleScroll();
       window.addEventListener('scroll', this.handleScroll.bind(this));
     }
 
+    // Set up interval timers
     this.intervalTimer = setInterval(() => {
       this.nextSlide();
     }, 5000);
@@ -1598,12 +1573,9 @@ COMPANY_INFO: CompanyInfo = {
     }, 6000);
   }
 
-  ngOnDestroy() {
-     if (this.isBrowser) {
-      window.removeEventListener('resize', () => {
-        AOS.refresh();
-      });
-    }
+
+ ngOnDestroy() {
+    // Clean up all listeners and timers
     if (this.isBrowser && typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.handleScroll.bind(this));
     }
@@ -1612,6 +1584,48 @@ COMPANY_INFO: CompanyInfo = {
     if (this.progressTimer) clearInterval(this.progressTimer);
     if (this.statsTimer) clearTimeout(this.statsTimer);
     if (this.testimonialTimer) clearInterval(this.testimonialTimer);
+  }
+
+   private initializeAOS() {
+    if (!this.isBrowser || this.aosInitialized) {
+      return;
+    }
+
+    // Initialize AOS with configuration
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 120, // offset (in px) from the original trigger point
+      delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 800, // values from 0 to 3000, with step 50ms
+      easing: 'ease-in-out-cubic', // default easing for AOS animations
+      once: true, // whether animation should happen only once - while scrolling down
+      mirror: false, // whether elements should animate out while scrolling past them
+      anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+    });
+
+    this.aosInitialized = true;
+
+    // Add resize listener for AOS refresh
+    window.addEventListener('resize', () => {
+      AOS.refresh();
+    });
+
+    // Add load listener to refresh AOS after images load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 500);
+    });
   }
 
   @HostListener('window:scroll', [])
