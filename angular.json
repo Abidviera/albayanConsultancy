@@ -40,6 +40,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/aos/dist/aos.css",
               "node_modules/dat.gui/build/dat.gui.css",
               "node_modules/locomotive-scroll/dist/locomotive-scroll.css"
             ],
@@ -113,7 +114,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/styles.scss",
+               "node_modules/aos/dist/aos.css",
               "node_modules/dat.gui/build/dat.gui.css",
               "node_modules/locomotive-scroll/dist/locomotive-scroll.css"
             ],

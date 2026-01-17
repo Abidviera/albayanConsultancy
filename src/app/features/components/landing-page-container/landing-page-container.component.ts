@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID, Inject } from '@angular/core';
+import * as AOS from 'aos';
 
 interface CompanyInfo {
   tradeName: {
@@ -1471,12 +1472,25 @@ COMPANY_INFO: CompanyInfo = {
     private elementRef: ElementRef,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
+
+     // Initialize AOS
+    if (this.isBrowser) {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false,
+        offset: 100
+      });
+    }
   }
   ngAfterViewInit() {
     if (!this.isBrowser) {
       return;
     }
-
+ setTimeout(() => {
+      AOS.refresh();
+    }, 500);
     this.statsData = [
       { value: 0, label: 'Years of Service' },
       { value: 0, label: 'Documents Processed' },
@@ -1538,6 +1552,33 @@ COMPANY_INFO: CompanyInfo = {
     if (!this.isBrowser) {
       return;
     }
+  AOS.init({
+      // Global settings:
+      disable: false,
+      startEvent: 'DOMContentLoaded',
+      initClassName: 'aos-init',
+      animatedClassName: 'aos-animate',
+      useClassNames: false,
+      disableMutationObserver: false,
+      debounceDelay: 50,
+      throttleDelay: 99,
+      
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 120,
+      delay: 0,
+      duration: 800,
+      easing: 'ease-in-out-cubic',
+      once: true,
+      mirror: false,
+      anchorPlacement: 'top-bottom',
+    });
+
+    // Refresh AOS on window resize
+    if (this.isBrowser) {
+      window.addEventListener('resize', () => {
+        AOS.refresh();
+      });
+    }
 
     if (typeof window !== 'undefined') {
       this.handleScroll();
@@ -1558,7 +1599,11 @@ COMPANY_INFO: CompanyInfo = {
   }
 
   ngOnDestroy() {
-    // Remove event listener only if in browser
+     if (this.isBrowser) {
+      window.removeEventListener('resize', () => {
+        AOS.refresh();
+      });
+    }
     if (this.isBrowser && typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.handleScroll.bind(this));
     }
