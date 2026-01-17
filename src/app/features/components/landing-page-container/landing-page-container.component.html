@@ -3,22 +3,22 @@
   <!-- Header -->
   <header class="header" [class.header-scrolled]="isScrolled">
     <div class="header-container">
-      <div class="header-logo">
+      <div class="header-logo" data-aos="fade-right" data-aos-delay="100">
         <img src="albayan.png" alt="" />
       </div>
 
       <nav class="desktop-nav">
-        <button (click)="scrollToSection('home')" class="nav-link">Home</button>
-        <button (click)="scrollToSection('services')" class="nav-link">
+        <button (click)="scrollToSection('home')" class="nav-link" data-aos="fade-down" data-aos-delay="200">Home</button>
+        <button (click)="scrollToSection('services')" class="nav-link" data-aos="fade-down" data-aos-delay="250">
           Services
         </button>
-        <button (click)="scrollToSection('about')" class="nav-link">
+        <button (click)="scrollToSection('about')" class="nav-link" data-aos="fade-down" data-aos-delay="300">
           About
         </button>
-        <button (click)="scrollToSection('projects')" class="nav-link">
+        <button (click)="scrollToSection('projects')" class="nav-link" data-aos="fade-down" data-aos-delay="350">
           Success Stories
         </button>
-        <button (click)="scrollToSection('contact')" class="nav-link">
+        <button (click)="scrollToSection('contact')" class="nav-link" data-aos="fade-down" data-aos-delay="400">
           Contact
         </button>
       </nav>
@@ -26,6 +26,7 @@
       <button
         class="mobile-menu-button"
         (click)="isMobileMenuOpen = !isMobileMenuOpen"
+        data-aos="fade-left" data-aos-delay="100"
       >
         <i
           class="fas"
@@ -36,19 +37,19 @@
 
     <div class="mobile-nav" *ngIf="isMobileMenuOpen">
       <nav class="mobile-nav-content">
-        <button (click)="scrollToSection('home')" class="mobile-nav-link">
+        <button (click)="scrollToSection('home')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="100">
           Home
         </button>
-        <button (click)="scrollToSection('services')" class="mobile-nav-link">
+        <button (click)="scrollToSection('services')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="150">
           Services
         </button>
-        <button (click)="scrollToSection('about')" class="mobile-nav-link">
+        <button (click)="scrollToSection('about')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="200">
           About
         </button>
-        <button (click)="scrollToSection('projects')" class="mobile-nav-link">
+        <button (click)="scrollToSection('projects')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="250">
           Success Stories
         </button>
-        <button (click)="scrollToSection('contact')" class="mobile-nav-link">
+        <button (click)="scrollToSection('contact')" class="mobile-nav-link" data-aos="fade-right" data-aos-delay="300">
           Contact
         </button>
       </nav>
@@ -121,6 +122,8 @@
               <button
                 class="btn btn-primary"
                 (click)="scrollToSection('contact')"
+                data-aos="zoom-in"
+                data-aos-delay="500"
               >
                 <span class="btn-text">GET IN TOUCH</span>
                 <span class="btn-text-hover">GET IN TOUCH</span>
@@ -129,6 +132,8 @@
               <button
                 class="btn btn-secondary"
                 (click)="scrollToSection('services')"
+                data-aos="zoom-in"
+                data-aos-delay="600"
               >
                 EXPLORE SERVICES
               </button>
@@ -147,6 +152,8 @@
                 [class.active]="index === currentSlide"
                 [style.height]="index === currentSlide ? '192px' : '96px'"
                 (click)="goToSlide(index)"
+                [attr.data-aos]="'fade-up'"
+                [attr.data-aos-delay]="(index * 100 + 400).toString()"
               >
                 <div
                   class="nav-slide-bg"
@@ -178,8 +185,13 @@
     <div class="stats-bar" id="stats" data-aos="fade-up" data-aos-delay="800">
       <div class="stats-container">
         <div class="stats-grid">
-          <div *ngFor="let stat of statsData; let i = index" class="stat-item">
-            <div class="stat-value">
+          <div *ngFor="let stat of statsData; let i = index" 
+               class="stat-item" 
+               [attr.data-aos]="'zoom-in'"
+               [attr.data-aos-delay]="(i * 100 + 900).toString()">
+            <div class="stat-value" 
+                 [attr.data-aos]="'count-up'"
+                 [attr.data-aos-delay]="(i * 100 + 1000).toString()">
               {{ stat.value }}{{ i === 3 ? "%" : "+" }}
             </div>
             <div class="stat-label">{{ stat.label }}</div>
@@ -194,10 +206,10 @@
   <!-- Detailed Services Section -->
   <section class="services-detailed-section">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">
+      <h2 class="section-title" data-aos="fade-down" data-aos-easing="ease-in-back">
         EXPLORE OUR SERVICES<br />IN DETAIL
       </h2>
-      <p class="section-subtitle">
+      <p class="section-subtitle" data-aos="fade-down" data-aos-delay="100" data-aos-easing="ease-in-back">
         Click on any service below to discover comprehensive details, benefits,
         our process, and successful services we've completed
       </p>
@@ -207,10 +219,13 @@
           *ngFor="let service of detailedServices; let i = index"
           class="service-card"
           (click)="selectedService = service"
-          data-aos="fade-up"
-          [attr.data-aos-delay]="i * 100"
+          [attr.data-aos]="'flip-left'"
+          [attr.data-aos-delay]="(i * 100).toString()"
+          [attr.data-aos-duration]="'500'"
         >
-          <div class="service-image-container">
+          <div class="service-image-container" 
+               [attr.data-aos]="'zoom-in'"
+               [attr.data-aos-delay]="(i * 100 + 300).toString()">
             <img
               [src]="service.images[0]"
               [alt]="service.title"
@@ -233,12 +248,12 @@
       (click)="selectedService = null"
     >
       <div class="modal-container">
-        <div class="modal-content" (click)="$event.stopPropagation()">
-          <button class="close-button" (click)="selectedService = null">
+        <div class="modal-content" (click)="$event.stopPropagation()" data-aos="zoom-in">
+          <button class="close-button" (click)="selectedService = null" data-aos="fade-left" data-aos-delay="200">
             <span class="close-icon">×</span>
           </button>
 
-          <div class="modal-hero-image">
+          <div class="modal-hero-image" data-aos="fade-up" data-aos-delay="100">
             <img
               [src]="selectedService.images[0]"
               [alt]="selectedService.title"
@@ -246,12 +261,12 @@
           </div>
 
           <div class="modal-body">
-            <div class="modal-title-section">
+            <div class="modal-title-section" data-aos="fade-right" data-aos-delay="200">
               <h2 class="modal-main-title">{{ selectedService.title }}</h2>
               <p class="modal-subtitle">{{ selectedService.subtitle }}</p>
             </div>
 
-            <div class="modal-description">
+            <div class="modal-description" data-aos="fade-up" data-aos-delay="250">
               <p>{{ selectedService.description }}</p>
             </div>
 
@@ -259,13 +274,17 @@
               <div
                 *ngFor="let stat of selectedService.stats; let i = index"
                 class="stat-item"
+                [attr.data-aos]="'zoom-in'"
+                [attr.data-aos-delay]="(i * 100 + 300).toString()"
               >
-                <div class="stat-value">{{ stat.value }}</div>
+                <div class="stat-value" 
+                     [attr.data-aos]="'count-up'"
+                     [attr.data-aos-delay]="(i * 100 + 400).toString()">{{ stat.value }}</div>
                 <div class="stat-label">{{ stat.label }}</div>
               </div>
             </div>
 
-            <div class="modal-section">
+            <div class="modal-section" data-aos="fade-up" data-aos-delay="400">
               <div class="section-header">
                 <span class="section-icon">✓</span>
                 <h3>Key Benefits</h3>
@@ -277,6 +296,8 @@
                     let i = index
                   "
                   class="benefit-item"
+                  [attr.data-aos]="'fade-right'"
+                  [attr.data-aos-delay]="(i * 50 + 450).toString()"
                 >
                   <span class="check-icon">✓</span>
                   <p>{{ benefit }}</p>
@@ -284,7 +305,7 @@
               </div>
             </div>
 
-            <div class="modal-section">
+            <div class="modal-section" data-aos="fade-up" data-aos-delay="500">
               <div class="section-header">
                 <span class="section-icon">●</span>
                 <h3>What We Provide</h3>
@@ -296,6 +317,8 @@
                     let i = index
                   "
                   class="feature-item"
+                  [attr.data-aos]="'fade-right'"
+                  [attr.data-aos-delay]="(i * 50 + 550).toString()"
                 >
                   <span class="feature-dot"></span>
                   <p>{{ feature }}</p>
@@ -303,7 +326,7 @@
               </div>
             </div>
 
-            <div class="modal-section">
+            <div class="modal-section" data-aos="fade-up" data-aos-delay="600">
               <div class="section-header">
                 <span class="section-icon">⏱</span>
                 <h3>Our Process</h3>
@@ -312,6 +335,8 @@
                 <div
                   *ngFor="let step of selectedService.process; let i = index"
                   class="process-step"
+                  [attr.data-aos]="'fade-up'"
+                  [attr.data-aos-delay]="(i * 100 + 650).toString()"
                 >
                   <div class="step-number">{{ i + 1 }}</div>
                   <div class="step-content">
@@ -324,6 +349,8 @@
             <div
               class="modal-secondary-image"
               *ngIf="selectedService.images[1]"
+              data-aos="zoom-in"
+              data-aos-delay="750"
             >
               <img
                 [src]="selectedService.images[1]"
@@ -331,7 +358,7 @@
               />
             </div>
 
-            <div class="modal-cta">
+            <div class="modal-cta" data-aos="zoom-in" data-aos-delay="800">
               <h3>Ready to Get Started?</h3>
               <p class="cta-description">
                 Contact us today for fast and reliable service. Let us handle
@@ -341,6 +368,8 @@
                 href="#contact"
                 (click)="selectedService = null"
                 class="cta-button"
+                data-aos="pulse"
+                data-aos-delay="900"
               >
                 Request Free Consultation
               </a>
@@ -355,10 +384,10 @@
   <section id="jurisdiction" class="jurisdiction-vintage-section">
     <div class="container">
       <!-- Section Header with Typewriter Style -->
-      <div class="section-header-vintage">
-        <div class="typewriter-line"></div>
-        <h2 class="section-title-vintage">Business Setup Options</h2>
-        <p class="section-subtitle-vintage">
+      <div class="section-header-vintage" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+        <div class="typewriter-line" data-aos="zoom-in" data-aos-delay="200"></div>
+        <h2 class="section-title-vintage" data-aos="fade-down" data-aos-delay="300">Business Setup Options</h2>
+        <p class="section-subtitle-vintage" data-aos="fade-down" data-aos-delay="400">
           Choose the right structure for your business venture in the UAE
         </p>
       </div>
@@ -371,16 +400,23 @@
           class="jurisdiction-document"
           [class.document-left]="i === 0"
           [class.document-right]="i === 1"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="(i * 200).toString()"
+          [attr.data-aos-duration]="'800'"
         >
           <!-- Document Header with Stamp -->
           <div class="document-header">
-            <div class="stamp-wrapper">
+            <div class="stamp-wrapper" 
+                 [attr.data-aos]="'zoom-in'"
+                 [attr.data-aos-delay]="(i * 200 + 300).toString()">
               <div class="official-stamp">
                 <span class="stamp-icon">{{ jurisdiction.icon }}</span>
                 <div class="stamp-text">OFFICIAL</div>
               </div>
             </div>
-            <div class="document-title-box">
+            <div class="document-title-box" 
+                 [attr.data-aos]="'fade-right'"
+                 [attr.data-aos-delay]="(i * 200 + 400).toString()">
               <div class="document-type">
                 {{ i === 0 ? "FORM A" : "FORM B" }}
               </div>
@@ -389,7 +425,9 @@
           </div>
 
           <!-- Typewriter Line Separator -->
-          <div class="typewriter-separator">
+          <div class="typewriter-separator" 
+               [attr.data-aos]="'zoom-in'"
+               [attr.data-aos-delay]="(i * 200 + 500).toString()">
             <span class="separator-dot"></span>
             <span class="separator-line"></span>
             <span class="separator-dot"></span>
@@ -398,13 +436,17 @@
           <!-- Document Body -->
           <div class="document-body">
             <!-- Location Info -->
-            <div class="info-field">
+            <div class="info-field" 
+                 [attr.data-aos]="'fade-up'"
+                 [attr.data-aos-delay]="(i * 200 + 600).toString()">
               <label class="field-label">Jurisdiction Coverage:</label>
               <div class="field-value">{{ jurisdiction.description }}</div>
             </div>
 
             <!-- Benefits Section -->
-            <div class="benefits-section">
+            <div class="benefits-section" 
+                 [attr.data-aos]="'fade-up'"
+                 [attr.data-aos-delay]="(i * 200 + 700).toString()">
               <div class="section-heading">
                 <span class="heading-number">{{ i + 1 }}.</span>
                 <span class="heading-text">Key Benefits</span>
@@ -414,6 +456,8 @@
                 <div
                   *ngFor="let feature of jurisdiction.features; let idx = index"
                   class="benefit-row"
+                  [attr.data-aos]="'fade-right'"
+                  [attr.data-aos-delay]="(idx * 50 + i * 200 + 750).toString()"
                 >
                   <div class="benefit-number">{{ idx + 1 }}</div>
                   <div class="benefit-text">{{ feature }}</div>
@@ -424,13 +468,17 @@
 
             <!-- Document Footer -->
             <div class="document-footer">
-              <div class="signature-line">
+              <div class="signature-line" 
+                   [attr.data-aos]="'zoom-in'"
+                   [attr.data-aos-delay]="(i * 200 + 900).toString()">
                 <div class="line"></div>
                 <div class="signature-label">Authorized Representative</div>
               </div>
               <button
                 class="document-action-btn"
                 (click)="scrollToSection('contact')"
+                [attr.data-aos]="'zoom-in'"
+                [attr.data-aos-delay]="(i * 200 + 950).toString()"
               >
                 <span class="btn-icon">→</span>
                 <span class="btn-text"
@@ -441,8 +489,12 @@
           </div>
 
           <!-- Document Hole Punches -->
-          <div class="hole-punch top"></div>
-          <div class="hole-punch bottom"></div>
+          <div class="hole-punch top" 
+               [attr.data-aos]="'fade-down'"
+               [attr.data-aos-delay]="(i * 200 + 1000).toString()"></div>
+          <div class="hole-punch bottom" 
+               [attr.data-aos]="'fade-up'"
+               [attr.data-aos-delay]="(i * 200 + 1050).toString()"></div>
 
           <!-- Paper Texture Overlay -->
           <div class="paper-texture"></div>
@@ -450,23 +502,23 @@
       </div>
 
       <!-- Information Box -->
-      <div class="info-box-vintage">
-        <div class="info-box-header">
-          <div class="info-icon">ℹ</div>
+      <div class="info-box-vintage" data-aos="flip-up" data-aos-delay="600">
+        <div class="info-box-header" data-aos="fade-right" data-aos-delay="700">
+          <div class="info-icon" data-aos="tada" data-aos-delay="800">ℹ</div>
           <h4>Important Information</h4>
         </div>
         <div class="info-box-content">
-          <div class="info-row">
+          <div class="info-row" data-aos="fade-up" data-aos-delay="850">
             <strong>Processing Time:</strong>
             <span>Mainland: 2-3 weeks | Freezone: 1-2 business days</span>
           </div>
-          <div class="info-row">
+          <div class="info-row" data-aos="fade-up" data-aos-delay="900">
             <strong>Our Services:</strong>
             <span
               >Complete assistance from application to license issuance</span
             >
           </div>
-          <div class="info-row">
+          <div class="info-row" data-aos="fade-up" data-aos-delay="950">
             <strong>Consultation:</strong>
             <span
               >Free expert consultation to determine the best option for your
@@ -477,23 +529,29 @@
       </div>
 
       <!-- Stats Ticker -->
-      <div class="stats-ticker">
-        <div class="ticker-item">
-          <div class="ticker-number">500+</div>
+      <div class="stats-ticker" data-aos="fade-up" data-aos-delay="1000">
+        <div class="ticker-item" data-aos="zoom-in" data-aos-delay="1050">
+          <div class="ticker-number" 
+               [attr.data-aos]="'count-up'"
+               [attr.data-aos-delay]="'1100'">500+</div>
           <div class="ticker-label">Companies Formed</div>
         </div>
-        <div class="ticker-divider">|</div>
-        <div class="ticker-item">
-          <div class="ticker-number">100%</div>
+        <div class="ticker-divider" data-aos="fade-in" data-aos-delay="1150">|</div>
+        <div class="ticker-item" data-aos="zoom-in" data-aos-delay="1200">
+          <div class="ticker-number" 
+               [attr.data-aos]="'count-up'"
+               [attr.data-aos-delay]="'1250'">100%</div>
           <div class="ticker-label">Success Rate</div>
         </div>
-        <div class="ticker-divider">|</div>
-        <div class="ticker-item">
-          <div class="ticker-number">10+</div>
+        <div class="ticker-divider" data-aos="fade-in" data-aos-delay="1300">|</div>
+        <div class="ticker-item" data-aos="zoom-in" data-aos-delay="1350">
+          <div class="ticker-number" 
+               [attr.data-aos]="'count-up'"
+               [attr.data-aos-delay]="'1400'">10+</div>
           <div class="ticker-label">Years Experience</div>
         </div>
-        <div class="ticker-divider">|</div>
-        <div class="ticker-item">
+        <div class="ticker-divider" data-aos="fade-in" data-aos-delay="1450">|</div>
+        <div class="ticker-item" data-aos="zoom-in" data-aos-delay="1500">
           <div class="ticker-number">Licensed</div>
           <div class="ticker-label">PRO Services</div>
         </div>
@@ -504,10 +562,10 @@
   <!-- Business Support Section -->
   <section class="business-support-section">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">
+      <h2 class="section-title" data-aos="fade-up" data-aos-easing="ease-out-cubic">
         BUSINESS SUPPORT SERVICES
       </h2>
-      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease-out-cubic">
         Complete support for all your business needs in UAE
       </p>
 
@@ -515,10 +573,13 @@
         <div
           *ngFor="let service of BUSINESS_SUPPORT; let i = index"
           class="service-card"
-          data-aos="fade-up"
-          [attr.data-aos-delay]="i * 100"
+          [attr.data-aos]="'zoom-in'"
+          [attr.data-aos-delay]="(i * 100).toString()"
+          [attr.data-aos-anchor-placement]="'center-bottom'"
         >
-          <div class="service-icon-wrapper">
+          <div class="service-icon-wrapper" 
+               [attr.data-aos]="'flip-left'"
+               [attr.data-aos-delay]="(i * 150 + 300).toString()">
             <i class="bi {{ service.icon }} service-icon"></i>
           </div>
           <h3 class="service-title">{{ service.title }}</h3>
@@ -531,10 +592,10 @@
   <!-- Freezone Benefits Section -->
   <section class="freezone-benefits-section">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">
+      <h2 class="section-title" data-aos="fade-down" data-aos-easing="ease-in-sine">
         FREEZONE COMPANY FORMATION
       </h2>
-      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      <p class="section-subtitle" data-aos="fade-down" data-aos-delay="100" data-aos-easing="ease-in-sine">
         Dubai Mainland & Freezone Business Setup Features
       </p>
 
@@ -542,10 +603,13 @@
         <div
           *ngFor="let benefit of FREEZONE_BENEFITS; let i = index"
           class="benefit-card"
-          data-aos="zoom-in"
-          [attr.data-aos-delay]="i * 150"
+          [attr.data-aos]="'flip-up'"
+          [attr.data-aos-delay]="(i * 150).toString()"
+          [attr.data-aos-duration]="'800'"
         >
-          <div class="benefit-icon">{{ benefit.icon }}</div>
+          <div class="benefit-icon" 
+               [attr.data-aos]="'tada'"
+               [attr.data-aos-delay]="(i * 200 + 500).toString()">{{ benefit.icon }}</div>
           <h3 class="benefit-title">{{ benefit.title }}</h3>
           <p class="benefit-description">{{ benefit.description }}</p>
         </div>
@@ -556,10 +620,10 @@
   <!-- Freezone Setup Process -->
   <section class="process-section">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">
+      <h2 class="section-title" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         HOW TO START A BUSINESS IN A UAE FREE ZONE?
       </h2>
-      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-aos-anchor-placement="top-bottom">
         Find the Key Steps to Set Up a Business in a UAE Free Zone
       </p>
 
@@ -567,14 +631,19 @@
         <div
           *ngFor="let step of FREEZONE_STEPS; let index = index"
           class="step-card"
-          data-aos="flip-left"
-          [attr.data-aos-delay]="index * 200"
+          [attr.data-aos]="'zoom-in-up'"
+          [attr.data-aos-delay]="(index * 200).toString()"
+          [attr.data-aos-duration]="'600'"
         >
-          <div class="icon-container">
+          <div class="icon-container" 
+               [attr.data-aos]="'rotate-c'"
+               [attr.data-aos-delay]="(index * 200 + 300).toString()">
             <i class="bi {{ step.icon }} step-icon"></i>
           </div>
 
-          <div class="step-number">{{ step.number }}</div>
+          <div class="step-number" 
+               [attr.data-aos]="'fade-in'"
+               [attr.data-aos-delay]="(index * 200 + 400).toString()">{{ step.number }}</div>
           <h3 class="step-title">{{ step.title }}</h3>
           <p class="step-description">{{ step.description }}</p>
         </div>
@@ -583,8 +652,6 @@
   </section>
 
   <!-- Simplified About Section for Landing Page -->
-  <!-- Replace the existing about section in landing-page-container.component.html -->
-
   <section id="about" class="about-section-preview">
     <div class="container">
       <div class="about-grid">
@@ -593,21 +660,22 @@
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
             alt="Al Bayan Team"
             class="about-img"
+            data-aos="zoom-in" data-aos-delay="300"
           />
         </div>
 
         <div class="about-content" data-aos="fade-left" data-aos-delay="300">
-          <h2 class="about-title">
+          <h2 class="about-title" data-aos="fade-down" data-aos-delay="400">
             ABOUT AL BAYAN<sup class="registered">®</sup>
           </h2>
-          <p class="about-text">
+          <p class="about-text" data-aos="fade-up" data-aos-delay="450">
             Established in 2015, Al Bayan Typing Services has been a trusted
             partner for individuals and businesses in Ajman and across the UAE.
             With over {{ yearsOfService }} years of excellence, we specialize in
             providing fast, accurate, and reliable typing, translation, and
             government documentation services.
           </p>
-          <p class="about-text">
+          <p class="about-text" data-aos="fade-up" data-aos-delay="500">
             Our team of experienced professionals is dedicated to making your
             visa, Emirates ID, translation, and PRO service needs as smooth and
             hassle-free as possible.
@@ -615,15 +683,15 @@
 
           <!-- Key Highlights -->
           <div class="key-highlights">
-            <div class="highlight-item">
+            <div class="highlight-item" data-aos="zoom-in" data-aos-delay="550">
               <i class="fas fa-award"></i>
               <span>Licensed Since 2015</span>
             </div>
-            <div class="highlight-item">
+            <div class="highlight-item" data-aos="zoom-in" data-aos-delay="600">
               <i class="fas fa-check-circle"></i>
               <span>100% Success Rate</span>
             </div>
-            <div class="highlight-item">
+            <div class="highlight-item" data-aos="zoom-in" data-aos-delay="650">
               <i class="fas fa-users"></i>
               <span>25,000+ Happy Clients</span>
             </div>
@@ -631,11 +699,11 @@
 
           <!-- Learn More Button -->
           <div class="about-actions">
-            <a routerLink="/about" class="btn-learn-more">
+            <a routerLink="/about" class="btn-learn-more" data-aos="zoom-in" data-aos-delay="700">
               <span>LEARN MORE ABOUT US</span>
               <i class="fas fa-arrow-right"></i>
             </a>
-            <a href="#contact" class="btn-contact">CONTACT US</a>
+            <a href="#contact" class="btn-contact" data-aos="zoom-in" data-aos-delay="750">CONTACT US</a>
           </div>
         </div>
       </div>
@@ -646,8 +714,8 @@
   <section class="mission-vision-section">
     <div class="container">
       <div class="mission-vision-grid">
-        <div class="mission-card" data-aos="zoom-in" data-aos-delay="200">
-          <div class="card-icon">🎯</div>
+        <div class="mission-card" data-aos="fade-right" data-aos-delay="200" data-aos-offset="200">
+          <div class="card-icon" data-aos="pulse" data-aos-delay="400" data-aos-iteration="2">🎯</div>
           <h3>Our Mission</h3>
           <p>
             To deliver fast, reliable, and accurate typing and documentation
@@ -656,8 +724,8 @@
           </p>
         </div>
 
-        <div class="vision-card" data-aos="zoom-in" data-aos-delay="300">
-          <div class="card-icon">👁️</div>
+        <div class="vision-card" data-aos="fade-left" data-aos-delay="300" data-aos-offset="200">
+          <div class="card-icon" data-aos="pulse" data-aos-delay="500" data-aos-iteration="2">👁️</div>
           <h3>Our Vision</h3>
           <p>
             To be Ajman's leading typing center known for excellence, customer
@@ -671,10 +739,10 @@
   <!-- Projects/Success Stories Carousel -->
   <section id="projects" class="projects-carousel">
     <div class="carousel-container">
-      <div class="carousel-header" data-aos="fade-up">
+      <div class="carousel-header" data-aos="fade-down" data-aos-easing="ease-out-cubic">
         <div>
-          <h2 class="section-title">SUCCESS STORIES</h2>
-          <p class="section-subtitle">
+          <h2 class="section-title" data-aos="fade-right">SUCCESS STORIES</h2>
+          <p class="section-subtitle" data-aos="fade-right" data-aos-delay="150">
             Explore our portfolio of completed services
           </p>
         </div>
@@ -684,6 +752,8 @@
             (click)="prevProject()"
             class="control-button"
             aria-label="Previous"
+            data-aos="fade-left"
+            data-aos-delay="300"
           >
             <i class="fas fa-chevron-left control-icon"></i>
           </button>
@@ -691,6 +761,8 @@
             (click)="nextProject()"
             class="control-button"
             aria-label="Next"
+            data-aos="fade-left"
+            data-aos-delay="400"
           >
             <i class="fas fa-chevron-right control-icon"></i>
           </button>
@@ -701,10 +773,13 @@
         <div
           *ngFor="let project of getVisibleProjects(); let i = index"
           class="project-card"
-          data-aos="fade-up"
-          [attr.data-aos-delay]="i * 150"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="(i * 150).toString()"
+          [attr.data-aos-anchor-placement]="'top-center'"
         >
-          <div class="image-container">
+          <div class="image-container" 
+               [attr.data-aos]="'zoom-in'"
+               [attr.data-aos-delay]="(i * 200).toString()">
             <img
               [src]="project.image"
               [alt]="project.title"
@@ -720,12 +795,13 @@
       </div>
 
       <div class="progress-dots">
-        <!-- Line 366 - Remove the aria-label attribute -->
         <button
           *ngFor="let project of projects; let index = index"
           (click)="currentProjectIndex = index"
           class="progress-dot"
           [class.active]="index === currentProjectIndex"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="(index * 50 + 500).toString()"
         ></button>
       </div>
     </div>
@@ -734,17 +810,24 @@
   <!-- Process Section -->
   <section class="process-section">
     <div class="container">
-      <h2 class="section-title">HOW WE WORK</h2>
+      <h2 class="section-title" data-aos="fade-down" data-aos-easing="ease-in-back">HOW WE WORK</h2>
 
       <div class="steps-grid">
         <div
           *ngFor="let step of processSteps; let index = index"
           class="step-card"
+          [attr.data-aos]="'flip-left'"
+          [attr.data-aos-delay]="(index * 200).toString()"
+          [attr.data-aos-duration]="'500'"
         >
-          <div class="icon-container">
+          <div class="icon-container" 
+               [attr.data-aos]="'rotate-c'"
+               [attr.data-aos-delay]="(index * 200 + 300).toString()">
             <i class="bi {{ step.icon }} step-icon"></i>
           </div>
-          <div class="step-number">{{ step.number }}</div>
+          <div class="step-number" 
+               [attr.data-aos]="'zoom-in'"
+               [attr.data-aos-delay]="(index * 200 + 400).toString()">{{ step.number }}</div>
           <h3 class="step-title">{{ step.title }}</h3>
           <p class="step-description">{{ step.description }}</p>
         </div>
@@ -756,21 +839,23 @@
   <section class="cost-calculator">
     <div class="calculator-container">
       <div class="header-section">
-        <h2 class="section-title">INSTANT COST<br />CALCULATOR</h2>
-        <p class="section-description">
+        <h2 class="section-title" data-aos="fade-right" data-aos-offset="200">
+          INSTANT COST<br />CALCULATOR
+        </h2>
+        <p class="section-description" data-aos="fade-right" data-aos-delay="150" data-aos-offset="200">
           Get a quick estimate for your service requirements. Contact us for
           detailed quotations.
         </p>
       </div>
 
       <div class="calculator-grid">
-        <div class="calculator-form">
+        <div class="calculator-form" data-aos="fade-up-right" data-aos-delay="200">
           <div class="form-header">
             <h3>Calculate Service Cost</h3>
           </div>
 
           <form (submit)="calculateCost($event)" class="cost-form">
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-right" data-aos-delay="300">
               <label class="form-label">Service Type *</label>
               <select
                 [(ngModel)]="calculatorData.serviceType"
@@ -788,7 +873,7 @@
               </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-right" data-aos-delay="350">
               <label class="form-label">Number of Documents/Services *</label>
               <input
                 type="number"
@@ -801,7 +886,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-right" data-aos-delay="400">
               <label class="form-label">Processing Speed *</label>
               <select
                 [(ngModel)]="calculatorData.urgency"
@@ -816,65 +901,65 @@
               </select>
             </div>
 
-            <button type="submit" class="calculate-button">
+            <button type="submit" class="calculate-button" data-aos="zoom-in" data-aos-delay="500">
               Calculate Estimate
             </button>
           </form>
         </div>
 
-        <div class="results-section">
+        <div class="results-section" data-aos="fade-up-left" data-aos-delay="300">
           <div
             *ngIf="estimatedCost !== null; else placeholder"
             class="results-content"
           >
-            <div class="estimate-card">
+            <div class="estimate-card" data-aos="flip-up" data-aos-delay="400">
               <div class="estimate-header">
                 <h3 class="estimate-title">Estimated Cost</h3>
               </div>
-              <div class="estimate-amount">AED {{ estimatedCost }}</div>
+              <div class="estimate-amount" data-aos="zoom-in" data-aos-delay="500">AED {{ estimatedCost }}</div>
               <p class="estimate-disclaimer">
                 This is an approximate estimate. Final cost may vary based on
                 specific requirements and document complexity.
               </p>
             </div>
 
-            <div class="included-list">
+            <div class="included-list" data-aos="fade-up" data-aos-delay="600">
               <h4 class="list-title">What's Included</h4>
               <div class="list-items">
-                <div class="list-item">
+                <div class="list-item" data-aos="fade-right" data-aos-delay="650">
                   <div class="list-bullet"></div>
                   <span>Professional typing and processing</span>
                 </div>
-                <div class="list-item">
+                <div class="list-item" data-aos="fade-right" data-aos-delay="700">
                   <div class="list-bullet"></div>
                   <span>Government submission fees</span>
                 </div>
-                <div class="list-item">
+                <div class="list-item" data-aos="fade-right" data-aos-delay="750">
                   <div class="list-bullet"></div>
                   <span>Document verification</span>
                 </div>
-                <div class="list-item">
+                <div class="list-item" data-aos="fade-right" data-aos-delay="800">
                   <div class="list-bullet"></div>
                   <span>SMS status updates</span>
                 </div>
-                <div class="list-item">
+                <div class="list-item" data-aos="fade-right" data-aos-delay="850">
                   <div class="list-bullet"></div>
                   <span>Customer support</span>
                 </div>
               </div>
             </div>
 
-            <div class="cta-section">
+            <div class="cta-section" data-aos="zoom-in" data-aos-delay="900">
               <h4 class="cta-title">Want a Detailed Quote?</h4>
               <p class="cta-description">
                 Get a comprehensive, itemized estimate with no hidden costs
               </p>
-              <a href="#contact" class="cta-button"> Request Detailed Quote </a>
+              <a href="#contact" class="cta-button" data-aos="pulse" data-aos-delay="1000"> Request Detailed Quote </a>
             </div>
           </div>
 
           <ng-template #placeholder>
-            <div class="placeholder-section">
+            <div class="placeholder-section" data-aos="fade-in" data-aos-delay="400">
               <div class="placeholder-content">
                 <div class="placeholder-title">Enter Your Service Details</div>
                 <p class="placeholder-description">
@@ -893,19 +978,19 @@
     <div class="container">
       <div class="grid">
         <div class="content-col" data-aos="fade-right" data-aos-delay="200">
-          <h2 class="section-title">
+          <h2 class="section-title" data-aos="fade-down" data-aos-delay="300">
             WHY CHOOSE<br />
             AL BAYAN<sup class="trademark">®</sup>
           </h2>
 
           <div class="description">
-            <p class="text">
+            <p class="text" data-aos="fade-up" data-aos-delay="350">
               With Al Bayan Typing Services, you're partnering with a trusted
               name in Ajman's document processing industry. Our decade-long
               experience, combined with direct government system access, ensures
               your documents are handled efficiently and accurately.
             </p>
-            <p class="text">
+            <p class="text" data-aos="fade-up" data-aos-delay="400">
               We understand the value of your time. That's why we offer express
               services, SMS updates, and home delivery options. Our transparent
               pricing means no surprises – just honest, reliable service every
@@ -914,28 +999,28 @@
           </div>
 
           <div class="features">
-            <div class="feature-item">
+            <div class="feature-item" data-aos="fade-right" data-aos-delay="450">
               <div class="bullet"></div>
               <p class="feature-text">
                 <strong>Direct Government Access:</strong> Tasheel, AMER, GDRFA,
                 and ICP systems integration
               </p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-aos="fade-right" data-aos-delay="500">
               <div class="bullet"></div>
               <p class="feature-text">
                 <strong>Licensed & Registered:</strong> Official license number
                 70510 since 2015
               </p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-aos="fade-right" data-aos-delay="550">
               <div class="bullet"></div>
               <p class="feature-text">
                 <strong>Multi-Service Hub:</strong> Typing, Translation, PRO,
                 and Government services under one roof
               </p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-aos="fade-right" data-aos-delay="600">
               <div class="bullet"></div>
               <p class="feature-text">
                 <strong>Customer First:</strong> Your satisfaction and
@@ -944,7 +1029,7 @@
             </div>
           </div>
 
-          <a href="#contact" class="cta-button"> Start Your Service </a>
+          <a href="#contact" class="cta-button" data-aos="zoom-in" data-aos-delay="650"> Start Your Service </a>
         </div>
 
         <div class="image-col" data-aos="fade-left" data-aos-delay="300">
@@ -952,6 +1037,7 @@
             src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
             alt="Al Bayan Services"
             class="main-image"
+            data-aos="zoom-in" data-aos-delay="400"
           />
         </div>
       </div>
@@ -961,9 +1047,9 @@
   <!-- Special Features Section -->
   <section class="main-features">
     <div class="container">
-      <div class="features-header">
-        <h2>WHAT MAKES US<br />DIFFERENT</h2>
-        <p>
+      <div class="features-header" data-aos="fade-down" data-aos-easing="ease-in-back">
+        <h2 data-aos="fade-right" data-aos-delay="100">WHAT MAKES US<br />DIFFERENT</h2>
+        <p data-aos="fade-right" data-aos-delay="150">
           Beyond just typing – we bring technology, transparency, and dedication
           to make your documentation experience exceptional
         </p>
@@ -973,8 +1059,13 @@
         <div
           *ngFor="let feature of specialFeatures; let index = index"
           class="feature-card"
+          [attr.data-aos]="'zoom-in-up'"
+          [attr.data-aos-delay]="(index * 100).toString()"
+          [attr.data-aos-duration]="'600'"
         >
-          <div class="feature-icon">
+          <div class="feature-icon" 
+               [attr.data-aos]="'tada'"
+               [attr.data-aos-delay]="(index * 100 + 500).toString()">
             <i class="bi {{ feature.icon }}"></i>
           </div>
 
@@ -988,16 +1079,21 @@
   <!-- Unique Services Section -->
   <section class="unique-services">
     <div class="container">
-      <div class="services-header">
-        <h2>THE AL BAYAN<br />ADVANTAGE</h2>
+      <div class="services-header" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+        <h2 data-aos="fade-down" data-aos-delay="100">THE AL BAYAN<br />ADVANTAGE</h2>
       </div>
 
       <div class="services-grid">
         <div
           *ngFor="let service of uniqueServices; let index = index"
           class="service-card"
+          [attr.data-aos]="'flip-left'"
+          [attr.data-aos-delay]="(index * 150).toString()"
+          [attr.data-aos-duration]="'500'"
         >
-          <div class="service-image-container">
+          <div class="service-image-container" 
+               [attr.data-aos]="'zoom-in'"
+               [attr.data-aos-delay]="(index * 150 + 300).toString()">
             <img
               [src]="service.image"
               [alt]="service.title"
@@ -1015,20 +1111,28 @@
   <section class="trust-factors">
     <div class="container">
       <div class="trust-grid">
-        <div class="trust-item">
-          <div class="trust-number">100%</div>
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="200">
+          <div class="trust-number" 
+               [attr.data-aos]="'count-up'"
+               [attr.data-aos-delay]="'300'">100%</div>
           <p class="trust-label">Accuracy Guaranteed</p>
         </div>
-        <div class="trust-item">
-          <div class="trust-number">Zero</div>
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="300">
+          <div class="trust-number" 
+               [attr.data-aos]="'count-up'"
+               [attr.data-aos-delay]="'400'">Zero</div>
           <p class="trust-label">Hidden Charges</p>
         </div>
-        <div class="trust-item">
-          <div class="trust-number">24/7</div>
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="400">
+          <div class="trust-number" 
+               [attr.data-aos]="'count-up'"
+               [attr.data-aos-delay]="'500'">24/7</div>
           <p class="trust-label">Emergency Support</p>
         </div>
-        <div class="trust-item">
-          <div class="trust-number">10+</div>
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="500">
+          <div class="trust-number" 
+               [attr.data-aos]="'count-up'"
+               [attr.data-aos-delay]="'600'">10+</div>
           <p class="trust-label">Years Experience</p>
         </div>
       </div>
@@ -1042,12 +1146,12 @@
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <div class="header-decoration">
-          <div class="decoration-line"></div>
-          <div class="decoration-text">OUR STRENGTH</div>
-          <div class="decoration-line"></div>
+          <div class="decoration-line" data-aos="zoom-in" data-aos-delay="100"></div>
+          <div class="decoration-text" data-aos="fade-down" data-aos-delay="150">OUR STRENGTH</div>
+          <div class="decoration-line" data-aos="zoom-in" data-aos-delay="200"></div>
         </div>
-        <h2 class="section-title">THE AL BAYAN<sup>®</sup> TEAM</h2>
-        <p class="section-description">
+        <h2 class="section-title" data-aos="fade-down" data-aos-delay="250">THE AL BAYAN<sup>®</sup> TEAM</h2>
+        <p class="section-description" data-aos="fade-down" data-aos-delay="300">
           Meet the dedicated professionals who make your documentation needs
           effortless
         </p>
@@ -1058,6 +1162,7 @@
           class="tab-btn"
           [class.active]="activeTab === 'team'"
           (click)="activeTab = 'team'"
+          data-aos="fade-right" data-aos-delay="350"
         >
           OUR TEAM
         </button>
@@ -1065,6 +1170,7 @@
           class="tab-btn"
           [class.active]="activeTab === 'expertise'"
           (click)="activeTab = 'expertise'"
+          data-aos="fade-left" data-aos-delay="400"
         >
           OUR EXPERTISE
         </button>
@@ -1074,10 +1180,12 @@
         <div
           *ngFor="let member of teamMembers; let index = index"
           class="team-card"
-          data-aos="zoom-in"
-          [attr.data-aos-delay]="index * 150"
+          [attr.data-aos]="'zoom-in'"
+          [attr.data-aos-delay]="(index * 150).toString()"
         >
-          <div class="card-image-container">
+          <div class="card-image-container" 
+               [attr.data-aos]="'zoom-in'"
+               [attr.data-aos-delay]="(index * 150 + 100).toString()">
             <img [src]="member.image" [alt]="member.name" class="card-image" />
             <div class="image-overlay"></div>
           </div>
@@ -1099,8 +1207,12 @@
         <div
           *ngFor="let item of expertise; let index = index"
           class="expertise-card"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="(index * 100).toString()"
         >
-          <div class="expertise-icon">
+          <div class="expertise-icon" 
+               [attr.data-aos]="'tada'"
+               [attr.data-aos-delay]="(index * 100 + 300).toString()">
             <div class="icon-container">{{ item.icon }}</div>
           </div>
           <div class="expertise-content">
@@ -1115,8 +1227,12 @@
           <div
             *ngFor="let achievement of achievements; let index = index"
             class="achievement-item"
+            [attr.data-aos]="'zoom-in'"
+            [attr.data-aos-delay]="(index * 150).toString()"
           >
-            <div class="achievement-icon-container">
+            <div class="achievement-icon-container" 
+                 [attr.data-aos]="'rotate-c'"
+                 [attr.data-aos-delay]="(index * 150 + 300).toString()">
               <div
                 class="achievement-icon"
                 [style.background]="
@@ -1132,19 +1248,21 @@
                 </div>
               </div>
             </div>
-            <div class="achievement-number">{{ achievement.number }}</div>
+            <div class="achievement-number" 
+                 [attr.data-aos]="'count-up'"
+                 [attr.data-aos-delay]="(index * 150 + 400).toString()">{{ achievement.number }}</div>
             <div class="achievement-label">{{ achievement.label }}</div>
           </div>
         </div>
       </div>
 
       <div class="cta-section">
-        <h3 class="cta-title">Ready to Experience Professional Service?</h3>
-        <p class="cta-description">
+        <h3 class="cta-title" data-aos="fade-up" data-aos-delay="200">Ready to Experience Professional Service?</h3>
+        <p class="cta-description" data-aos="fade-up" data-aos-delay="250">
           Join thousands of satisfied clients who trusted Al Bayan with their
           documentation needs
         </p>
-        <button class="cta-button" (click)="scrollToSection('contact')">
+        <button class="cta-button" (click)="scrollToSection('contact')" data-aos="zoom-in" data-aos-delay="300">
           <span>CONTACT US TODAY</span>
           <span class="arrow">→</span>
         </button>
@@ -1155,9 +1273,9 @@
   <!-- Before After Section -->
   <section class="before-after-section">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">TRANSFORMATION<br />JOURNEY</h2>
-        <p class="section-description">
+      <div class="section-header" data-aos="fade-down" data-aos-easing="ease-in-back">
+        <h2 class="section-title" data-aos="fade-right">TRANSFORMATION<br />JOURNEY</h2>
+        <p class="section-description" data-aos="fade-right" data-aos-delay="150">
           See how we've evolved to provide better, faster, and more
           comprehensive services
         </p>
@@ -1167,27 +1285,41 @@
         <div
           *ngFor="let project of beforeAfterProjects; let index = index"
           class="project-card"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="(index * 200).toString()"
         >
           <div class="project-content">
             <div class="grid-container">
               <div class="project-info">
-                <div class="location-badge">{{ project.location }}</div>
-                <h3 class="project-title">{{ project.title }}</h3>
-                <p class="project-description">{{ project.description }}</p>
+                <div class="location-badge" 
+                     [attr.data-aos]="'zoom-in'"
+                     [attr.data-aos-delay]="(index * 200 + 100).toString()">{{ project.location }}</div>
+                <h3 class="project-title" 
+                    [attr.data-aos]="'fade-right'"
+                    [attr.data-aos-delay]="(index * 200 + 150).toString()">{{ project.title }}</h3>
+                <p class="project-description" 
+                   [attr.data-aos]="'fade-right'"
+                   [attr.data-aos-delay]="(index * 200 + 200).toString()">{{ project.description }}</p>
 
                 <div class="comparison-labels">
-                  <div class="comparison-item">
+                  <div class="comparison-item" 
+                       [attr.data-aos]="'fade-up'"
+                       [attr.data-aos-delay]="(index * 200 + 250).toString()">
                     <div class="comparison-title">Before</div>
                     <p class="comparison-subtitle">Traditional methods</p>
                   </div>
-                  <div class="comparison-item">
+                  <div class="comparison-item" 
+                       [attr.data-aos]="'fade-up'"
+                       [attr.data-aos-delay]="(index * 200 + 300).toString()">
                     <div class="comparison-title">After</div>
                     <p class="comparison-subtitle">Modern solutions</p>
                   </div>
                 </div>
               </div>
 
-              <div class="before-after-slider">
+              <div class="before-after-slider" 
+                   [attr.data-aos]="'zoom-in'"
+                   [attr.data-aos-delay]="(index * 200 + 350).toString()">
                 <div class="slider-container">
                   <div class="image-after">
                     <img
@@ -1241,7 +1373,7 @@
       </div>
 
       <div class="cta-container">
-        <a href="#contact" class="cta-button"> Experience Our Services </a>
+        <a href="#contact" class="cta-button" data-aos="zoom-in" data-aos-delay="500"> Experience Our Services </a>
       </div>
     </div>
   </section>
@@ -1251,8 +1383,8 @@
     <div class="certifications-container">
       <div class="certifications-content mb-24">
         <div class="text-center mb-16">
-          <h2 class="mb-6">LICENSED &<br />CERTIFIED CENTER</h2>
-          <p class="section-description">
+          <h2 class="mb-6" data-aos="fade-down" data-aos-easing="ease-in-out">LICENSED &<br />CERTIFIED CENTER</h2>
+          <p class="section-description" data-aos="fade-down" data-aos-delay="150" data-aos-easing="ease-in-out">
             Al Bayan Typing Services is officially registered and licensed by
             the Ajman Economic Department. All our services comply with UAE
             government regulations.
@@ -1260,8 +1392,8 @@
         </div>
 
         <div class="certifications-grid">
-          <div class="certification-card">
-            <div class="icon-container">
+          <div class="certification-card" data-aos="flip-left" data-aos-delay="200">
+            <div class="icon-container" data-aos="tada" data-aos-delay="400">
               <i class="fas fa-award cert-icon"></i>
             </div>
             <h4 class="cert-title">Official License</h4>
@@ -1271,8 +1403,8 @@
             </p>
           </div>
 
-          <div class="certification-card">
-            <div class="icon-container">
+          <div class="certification-card" data-aos="flip-left" data-aos-delay="300">
+            <div class="icon-container" data-aos="tada" data-aos-delay="500">
               <i class="fas fa-check-circle cert-icon"></i>
             </div>
             <h4 class="cert-title">Government Approved</h4>
@@ -1281,8 +1413,8 @@
             </p>
           </div>
 
-          <div class="certification-card">
-            <div class="icon-container">
+          <div class="certification-card" data-aos="flip-left" data-aos-delay="400">
+            <div class="icon-container" data-aos="tada" data-aos-delay="600">
               <i class="fas fa-shield-alt cert-icon"></i>
             </div>
             <h4 class="cert-title">Certified Translators</h4>
@@ -1291,8 +1423,8 @@
             </p>
           </div>
 
-          <div class="certification-card">
-            <div class="icon-container">
+          <div class="certification-card" data-aos="flip-left" data-aos-delay="500">
+            <div class="icon-container" data-aos="tada" data-aos-delay="700">
               <i class="fas fa-users cert-icon"></i>
             </div>
             <h4 class="cert-title">Trained Staff</h4>
@@ -1305,54 +1437,62 @@
 
       <div class="achievements-section">
         <div class="text-center mb-16">
-          <h2 class="achievements-title mb-6">
+          <h2 class="achievements-title mb-6" data-aos="fade-up" data-aos-anchor-placement="top-center">
             OUR ACHIEVEMENTS<br />& MILESTONES
           </h2>
-          <p class="achievements-description">
+          <p class="achievements-description" data-aos="fade-up" data-aos-delay="150" data-aos-anchor-placement="top-center">
             Numbers that speak for our commitment to excellence and customer
             satisfaction
           </p>
         </div>
 
         <div class="achievements-grid">
-          <div class="achievement-card">
-            <div class="achievement-icon-container">
+          <div class="achievement-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="achievement-icon-container" data-aos="rotate-c" data-aos-delay="400">
               <i class="fas fa-chart-line achievement-icon"></i>
             </div>
-            <div class="achievement-stat">50000+</div>
+            <div class="achievement-stat" 
+                 [attr.data-aos]="'count-up'"
+                 [attr.data-aos-delay]="'500'">50000+</div>
             <h4 class="achievement-label">Documents Processed</h4>
             <p class="achievement-description">
               Successfully completed and delivered
             </p>
           </div>
 
-          <div class="achievement-card">
-            <div class="achievement-icon-container">
+          <div class="achievement-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="achievement-icon-container" data-aos="rotate-c" data-aos-delay="500">
               <i class="fas fa-check-circle achievement-icon"></i>
             </div>
-            <div class="achievement-stat">98%</div>
+            <div class="achievement-stat" 
+                 [attr.data-aos]="'count-up'"
+                 [attr.data-aos-delay]="'600'">98%</div>
             <h4 class="achievement-label">Client Satisfaction</h4>
             <p class="achievement-description">
               Based on customer feedback surveys
             </p>
           </div>
 
-          <div class="achievement-card">
-            <div class="achievement-icon-container">
+          <div class="achievement-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="achievement-icon-container" data-aos="rotate-c" data-aos-delay="600">
               <i class="fas fa-award achievement-icon"></i>
             </div>
-            <div class="achievement-stat">10+</div>
+            <div class="achievement-stat" 
+                 [attr.data-aos]="'count-up'"
+                 [attr.data-aos-delay]="'700'">10+</div>
             <h4 class="achievement-label">Years of Service</h4>
             <p class="achievement-description">
               Serving the community since 2015
             </p>
           </div>
 
-          <div class="achievement-card">
-            <div class="achievement-icon-container">
+          <div class="achievement-card" data-aos="zoom-in" data-aos-delay="500">
+            <div class="achievement-icon-container" data-aos="rotate-c" data-aos-delay="700">
               <i class="fas fa-shield-alt achievement-icon"></i>
             </div>
-            <div class="achievement-stat">100%</div>
+            <div class="achievement-stat" 
+                 [attr.data-aos]="'count-up'"
+                 [attr.data-aos-delay]="'800'">100%</div>
             <h4 class="achievement-label">Compliance Record</h4>
             <p class="achievement-description">
               Perfect government compliance history
@@ -1366,12 +1506,17 @@
   <!-- Gallery Section -->
   <section class="gallery-section">
     <div class="gallery-container">
-      <h2 class="gallery-title">GALLERY OF<br />OUR SERVICES</h2>
+      <h2 class="gallery-title" data-aos="fade-down" data-aos-easing="ease-in-quad">
+        GALLERY OF<br />OUR SERVICES
+      </h2>
 
       <div class="gallery-grid">
         <div
           *ngFor="let image of galleryImages; let index = index"
           class="gallery-item"
+          [attr.data-aos]="'zoom-in-up'"
+          [attr.data-aos-delay]="(index * 100).toString()"
+          [attr.data-aos-duration]="'600'"
         >
           <img
             [src]="image"
@@ -1387,14 +1532,14 @@
   <section class="testimonials-section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <h2 class="section-title">CLIENT TESTIMONIALS</h2>
-        <p class="section-subtitle">
+        <h2 class="section-title" data-aos="fade-right">CLIENT TESTIMONIALS</h2>
+        <p class="section-subtitle" data-aos="fade-right" data-aos-delay="150">
           Hear what our clients say about our services
         </p>
       </div>
 
       <div class="testimonial-card" data-aos="flip-up" data-aos-delay="200">
-        <div class="quote-icon">
+        <div class="quote-icon" data-aos="zoom-in" data-aos-delay="300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="80"
@@ -1414,24 +1559,26 @@
         </div>
 
         <div class="stars-container">
-          <div *ngFor="let star of [1, 2, 3, 4, 5]" class="star">
+          <div *ngFor="let star of [1, 2, 3, 4, 5]" class="star" 
+               [attr.data-aos]="'zoom-in'"
+               [attr.data-aos-delay]="(star * 50 + 350).toString()">
             <i class="fas fa-star"></i>
           </div>
         </div>
 
         <div class="testimonial-content">
-          <p class="testimonial-text">
+          <p class="testimonial-text" data-aos="fade-up" data-aos-delay="400">
             "{{ testimonials[currentTestimonial].text }}"
           </p>
 
           <div class="client-info">
-            <h4 class="client-name">
+            <h4 class="client-name" data-aos="fade-right" data-aos-delay="450">
               {{ testimonials[currentTestimonial].name }}
             </h4>
-            <p class="client-location">
+            <p class="client-location" data-aos="fade-right" data-aos-delay="500">
               {{ testimonials[currentTestimonial].location }}
             </p>
-            <p class="client-project">
+            <p class="client-project" data-aos="fade-right" data-aos-delay="550">
               {{ testimonials[currentTestimonial].project }}
             </p>
           </div>
@@ -1443,23 +1590,27 @@
             class="dot"
             [class.active]="index === currentTestimonial"
             (click)="currentTestimonial = index"
+            [attr.data-aos]="'fade-up'"
+            [attr.data-aos-delay]="(index * 50 + 600).toString()"
           ></button>
         </div>
       </div>
 
-      <div class="client-count">
-        <div class="count-number">25000+</div>
-        <p class="count-label">Happy Clients & Counting</p>
+      <div class="client-count" data-aos="zoom-in" data-aos-delay="700">
+        <div class="count-number" 
+             [attr.data-aos]="'count-up'"
+             [attr.data-aos-delay]="'800'">25000+</div>
+        <p class="count-label" data-aos="fade-up" data-aos-delay="900">Happy Clients & Counting</p>
       </div>
     </div>
   </section>
 
   <!-- FAQ Section -->
-  <section class="faq-section" data-aos="fade-up">
+  <section class="faq-section">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">FREQUENTLY ASKED<br />QUESTIONS</h2>
-        <p class="section-description">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title" data-aos="fade-right">FREQUENTLY ASKED<br />QUESTIONS</h2>
+        <p class="section-description" data-aos="fade-right" data-aos-delay="150">
           Find answers to common questions about our services
         </p>
       </div>
@@ -1468,18 +1619,22 @@
         <div
           *ngFor="let faq of faqs; let index = index"
           class="faq-item"
-          data-aos="fade-up"
-          [attr.data-aos-delay]="index * 100"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="(index * 100).toString()"
         >
           <button
             class="faq-question"
             [class.active]="openFAQ === index"
             (click)="openFAQ = openFAQ === index ? null : index"
+            [attr.data-aos]="'fade-right'"
+            [attr.data-aos-delay]="(index * 100 + 200).toString()"
           >
             <span>{{ faq.question }}</span>
             <span class="faq-icon">{{ openFAQ === index ? "−" : "+" }}</span>
           </button>
-          <div class="faq-answer" *ngIf="openFAQ === index">
+          <div class="faq-answer" *ngIf="openFAQ === index" 
+               [attr.data-aos]="'fade-up'"
+               [attr.data-aos-delay]="(index * 100 + 250).toString()">
             <p>{{ faq.answer }}</p>
           </div>
         </div>
@@ -1490,16 +1645,16 @@
   <!-- Quick Quote Section -->
   <section class="quick-quote">
     <div class="container">
-      <div class="quote-content">
-        <h2 class="quote-title">GET A QUICK QUOTE</h2>
-        <p class="quote-subtitle">
+      <div class="quote-content" data-aos="fade-up">
+        <h2 class="quote-title" data-aos="fade-down">GET A QUICK QUOTE</h2>
+        <p class="quote-subtitle" data-aos="fade-down" data-aos-delay="100">
           Tell us about your requirements and we'll get back to you within 24
           hours
         </p>
 
         <form (submit)="handleFormSubmit($event)" class="quote-form">
           <div class="form-row">
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-right" data-aos-delay="200">
               <label class="form-label">Service Type *</label>
               <select
                 [(ngModel)]="formData.serviceType"
@@ -1517,7 +1672,7 @@
               </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-left" data-aos-delay="250">
               <label class="form-label">Urgency *</label>
               <select
                 [(ngModel)]="formData.urgency"
@@ -1534,7 +1689,7 @@
           </div>
 
           <div class="form-row">
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-right" data-aos-delay="300">
               <label class="form-label">Name *</label>
               <input
                 type="text"
@@ -1546,7 +1701,7 @@
               />
             </div>
 
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-left" data-aos-delay="350">
               <label class="form-label">Phone *</label>
               <input
                 type="tel"
@@ -1559,7 +1714,7 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" data-aos="fade-up" data-aos-delay="400">
             <label class="form-label">Email</label>
             <input
               type="email"
@@ -1570,7 +1725,7 @@
             />
           </div>
 
-          <div class="form-group">
+          <div class="form-group" data-aos="fade-up" data-aos-delay="450">
             <label class="form-label">Message</label>
             <textarea
               [(ngModel)]="formData.message"
@@ -1581,7 +1736,7 @@
             ></textarea>
           </div>
 
-          <button type="submit" class="submit-button">
+          <button type="submit" class="submit-button" data-aos="zoom-in" data-aos-delay="500">
             <i class="fas fa-paper-plane"></i>
             <span>SEND INQUIRY</span>
           </button>
@@ -1593,17 +1748,17 @@
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">GET IN TOUCH</h2>
-        <p class="section-description">
+      <div class="section-header" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+        <h2 class="section-title" data-aos="fade-down">GET IN TOUCH</h2>
+        <p class="section-description" data-aos="fade-down" data-aos-delay="100">
           Visit us at our office in Ajman or reach out through any of these
           channels
         </p>
       </div>
 
       <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-icon">
+        <div class="contact-card" data-aos="flip-left" data-aos-delay="200">
+          <div class="contact-icon" data-aos="tada" data-aos-delay="400">
             <i class="fas fa-map-marker-alt"></i>
           </div>
           <h3 class="contact-title">Visit Us</h3>
@@ -1613,8 +1768,8 @@
           </p>
         </div>
 
-        <div class="contact-card">
-          <div class="contact-icon">
+        <div class="contact-card" data-aos="flip-left" data-aos-delay="300">
+          <div class="contact-icon" data-aos="tada" data-aos-delay="500">
             <i class="fas fa-phone"></i>
           </div>
           <h3 class="contact-title">Call Us</h3>
@@ -1624,8 +1779,8 @@
           </p>
         </div>
 
-        <div class="contact-card">
-          <div class="contact-icon">
+        <div class="contact-card" data-aos="flip-left" data-aos-delay="400">
+          <div class="contact-icon" data-aos="tada" data-aos-delay="600">
             <i class="fas fa-envelope"></i>
           </div>
           <h3 class="contact-title">Email Us</h3>
@@ -1636,8 +1791,8 @@
         </div>
 
         <!-- Update the contact section with complete address -->
-        <div class="contact-card">
-          <div class="contact-icon">
+        <div class="contact-card" data-aos="flip-left" data-aos-delay="500">
+          <div class="contact-icon" data-aos="tada" data-aos-delay="700">
             <i class="fas fa-map-marker-alt"></i>
           </div>
           <h3 class="contact-title">Visit Us</h3>
@@ -1648,14 +1803,14 @@
         </div>
       </div>
 
-      <div class="working-hours">
+      <div class="working-hours" data-aos="fade-up" data-aos-delay="600">
         <h3 class="hours-title">Working Hours</h3>
         <div class="hours-grid">
-          <div class="hours-item">
+          <div class="hours-item" data-aos="fade-right" data-aos-delay="700">
             <span class="day">Saturday - Thursday</span>
             <span class="time">8:00 AM - 8:00 PM</span>
           </div>
-          <div class="hours-item">
+          <div class="hours-item" data-aos="fade-right" data-aos-delay="800">
             <span class="day">Friday</span>
             <span class="time">4:00 PM - 8:00 PM</span>
           </div>
@@ -1669,9 +1824,9 @@
     <div class="footer-top-border"></div>
 
     <div class="footer-container">
-      <div class="newsletter-section">
-        <h3 class="newsletter-title">STAY UPDATED</h3>
-        <p class="newsletter-subtitle">
+      <div class="newsletter-section" data-aos="fade-up">
+        <h3 class="newsletter-title" data-aos="fade-down">STAY UPDATED</h3>
+        <p class="newsletter-subtitle" data-aos="fade-down" data-aos-delay="100">
           Subscribe to receive updates on new services, government regulation
           changes, and special offers
         </p>
@@ -1681,8 +1836,9 @@
             placeholder="Enter your email address"
             required
             class="newsletter-input"
+            data-aos="fade-up" data-aos-delay="200"
           />
-          <button type="submit" class="newsletter-button">
+          <button type="submit" class="newsletter-button" data-aos="zoom-in" data-aos-delay="300">
             SUBSCRIBE
             <i class="fas fa-paper-plane send-icon"></i>
           </button>
@@ -1692,92 +1848,92 @@
       <div class="divider"></div>
 
       <div class="footer-content">
-        <div class="company-info">
-          <h3 class="company-title">
+        <div class="company-info" data-aos="fade-right" data-aos-delay="100">
+          <h3 class="company-title" data-aos="fade-down" data-aos-delay="200">
             AL BAYAN<sup class="registered">®</sup>
-            <div class="title-underline"></div>
+            <div class="title-underline" data-aos="zoom-in" data-aos-delay="300"></div>
           </h3>
-          <p class="company-description">
+          <p class="company-description" data-aos="fade-up" data-aos-delay="250">
             Licensed typing center in Ajman providing professional visa,
             Emirates ID, translation, and PRO services since 2015.
           </p>
-          <p class="company-tagline">Your Trusted Documentation Partner</p>
+          <p class="company-tagline" data-aos="fade-up" data-aos-delay="300">Your Trusted Documentation Partner</p>
 
           <div class="social-buttons">
-            <a href="tel:+97165745454" class="social-button">
+            <a href="tel:+97165745454" class="social-button" data-aos="zoom-in" data-aos-delay="350">
               <i class="fas fa-phone social-icon"></i>
               <span class="social-text">Call Now</span>
             </a>
           </div>
         </div>
 
-        <div class="quick-links">
-          <h4 class="section-title">QUICK LINKS</h4>
+        <div class="quick-links" data-aos="fade-up" data-aos-delay="150">
+          <h4 class="section-title" data-aos="fade-down" data-aos-delay="200">QUICK LINKS</h4>
           <div class="links-list">
-            <button (click)="scrollToSection('home')" class="link-item">
+            <button (click)="scrollToSection('home')" class="link-item" data-aos="fade-right" data-aos-delay="250">
               <span class="link-arrow">→</span>
               Home
             </button>
-            <button (click)="scrollToSection('services')" class="link-item">
+            <button (click)="scrollToSection('services')" class="link-item" data-aos="fade-right" data-aos-delay="300">
               <span class="link-arrow">→</span>
               Services
             </button>
-            <button (click)="scrollToSection('about')" class="link-item">
+            <button (click)="scrollToSection('about')" class="link-item" data-aos="fade-right" data-aos-delay="350">
               <span class="link-arrow">→</span>
               About
             </button>
-            <button (click)="scrollToSection('projects')" class="link-item">
+            <button (click)="scrollToSection('projects')" class="link-item" data-aos="fade-right" data-aos-delay="400">
               <span class="link-arrow">→</span>
               Success Stories
             </button>
-            <button (click)="scrollToSection('contact')" class="link-item">
+            <button (click)="scrollToSection('contact')" class="link-item" data-aos="fade-right" data-aos-delay="450">
               <span class="link-arrow">→</span>
               Contact
             </button>
           </div>
         </div>
 
-        <div class="services">
-          <h4 class="section-title">OUR SERVICES</h4>
+        <div class="services" data-aos="fade-up" data-aos-delay="200">
+          <h4 class="section-title" data-aos="fade-down" data-aos-delay="250">OUR SERVICES</h4>
           <div class="services-list">
-            <div class="service-item">
+            <div class="service-item" data-aos="fade-right" data-aos-delay="300">
               <div class="service-bullet"></div>
               Visa Processing
             </div>
-            <div class="service-item">
+            <div class="service-item" data-aos="fade-right" data-aos-delay="350">
               <div class="service-bullet"></div>
               Emirates ID Services
             </div>
-            <div class="service-item">
+            <div class="service-item" data-aos="fade-right" data-aos-delay="400">
               <div class="service-bullet"></div>
               Translation Services
             </div>
-            <div class="service-item">
+            <div class="service-item" data-aos="fade-right" data-aos-delay="450">
               <div class="service-bullet"></div>
               PRO Services
             </div>
-            <div class="service-item">
+            <div class="service-item" data-aos="fade-right" data-aos-delay="500">
               <div class="service-bullet"></div>
               Medical Fitness
             </div>
-            <div class="service-item">
+            <div class="service-item" data-aos="fade-right" data-aos-delay="550">
               <div class="service-bullet"></div>
               Freezone Licenses
             </div>
           </div>
         </div>
 
-        <div class="contact-info">
-          <h4 class="section-title">CONTACT</h4>
+        <div class="contact-info" data-aos="fade-left" data-aos-delay="250">
+          <h4 class="section-title" data-aos="fade-down" data-aos-delay="300">CONTACT</h4>
           <div class="contact-list">
-            <div class="contact-item">
+            <div class="contact-item" data-aos="fade-up" data-aos-delay="350">
               <i class="fas fa-map-marker-alt contact-icon"></i>
               <p class="contact-text">
                 Shop No. 6, Rashideya 2<br />Ajman, UAE
               </p>
             </div>
 
-            <div class="contact-item">
+            <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
               <i class="fas fa-phone contact-icon"></i>
               <div class="contact-text">
                 <a href="tel:+97165745454" class="phone-link"
@@ -1789,7 +1945,7 @@
               </div>
             </div>
 
-            <div class="contact-item">
+            <div class="contact-item" data-aos="fade-up" data-aos-delay="450">
               <i class="fas fa-envelope contact-icon"></i>
               <a
                 href="mailto:infoalbayantyping.ae"
@@ -1805,7 +1961,7 @@
       <div class="divider bottom-divider"></div>
 
       <div class="bottom-bar">
-        <p class="copyright">
+        <p class="copyright" data-aos="fade-up" data-aos-delay="100">
           &copy; 2026 {{ COMPANY_TRADEMARK.english }}. All rights reserved. |
           License No. {{ COMPANY_LICENSE_DETAILS.licenseNumber }} | Register No.
           {{ COMPANY_LICENSE_DETAILS.registerNumber }} | ACCI No.
@@ -1814,9 +1970,9 @@
         </p>
 
         <div class="legal-links">
-          <button class="legal-link">Privacy Policy</button>
-          <span class="separator">•</span>
-          <button class="legal-link">Terms of Service</button>
+          <button class="legal-link" data-aos="fade-up" data-aos-delay="150">Privacy Policy</button>
+          <span class="separator" data-aos="fade-in" data-aos-delay="200">•</span>
+          <button class="legal-link" data-aos="fade-up" data-aos-delay="250">Terms of Service</button>
         </div>
       </div>
     </div>
@@ -1825,6 +1981,8 @@
       *ngIf="showScrollTop"
       (click)="scrollToTop()"
       class="scroll-top-button"
+      data-aos="zoom-in"
+      data-aos-delay="300"
     >
       <i class="fas fa-chevron-up"></i>
     </button>
