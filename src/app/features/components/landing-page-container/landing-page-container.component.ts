@@ -124,7 +124,8 @@ COMPANY_CONTACT = {
   COMPANY_ADDRESS = {
     shop: 'Shop No. 6, Rashideya 2',
     city: 'Ajman',
-    emirate: 'United Arab Emirates'
+    emirate: 'United Arab Emirates',
+    area: ''
   };
 
   COMPANY_MISSION_VISION = {
@@ -1794,4 +1795,10 @@ COMPANY_INFO: CompanyInfo = {
       [index]: parseInt(event.target.value),
     };
   }
+
+  isToday(day: string): boolean {
+  const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  const today = new Date().getDay();
+  return days[today] === day.toLowerCase();
+}
 }
