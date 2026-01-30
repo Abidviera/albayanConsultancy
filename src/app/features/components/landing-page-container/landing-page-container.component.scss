@@ -3346,6 +3346,7 @@ $tablet-breakpoint: 1024px;
 
 .before-after-section .section-description {
   color: #999;
+  display: none;
 }
 
 .projects-list {
@@ -5704,12 +5705,6 @@ $tablet-breakpoint: 1024px;
   }
 }
 
-
-
-
-
-
-
 .whatsapp-float-button {
   position: fixed;
   bottom: 100px; // Positioned above scroll-top button
@@ -5721,7 +5716,7 @@ $tablet-breakpoint: 1024px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 
+  box-shadow:
     0 4px 12px rgba(37, 211, 102, 0.4),
     0 8px 24px rgba(37, 211, 102, 0.2);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -5742,7 +5737,7 @@ $tablet-breakpoint: 1024px;
   .whatsapp-icon {
     position: relative;
     z-index: 2;
-    
+
     i {
       font-size: 32px;
       color: $color-white;
@@ -5762,16 +5757,16 @@ $tablet-breakpoint: 1024px;
     font-weight: 600;
     letter-spacing: 0.5px;
     white-space: nowrap;
-    box-shadow: 
+    box-shadow:
       0 4px 12px rgba(37, 211, 102, 0.3),
       0 8px 24px rgba(0, 0, 0, 0.15);
     opacity: 0;
     transform: translateX(10px) scale(0.8);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
-    
+
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       right: -8px;
       top: 50%;
@@ -5801,7 +5796,7 @@ $tablet-breakpoint: 1024px;
   // Hover effects
   &:hover {
     transform: scale(1.15) translateY(-5px);
-    box-shadow: 
+    box-shadow:
       0 8px 20px rgba(37, 211, 102, 0.5),
       0 12px 40px rgba(37, 211, 102, 0.3);
 
@@ -5863,22 +5858,22 @@ $tablet-breakpoint: 1024px;
 }
 
 @keyframes whatsappBreathing {
-  0%, 100% {
-    box-shadow: 
+  0%,
+  100% {
+    box-shadow:
       0 4px 12px rgba(37, 211, 102, 0.4),
       0 8px 24px rgba(37, 211, 102, 0.2);
   }
   50% {
-    box-shadow: 
+    box-shadow:
       0 6px 16px rgba(37, 211, 102, 0.5),
       0 12px 32px rgba(37, 211, 102, 0.3);
   }
 }
 
-
 .scroll-top-button {
-  bottom: $spacing-md; 
-  
+  bottom: $spacing-md;
+
   @media (max-width: $mobile-breakpoint) {
     bottom: $spacing-sm;
   }
@@ -5901,7 +5896,7 @@ $tablet-breakpoint: 1024px;
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -5951,7 +5946,7 @@ $tablet-breakpoint: 1024px;
 .map-container-wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  
+
   @media (min-width: $tablet-breakpoint) {
     grid-template-columns: 400px 1fr;
   }
@@ -5997,7 +5992,11 @@ $tablet-breakpoint: 1024px;
   .location-icon {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+    background: linear-gradient(
+      135deg,
+      $color-primary 0%,
+      $color-secondary 100%
+    );
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -6087,7 +6086,11 @@ $tablet-breakpoint: 1024px;
   }
 
   &.primary {
-    background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+    background: linear-gradient(
+      135deg,
+      $color-primary 0%,
+      $color-secondary 100%
+    );
     color: $color-white;
     box-shadow: 0 4px 12px rgba($color-primary, 0.3);
 
@@ -6227,7 +6230,7 @@ $tablet-breakpoint: 1024px;
   backdrop-filter: blur(20px);
   padding: $spacing-5;
   border-radius: $border-radius-lg;
-  box-shadow: 
+  box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.15),
     0 0 0 1px rgba(0, 0, 0, 0.05);
   max-width: 320px;
@@ -6523,7 +6526,7 @@ $tablet-breakpoint: 1024px;
 /* Loading State */
 .map-container.loading {
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -6544,8 +6547,6 @@ $tablet-breakpoint: 1024px;
   }
 }
 
-
-
 /* ================== BRAND TRANSFORMATION SECTION ================== */
 
 .brand-transformation-section {
@@ -6555,7 +6556,7 @@ $tablet-breakpoint: 1024px;
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -6662,7 +6663,11 @@ $tablet-breakpoint: 1024px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(135deg, rgba($color-primary, 0.1) 0%, rgba($color-accent, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba($color-primary, 0.1) 0%,
+      rgba($color-accent, 0.05) 100%
+    );
     padding: $spacing-3 $spacing-6;
     border-radius: 50px;
     margin-bottom: $spacing-6;
@@ -6694,7 +6699,7 @@ $tablet-breakpoint: 1024px;
     justify-content: center;
     background: $color-white;
     border-radius: $border-radius-xl;
-    box-shadow: 
+    box-shadow:
       0 10px 40px rgba(0, 0, 0, 0.08),
       0 2px 8px rgba(0, 0, 0, 0.04);
     overflow: hidden;
@@ -6708,7 +6713,7 @@ $tablet-breakpoint: 1024px;
 
     &:hover {
       transform: translateY(-8px);
-      box-shadow: 
+      box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.12),
         0 4px 16px rgba(0, 0, 0, 0.08);
 
@@ -6771,7 +6776,11 @@ $tablet-breakpoint: 1024px;
 
 .after-side {
   .logo-badge.new-badge {
-    background: linear-gradient(135deg, rgba(#2563eb, 0.1) 0%, rgba(#3b82f6, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(#2563eb, 0.1) 0%,
+      rgba(#3b82f6, 0.05) 100%
+    );
     border-color: rgba(#2563eb, 0.2);
 
     .badge-year {
@@ -6813,12 +6822,16 @@ $tablet-breakpoint: 1024px;
   .arrow-circle {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+    background: linear-gradient(
+      135deg,
+      $color-primary 0%,
+      $color-secondary 100%
+    );
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 
+    box-shadow:
       0 8px 24px rgba($color-primary, 0.3),
       0 2px 8px rgba(0, 0, 0, 0.1);
     animation: pulse 2s ease-in-out infinite;
@@ -6857,13 +6870,14 @@ $tablet-breakpoint: 1024px;
 }
 
 @keyframes pulse {
-  0%, 100% {
-    box-shadow: 
+  0%,
+  100% {
+    box-shadow:
       0 8px 24px rgba($color-primary, 0.3),
       0 2px 8px rgba(0, 0, 0, 0.1);
   }
   50% {
-    box-shadow: 
+    box-shadow:
       0 12px 32px rgba($color-primary, 0.4),
       0 4px 12px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
@@ -7026,7 +7040,8 @@ $tablet-breakpoint: 1024px;
 }
 
 @keyframes rotate {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
   50% {
@@ -7045,7 +7060,7 @@ $tablet-breakpoint: 1024px;
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background-image: repeating-linear-gradient(
@@ -7087,7 +7102,7 @@ $tablet-breakpoint: 1024px;
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 40px;
     left: 10%;
@@ -7139,7 +7154,11 @@ $tablet-breakpoint: 1024px;
   .timeline-marker {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, rgba($color-white, 0.1) 0%, rgba($color-white, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba($color-white, 0.1) 0%,
+      rgba($color-white, 0.05) 100%
+    );
     border: 3px solid rgba($color-accent, 0.3);
     border-radius: 50%;
     margin: 0 auto $spacing-4;
@@ -7201,7 +7220,8 @@ $tablet-breakpoint: 1024px;
 }
 
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 8px 32px rgba($color-accent, 0.4);
   }
   50% {
@@ -7238,7 +7258,7 @@ $tablet-breakpoint: 1024px;
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -7312,7 +7332,7 @@ $tablet-breakpoint: 1024px;
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
@@ -7371,7 +7391,7 @@ $tablet-breakpoint: 1024px;
     overflow: hidden;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(135deg, $color-accent 0%, #b8935f 100%);
@@ -7380,7 +7400,8 @@ $tablet-breakpoint: 1024px;
       transition: transform 0.3s ease;
     }
 
-    span, i {
+    span,
+    i {
       position: relative;
       z-index: 2;
       transition: color 0.3s ease;
@@ -7394,7 +7415,8 @@ $tablet-breakpoint: 1024px;
         transform: scaleX(1);
       }
 
-      span, i {
+      span,
+      i {
         color: $color-white;
       }
 
@@ -7477,5 +7499,766 @@ $tablet-breakpoint: 1024px;
 
   .transformation-cta {
     animation: fadeInUp 0.8s ease-out 1.2s both;
+  }
+}
+
+/* ================== MOBILE RESPONSIVENESS FIXES ================== */
+
+/* General Mobile Adjustments */
+@media (max-width: $mobile-breakpoint) {
+  .container {
+    padding: 0 $spacing-4;
+  }
+
+  .section-title {
+    font-size: $font-size-3xl !important;
+    line-height: 1.2;
+    margin-bottom: $spacing-4;
+  }
+
+  .section-subtitle {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+/* Hero Section Mobile Fixes */
+@media (max-width: $mobile-breakpoint) {
+  .hero-section {
+    margin-top: 65px;
+  }
+
+  .hero-container {
+    min-height: 80vh;
+  }
+
+  .content-wrapper {
+    padding: 40px 20px;
+  }
+
+  .hero-title {
+    font-size: 32px !important;
+    letter-spacing: 1px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: $spacing-3;
+  }
+
+  .btn {
+    width: 100%;
+    padding: $spacing-4 $spacing-6;
+    font-size: 13px;
+  }
+
+  .slide-navigation {
+    display: none;
+  }
+
+  .stats-bar .stats-container {
+    padding: $spacing-lg 20px;
+  }
+
+  .stat-value {
+    font-size: 32px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+}
+
+/* Services Detailed Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .services-detailed-section {
+    padding: 60px 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: $spacing-6;
+  }
+
+  .service-card {
+    padding: $spacing-6;
+  }
+
+  .service-image-container {
+    height: 180px;
+  }
+}
+
+/* Jurisdiction Vintage Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .jurisdiction-vintage-section {
+    padding: 60px 0;
+  }
+
+  .jurisdiction-documents {
+    grid-template-columns: 1fr !important;
+    gap: $spacing-8;
+  }
+
+  .jurisdiction-document {
+    padding: $spacing-6;
+  }
+
+  .document-header {
+    flex-direction: column;
+    gap: $spacing-4;
+  }
+
+  .official-stamp {
+    width: 60px;
+    height: 60px;
+
+    .stamp-icon {
+      font-size: 20px;
+    }
+  }
+
+  .document-title {
+    font-size: 1.5rem;
+  }
+
+  .benefits-list {
+    .benefit-row {
+      grid-template-columns: 30px 1fr 25px;
+      gap: $spacing-3;
+      padding: $spacing-3;
+    }
+  }
+
+  .stats-ticker {
+    flex-direction: column;
+    gap: $spacing-4;
+    padding: $spacing-6;
+
+    .ticker-divider {
+      display: none;
+    }
+  }
+}
+
+/* Business Support & Freezone Benefits Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .business-support-section,
+  .freezone-benefits-section {
+    padding: 60px 0;
+  }
+
+  .benefits-grid,
+  .business-support-section .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: $spacing-6;
+  }
+
+  .benefit-card,
+  .service-card {
+    padding: $spacing-6;
+  }
+
+  .benefit-icon {
+    font-size: $font-size-3xl;
+  }
+}
+
+/* Process Steps Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .process-section {
+    padding: 60px 0;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: $spacing-6;
+  }
+
+  .step-card {
+    padding: $spacing-6;
+
+    .step-icon {
+      font-size: 2rem;
+    }
+
+    .step-number {
+      font-size: $font-size-3xl;
+    }
+  }
+}
+
+/* About Section Preview Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .about-section-preview {
+    padding: 60px 0;
+
+    .about-grid {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-8;
+    }
+
+    .about-image {
+      order: 2;
+    }
+
+    .about-content {
+      order: 1;
+    }
+
+    .about-img {
+      height: 300px;
+    }
+
+    .key-highlights {
+      flex-direction: column;
+      gap: $spacing-4;
+      padding: $spacing-4;
+    }
+
+    .about-actions {
+      flex-direction: column;
+      gap: $spacing-3;
+
+      .btn-learn-more,
+      .btn-contact {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* Brand Transformation Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .brand-transformation-section {
+    padding: 60px 0;
+  }
+
+  .transformation-container {
+    grid-template-columns: 1fr !important;
+    gap: $spacing-8;
+  }
+
+  .logo-container {
+    width: 100% !important;
+    max-width: 280px !important;
+    height: 150px !important;
+  }
+
+  .logo-title h3 {
+    font-size: $font-size-2xl;
+  }
+
+  .logo-subtitle {
+    font-size: $font-size-base;
+  }
+
+  .transformation-arrow {
+    flex-direction: row !important;
+    justify-content: center !important;
+    transform: rotate(90deg);
+
+    .arrow-circle {
+      transform: rotate(-90deg);
+    }
+
+    .transformation-line {
+      width: 60px !important;
+      height: 2px !important;
+      background: linear-gradient(
+        to right,
+        $color-accent,
+        transparent
+      ) !important;
+    }
+  }
+}
+
+/* Mission Vision Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .mission-vision-grid {
+    grid-template-columns: 1fr !important;
+    gap: $spacing-6;
+  }
+
+  .mission-card,
+  .vision-card {
+    padding: $spacing-6;
+
+    .card-icon {
+      font-size: 3rem;
+    }
+
+    h3 {
+      font-size: $font-size-2xl;
+    }
+  }
+}
+
+/* Projects Carousel Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .projects-carousel {
+    padding: 60px 0;
+
+    .desktop-carousel {
+      grid-template-columns: 1fr !important;
+    }
+
+    .carousel-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-4;
+    }
+
+    .carousel-controls {
+      display: none;
+    }
+
+    .project-card .image-container {
+      height: 250px;
+    }
+  }
+}
+
+/* Cost Calculator Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .cost-calculator {
+    padding: 60px 0;
+
+    .calculator-grid {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-6;
+    }
+
+    .calculator-form {
+      padding: $spacing-6;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-4;
+    }
+
+    .estimate-amount {
+      font-size: 32px;
+    }
+  }
+}
+
+/* Why Choose Us Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .why-choose-us {
+    padding: 60px 0;
+
+    .grid {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-8;
+    }
+
+    .image-col {
+      order: 1;
+    }
+
+    .content-col {
+      order: 2;
+    }
+
+    .main-image {
+      height: 300px;
+    }
+  }
+}
+
+/* Team Showcase Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .team-showcase {
+    padding: 60px 0;
+
+    .team-grid {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-6;
+    }
+
+    .tab-navigation {
+      flex-direction: column;
+      align-items: stretch;
+
+      .tab-btn {
+        width: 100%;
+      }
+    }
+
+    .achievements-grid {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-6;
+    }
+  }
+}
+
+/* Before After Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .before-after-section {
+    padding: 60px 0;
+
+    .grid-container {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-6;
+    }
+
+    .slider-container {
+      height: 300px !important;
+    }
+  }
+}
+
+/* Certifications Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .certifications-section {
+    padding: 60px 0;
+  }
+
+  .certifications-grid,
+  .achievements-grid {
+    grid-template-columns: 1fr !important;
+    gap: $spacing-6;
+  }
+
+  .achievements-section {
+    margin: 0 !important;
+    padding: $spacing-8 $spacing-4 !important;
+  }
+}
+
+/* Gallery Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .gallery-section {
+    padding: 60px 0;
+
+    .gallery-grid {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-4;
+    }
+
+    .gallery-item {
+      height: 250px;
+    }
+  }
+}
+
+/* Testimonials Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .testimonials-section {
+    padding: 60px 0;
+
+    .testimonial-card {
+      padding: $spacing-6;
+      min-height: auto;
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+    }
+
+    .count-number {
+      font-size: 32px;
+    }
+  }
+}
+
+/* FAQ Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .faq-section {
+    padding: 60px 0;
+
+    .faq-question {
+      font-size: 16px;
+      padding: $spacing-4 0;
+    }
+  }
+}
+
+/* Quick Quote Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .quick-quote {
+    padding: 60px 0;
+
+    .form-row {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-4;
+    }
+
+    .submit-button {
+      width: 100%;
+    }
+  }
+}
+
+/* Contact Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .contact-section {
+    padding: 60px 0;
+
+    .contact-grid {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-6;
+    }
+
+    .contact-card {
+      padding: $spacing-6;
+    }
+  }
+}
+
+/* Map Section Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .map-section {
+    .map-container-wrapper {
+      grid-template-columns: 1fr !important;
+    }
+
+    .location-info-sidebar {
+      order: 2;
+      padding: $spacing-6;
+    }
+
+    .map-container {
+      order: 1;
+      height: 400px;
+    }
+
+    .location-card {
+      margin-bottom: $spacing-6;
+    }
+
+    .quick-actions {
+      flex-direction: column;
+
+      .action-button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Footer Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .footer-new {
+    .footer-container {
+      padding: $spacing-8 $spacing-4;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr !important;
+      gap: $spacing-8;
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+    }
+
+    .newsletter-input,
+    .newsletter-button {
+      width: 100%;
+    }
+
+    .bottom-bar {
+      flex-direction: column;
+      text-align: center;
+      gap: $spacing-4;
+    }
+
+    .copyright {
+      text-align: center !important;
+      font-size: 11px;
+    }
+
+    .legal-links {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+/* WhatsApp Button Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .whatsapp-float-button {
+    width: 50px;
+    height: 50px;
+    bottom: 90px;
+    right: $spacing-3;
+
+    .whatsapp-icon i {
+      font-size: 24px;
+    }
+
+    .whatsapp-tooltip {
+      display: none;
+    }
+  }
+
+  .scroll-top-button {
+    width: 48px;
+    height: 48px;
+    bottom: $spacing-3;
+    right: $spacing-3;
+  }
+}
+
+/* Modal Responsiveness */
+@media (max-width: $mobile-breakpoint) {
+  .modal-container {
+    padding: 20px !important;
+  }
+
+  .modal-content {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .modal-hero-image {
+    height: 200px !important;
+  }
+
+  .modal-body {
+    padding: $spacing-6 !important;
+  }
+
+  .modal-main-title {
+    font-size: 1.5rem !important;
+  }
+
+  .modal-stats {
+    grid-template-columns: 1fr !important;
+    gap: $spacing-4;
+    padding: $spacing-4;
+  }
+
+  .benefits-grid,
+  .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .modal-secondary-image {
+    height: 200px !important;
+  }
+}
+
+/* Utility Classes for Mobile */
+@media (max-width: $mobile-breakpoint) {
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .mobile-block {
+    display: block !important;
+  }
+
+  .mobile-flex {
+    display: flex !important;
+  }
+
+  .mobile-column {
+    flex-direction: column;
+  }
+
+  .mobile-text-center {
+    text-align: center !important;
+  }
+
+  .mobile-mt-4 {
+    margin-top: $spacing-4 !important;
+  }
+
+  .mobile-mb-4 {
+    margin-bottom: $spacing-4 !important;
+  }
+}
+
+/* Typography Mobile Adjustments */
+@media (max-width: $mobile-breakpoint) {
+  h2,
+  .h2 {
+    font-size: $font-size-2xl !important;
+  }
+
+  h3,
+  .h3 {
+    font-size: $font-size-xl !important;
+  }
+
+  p,
+  .text-base {
+    font-size: $font-size-sm !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* Grid and Layout Mobile */
+@media (max-width: $mobile-breakpoint) {
+  /* Convert all multi-column grids to single column */
+  .services-grid:not(.jurisdiction-documents),
+  .features-grid:not(.benefits-grid),
+  .grid:not(.about-grid),
+  .contact-grid:not(.jurisdiction-documents),
+  .steps-grid:not(.achievements-grid) {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stack all flex rows */
+  .form-row,
+  .button-group,
+  .features-header,
+  .carousel-header {
+    flex-direction: column !important;
+  }
+
+  /* Full width for mobile */
+  .btn,
+  .form-input,
+  .form-select,
+  .form-textarea,
+  .action-button,
+  .link-item {
+    width: 100% !important;
+  }
+}
+
+/* Animation Adjustments for Mobile */
+@media (max-width: $mobile-breakpoint) {
+  /* Reduce animation delays for better performance */
+  [data-aos-delay] {
+    animation-delay: 0.1s !important;
+  }
+
+  /* Simplify complex animations */
+  .shape {
+    display: none;
+  }
+
+  /* Reduce transform effects */
+  .feature-card:hover,
+  .service-card:hover,
+  .benefit-card:hover {
+    transform: translateY(-2px) !important;
+  }
+}
+
+/* Fix Horizontal Scrolling */
+@media (max-width: $mobile-breakpoint) {
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  .app {
+    width: 100%;
+    overflow-x: hidden;
   }
 }

@@ -892,229 +892,236 @@ export class LandingPageContainerComponent {
         'Package completion and follow-up',
       ],
     },
-    {
-      title: 'Typing Services',
-      subtitle: 'Professional document typing and processing',
-      description:
-        'Our comprehensive typing services cover all government and legal document requirements with accuracy and efficiency. Our experienced typists ensure error-free documentation for all your needs.',
-      images: ['/services/typing1.webp', '/services/typing2.webp'],
-      stats: [
-        { value: '100000+', label: 'Documents Typed' },
-        { value: '100%', label: 'Accuracy' },
-        { value: 'Same Day', label: 'Service Available' },
-      ],
-      benefits: [
-        'Government-approved typing formats',
-        'Expert typists with years of experience',
-        'Fast turnaround time',
-        'Error-free documentation',
-        'Confidential handling',
-        'Affordable pricing',
-      ],
-      features: [
-        'Visa application typing',
-        'Emirates ID application typing',
-        'Medical fitness forms',
-        'Immigration document typing',
-        'Labor contract typing',
-        'General document typing',
-      ],
-      process: [
-        'Submit your document requirements',
-        'Our typists prepare the documents',
-        'Quality check and verification',
-        'Final review with client',
-        'Document delivery',
-      ],
-    },
-
-    // Photocopying Services (New)
-    {
-      title: 'Photocopying & Printing',
-      subtitle: 'High-quality document reproduction services',
-      description:
-        'Professional photocopying, printing, and scanning services for all types of documents. We handle everything from single pages to bulk document processing with utmost quality.',
-      images: ['/services/photocopy1.webp', '/services/photocopy2.webp'],
-      stats: [
-        { value: '500000+', label: 'Pages Processed' },
-        { value: 'High', label: 'Quality Print' },
-        { value: 'Bulk', label: 'Discounts Available' },
-      ],
-      benefits: [
-        'High-quality color and B/W printing',
-        'Fast bulk photocopying',
-        'Document scanning services',
-        'Lamination and binding',
-        'Confidential document handling',
-        'Competitive pricing',
-      ],
-      features: [
-        'Color photocopying',
-        'Black & white printing',
-        'Document scanning',
-        'Lamination services',
-        'Spiral and hard binding',
-        'Bulk order processing',
-      ],
-      process: [
-        'Submit documents for copying/printing',
-        'Select paper quality and format',
-        'Process documents',
-        'Quality check',
-        'Collection or delivery',
-      ],
-    },
-
-    // Businessmen Services (New)
-    {
-      title: 'Businessmen Services',
-      subtitle: 'Complete business setup and support',
-      description:
-        'Comprehensive services for businessmen including company formation, investor visa processing, and commercial registration. We handle all legal and administrative requirements for your business.',
-      images: ['/services/businessmen1.webp', '/services/businessmen2.webp'],
-      stats: [
-        { value: '1000+', label: 'Businesses Served' },
-        { value: '100%', label: 'Success Rate' },
-        { value: 'Fast', label: 'Processing' },
-      ],
-      benefits: [
-        'Business setup consultation',
-        'Investor visa processing',
-        'Commercial registration',
-        'Legal documentation',
-        'Government liaison',
-        'Ongoing business support',
-      ],
-      features: [
-        'Company formation assistance',
-        'Investor visa applications',
-        'Commercial registration',
-        'Business licensing',
-        'Partner visa processing',
-        'Annual renewal services',
-      ],
-      process: [
-        'Initial business consultation',
-        'Document preparation and submission',
-        'Government approvals',
-        'License issuance',
-        'Post-setup support',
-      ],
-    },
-
-    // Commercial Information Services (New)
-    {
-      title: 'Commercial Information Services',
-      subtitle: 'Market research and business intelligence',
-      description:
-        'Professional commercial information services including market research, business intelligence, and commercial data processing. We provide valuable insights for business decision-making.',
-      images: ['/services/commercial1.webp', '/services/commercial2.webp'],
-      stats: [
-        { value: '500+', label: 'Reports Generated' },
-        { value: 'Accurate', label: 'Market Data' },
-        { value: 'Timely', label: 'Delivery' },
-      ],
-      benefits: [
-        'Market research reports',
-        'Business intelligence',
-        'Commercial data analysis',
-        'Industry insights',
-        'Competitor analysis',
-        'Customized reports',
-      ],
-      features: [
-        'Market analysis reports',
-        'Business feasibility studies',
-        'Commercial data processing',
-        'Industry trend analysis',
-        'Competitor intelligence',
-        'Custom research projects',
-      ],
-      process: [
-        'Define research requirements',
-        'Data collection and analysis',
-        'Report preparation',
-        'Client review and feedback',
-        'Final report delivery',
-      ],
-    },
-
-    // Administrative Services (New)
-    {
-      title: 'Administrative Services',
-      subtitle: 'Complete administrative support',
-      description:
-        'Professional administrative services including document management, record keeping, and office administration support. We help businesses streamline their administrative processes.',
-      images: ['/services/admin1.webp', '/services/admin2.webp'],
-      stats: [
-        { value: '24/7', label: 'Support Available' },
-        { value: 'Efficient', label: 'Processing' },
-        { value: 'Confidential', label: 'Handling' },
-      ],
-      benefits: [
-        'Document management',
-        'Record keeping',
-        'Office administration',
-        'Filing system setup',
-        'Administrative workflow',
-        'Process optimization',
-      ],
-      features: [
-        'Document organization',
-        'Record maintenance',
-        'Administrative paperwork',
-        'Office documentation',
-        'Process documentation',
-        'Administrative consulting',
-      ],
-      process: [
-        'Assess administrative needs',
-        'Develop process plan',
-        'Implement solutions',
-        'Training and support',
-        'Ongoing maintenance',
-      ],
-    },
-
-    // Freezone License Processing (New)
-    {
-      title: 'Freezone License Processing',
-      subtitle: 'Complete freezone company setup services',
-      description:
-        'Professional assistance with freezone company formation and license processing across all UAE freezones including Ajman, RAK, Dubai, and Sharjah freezones.',
-      images: ['/services/freezone1.webp', '/services/freezone2.webp'],
-      stats: [
-        { value: '500+', label: 'Freezone Companies' },
-        { value: '48hrs', label: 'Fast Setup' },
-        { value: '100%', label: 'Foreign Ownership' },
-      ],
-      benefits: [
-        'Ajman Freezone processing',
-        'RAKEZ license setup',
-        'Dubai Freezones (DIFC, JAFZA, DMCC)',
-        'Sharjah Freezones (SAIF Zone)',
-        '100% foreign ownership',
-        'Tax exemptions',
-      ],
-      features: [
-        'Company name reservation',
-        'License application',
-        'Office space solutions',
-        'Visa processing',
-        'Bank account assistance',
-        'Annual renewal services',
-      ],
-      process: [
-        'Freezone selection consultation',
-        'Document preparation',
-        'License application submission',
-        'Government approvals',
-        'License issuance',
-        'Post-setup support',
-      ],
-    },
-  ];
-
+  {
+    title: 'Typing Services',
+    subtitle: 'Professional document typing and processing',
+    description:
+      'Our comprehensive typing services cover all government and legal document requirements with accuracy and efficiency. Our experienced typists ensure error-free documentation for all your needs.',
+    images: [
+      'https://images.unsplash.com/photo-1545235617-9465d2a55698?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
+    ],
+    stats: [
+      { value: '100000+', label: 'Documents Typed' },
+      { value: '100%', label: 'Accuracy' },
+      { value: 'Same Day', label: 'Service Available' },
+    ],
+    benefits: [
+      'Government-approved typing formats',
+      'Expert typists with years of experience',
+      'Fast turnaround time',
+      'Error-free documentation',
+      'Confidential handling',
+      'Affordable pricing',
+    ],
+    features: [
+      'Visa application typing',
+      'Emirates ID application typing',
+      'Medical fitness forms',
+      'Immigration document typing',
+      'Labor contract typing',
+      'General document typing',
+    ],
+    process: [
+      'Submit your document requirements',
+      'Our typists prepare the documents',
+      'Quality check and verification',
+      'Final review with client',
+      'Document delivery',
+    ],
+  },
+  {
+    title: 'Photocopying & Printing',
+    subtitle: 'High-quality document reproduction services',
+    description:
+      'Professional photocopying, printing, and scanning services for all types of documents. We handle everything from single pages to bulk document processing with utmost quality.',
+    images: [
+      'https://images.unsplash.com/photo-1555099962-4199c345e5dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
+    ],
+    stats: [
+      { value: '500000+', label: 'Pages Processed' },
+      { value: 'High', label: 'Quality Print' },
+      { value: 'Bulk', label: 'Discounts Available' },
+    ],
+    benefits: [
+      'High-quality color and B/W printing',
+      'Fast bulk photocopying',
+      'Document scanning services',
+      'Lamination and binding',
+      'Confidential document handling',
+      'Competitive pricing',
+    ],
+    features: [
+      'Color photocopying',
+      'Black & white printing',
+      'Document scanning',
+      'Lamination services',
+      'Spiral and hard binding',
+      'Bulk order processing',
+    ],
+    process: [
+      'Submit documents for copying/printing',
+      'Select paper quality and format',
+      'Process documents',
+      'Quality check',
+      'Collection or delivery',
+    ],
+  },
+  {
+    title: 'Businessmen Services',
+    subtitle: 'Complete business setup and support',
+    description:
+      'Comprehensive services for businessmen including company formation, investor visa processing, and commercial registration. We handle all legal and administrative requirements for your business.',
+    images: [
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
+    ],
+    stats: [
+      { value: '1000+', label: 'Businesses Served' },
+      { value: '100%', label: 'Success Rate' },
+      { value: 'Fast', label: 'Processing' },
+    ],
+    benefits: [
+      'Business setup consultation',
+      'Investor visa processing',
+      'Commercial registration',
+      'Legal documentation',
+      'Government liaison',
+      'Ongoing business support',
+    ],
+    features: [
+      'Company formation assistance',
+      'Investor visa applications',
+      'Commercial registration',
+      'Business licensing',
+      'Partner visa processing',
+      'Annual renewal services',
+    ],
+    process: [
+      'Initial business consultation',
+      'Document preparation and submission',
+      'Government approvals',
+      'License issuance',
+      'Post-setup support',
+    ],
+  },
+  {
+    title: 'Commercial Information Services',
+    subtitle: 'Market research and business intelligence',
+    description:
+      'Professional commercial information services including market research, business intelligence, and commercial data processing. We provide valuable insights for business decision-making.',
+    images: [
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
+    ],
+    stats: [
+      { value: '500+', label: 'Reports Generated' },
+      { value: 'Accurate', label: 'Market Data' },
+      { value: 'Timely', label: 'Delivery' },
+    ],
+    benefits: [
+      'Market research reports',
+      'Business intelligence',
+      'Commercial data analysis',
+      'Industry insights',
+      'Competitor analysis',
+      'Customized reports',
+    ],
+    features: [
+      'Market analysis reports',
+      'Business feasibility studies',
+      'Commercial data processing',
+      'Industry trend analysis',
+      'Competitor intelligence',
+      'Custom research projects',
+    ],
+    process: [
+      'Define research requirements',
+      'Data collection and analysis',
+      'Report preparation',
+      'Client review and feedback',
+      'Final report delivery',
+    ],
+  },
+  {
+    title: 'Administrative Services',
+    subtitle: 'Complete administrative support',
+    description:
+      'Professional administrative services including document management, record keeping, and office administration support. We help businesses streamline their administrative processes.',
+    images: [
+      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
+    ],
+    stats: [
+      { value: '24/7', label: 'Support Available' },
+      { value: 'Efficient', label: 'Processing' },
+      { value: 'Confidential', label: 'Handling' },
+    ],
+    benefits: [
+      'Document management',
+      'Record keeping',
+      'Office administration',
+      'Filing system setup',
+      'Administrative workflow',
+      'Process optimization',
+    ],
+    features: [
+      'Document organization',
+      'Record maintenance',
+      'Administrative paperwork',
+      'Office documentation',
+      'Process documentation',
+      'Administrative consulting',
+    ],
+    process: [
+      'Assess administrative needs',
+      'Develop process plan',
+      'Implement solutions',
+      'Training and support',
+      'Ongoing maintenance',
+    ],
+  },
+  {
+    title: 'Freezone License Processing',
+    subtitle: 'Complete freezone company setup services',
+    description:
+      'Professional assistance with freezone company formation and license processing across all UAE freezones including Ajman, RAK, Dubai, and Sharjah freezones.',
+    images: [
+      'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
+    ],
+    stats: [
+      { value: '500+', label: 'Freezone Companies' },
+      { value: '48hrs', label: 'Fast Setup' },
+      { value: '100%', label: 'Foreign Ownership' },
+    ],
+    benefits: [
+      'Ajman Freezone processing',
+      'RAKEZ license setup',
+      'Dubai Freezones (DIFC, JAFZA, DMCC)',
+      'Sharjah Freezones (SAIF Zone)',
+      '100% foreign ownership',
+      'Tax exemptions',
+    ],
+    features: [
+      'Company name reservation',
+      'License application',
+      'Office space solutions',
+      'Visa processing',
+      'Bank account assistance',
+      'Annual renewal services',
+    ],
+    process: [
+      'Freezone selection consultation',
+      'Document preparation',
+      'License application submission',
+      'Government approvals',
+      'License issuance',
+      'Post-setup support',
+    ],
+  },
+];
   // Process steps
   processSteps = [
     {
