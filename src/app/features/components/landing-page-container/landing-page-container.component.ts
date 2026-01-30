@@ -41,7 +41,7 @@ export class LandingPageContainerComponent {
   @ViewChild('statsSection') statsSection!: ElementRef;
   currentSlide = 0;
   previousSlide = -1;
-   private aosInitialized = false;
+  private aosInitialized = false;
   progressWidth = 0;
   isMobileMenuOpen = false;
   private statsAnimationRun = false;
@@ -59,10 +59,10 @@ export class LandingPageContainerComponent {
     { value: 0, label: 'Success Rate' },
   ];
   showScrollTop = false;
-COMPANY_CONTACT = {
-  phone: '+971501234567', 
-  whatsappNumber: '9605719902', 
-};
+  COMPANY_CONTACT = {
+    phone: '+971501234567',
+    whatsappNumber: '9605719902',
+  };
   formData = {
     serviceType: '',
     urgency: '',
@@ -118,115 +118,116 @@ COMPANY_CONTACT = {
     'Administrative Services',
     'Businessmen Services',
     'Typing and Documents Photocopying Services',
-    'Commercial Information Services'
+    'Commercial Information Services',
   ];
 
   COMPANY_ADDRESS = {
     shop: 'Shop No. 6, Rashideya 2',
     city: 'Ajman',
     emirate: 'United Arab Emirates',
-    area: ''
+    area: '',
   };
 
   COMPANY_MISSION_VISION = {
-    mission: 'To deliver fast, reliable, and accurate typing and documentation solutions that simplify government and legal processes for our clients.',
-    vision: 'To be Ajman\'s leading typing center known for excellence, customer satisfaction, and innovative document solutions.'
+    mission:
+      'To deliver fast, reliable, and accurate typing and documentation solutions that simplify government and legal processes for our clients.',
+    vision:
+      "To be Ajman's leading typing center known for excellence, customer satisfaction, and innovative document solutions.",
   };
 
-   SERVICES_BREAKDOWN = {
+  SERVICES_BREAKDOWN = {
     typingServices: [
       'Visa applications (residence, visit, renewal)',
       'Emirates ID application and renewal',
       'Medical fitness typing',
-      'Immigration and labor typing'
+      'Immigration and labor typing',
     ],
     governmentServices: [
       'Tasheel services',
       'Amer and GDRFA services',
       'ICP (Federal Authority for Identity & Citizenship) typing',
-      'Economic Department services (Trade License Renewal & Application)'
+      'Economic Department services (Trade License Renewal & Application)',
     ],
     translationServices: [
       'English to Arabic and Arabic to English certified translations',
-      'Legal and technical documents'
+      'Legal and technical documents',
     ],
     proServices: [
       'Company formation support',
       'Trade license processing',
-      'Document attestation and notarization'
+      'Document attestation and notarization',
     ],
-    additionalServices: [
-      'Photocopying, printing, scanning'
-    ],
+    additionalServices: ['Photocopying, printing, scanning'],
     freezoneServices: [
       'Ajman Freezone license processing',
       'RAK Economic Zone (RAKEZ) license processing',
       'Dubai Freezone license processing',
-      'Sharjah Freezone license processing'
+      'Sharjah Freezone license processing',
     ],
     // NEW: Added as per requirements
-  
+
     administrativeServices: [
       'Document management services',
       'Record keeping assistance',
       'Administrative paperwork processing',
-      'Office documentation support'
+      'Office documentation support',
     ],
     commercialInformationServices: [
       'Market research documentation',
       'Commercial data processing',
       'Business information services',
-      'Trade documentation support'
-    ]
+      'Trade documentation support',
+    ],
   };
 
   businessmenServices = [
     {
       title: 'Business Setup Consultation',
       icon: 'bi-building',
-      description: 'Professional guidance for company formation in Ajman, Dubai, Sharjah'
+      description:
+        'Professional guidance for company formation in Ajman, Dubai, Sharjah',
     },
     {
       title: 'Investor Visa Processing',
       icon: 'bi-passport',
-      description: 'Complete investor visa solutions for business owners'
+      description: 'Complete investor visa solutions for business owners',
     },
     {
       title: 'Commercial Registration',
       icon: 'bi-file-earmark-text',
-      description: 'Commercial information services and business registration'
+      description: 'Commercial information services and business registration',
     },
     {
       title: 'Administrative Support',
       icon: 'bi-clipboard-data',
-      description: 'Comprehensive administrative services for businesses'
-    }
+      description: 'Comprehensive administrative services for businesses',
+    },
   ];
 
-    freezoneDetailedServices = [
+  freezoneDetailedServices = [
     {
       emirate: 'Ajman',
       zones: ['Ajman Free Zone', 'Ajman Media Free Zone'],
-      services: ['License Processing', 'Company Formation', 'Visa Services']
+      services: ['License Processing', 'Company Formation', 'Visa Services'],
     },
     {
       emirate: 'Dubai',
       zones: ['DIFC', 'JAFZA', 'DMCC', 'Dubai South', 'Dubai Silicon Oasis'],
-      services: ['Business Setup', 'Trade License', 'Office Space Solutions']
+      services: ['Business Setup', 'Trade License', 'Office Space Solutions'],
     },
     {
       emirate: 'Sharjah',
       zones: ['SAIF Zone', 'Hamriyah Free Zone', 'Sharjah Airport Free Zone'],
-      services: ['Industrial License', 'Commercial License', 'Warehouse Setup']
+      services: ['Industrial License', 'Commercial License', 'Warehouse Setup'],
     },
     {
       emirate: 'Ras Al Khaimah',
       zones: ['RAKEZ (Ras Al Khaimah Economic Zone)'],
-      services: ['Business Formation', 'License Processing', 'Visa Services']
-    }
+      services: ['Business Formation', 'License Processing', 'Visa Services'],
+    },
   ];
 
-COMPANY_INFO: CompanyInfo = {
+  COMPANY_INFO: CompanyInfo = {
     tradeName: {
       english: 'AL BAYAN TYPING SERVICES',
       arabic: 'البيان لخدمات الطباعة',
@@ -891,221 +892,227 @@ COMPANY_INFO: CompanyInfo = {
         'Package completion and follow-up',
       ],
     },
-     {
-    title: 'Typing Services',
-    subtitle: 'Professional document typing and processing',
-    description: 'Our comprehensive typing services cover all government and legal document requirements with accuracy and efficiency. Our experienced typists ensure error-free documentation for all your needs.',
-    images: ['/services/typing1.webp', '/services/typing2.webp'],
-    stats: [
-      { value: '100000+', label: 'Documents Typed' },
-      { value: '100%', label: 'Accuracy' },
-      { value: 'Same Day', label: 'Service Available' },
-    ],
-    benefits: [
-      'Government-approved typing formats',
-      'Expert typists with years of experience',
-      'Fast turnaround time',
-      'Error-free documentation',
-      'Confidential handling',
-      'Affordable pricing',
-    ],
-    features: [
-      'Visa application typing',
-      'Emirates ID application typing',
-      'Medical fitness forms',
-      'Immigration document typing',
-      'Labor contract typing',
-      'General document typing',
-    ],
-    process: [
-      'Submit your document requirements',
-      'Our typists prepare the documents',
-      'Quality check and verification',
-      'Final review with client',
-      'Document delivery',
-    ],
-  },
+    {
+      title: 'Typing Services',
+      subtitle: 'Professional document typing and processing',
+      description:
+        'Our comprehensive typing services cover all government and legal document requirements with accuracy and efficiency. Our experienced typists ensure error-free documentation for all your needs.',
+      images: ['/services/typing1.webp', '/services/typing2.webp'],
+      stats: [
+        { value: '100000+', label: 'Documents Typed' },
+        { value: '100%', label: 'Accuracy' },
+        { value: 'Same Day', label: 'Service Available' },
+      ],
+      benefits: [
+        'Government-approved typing formats',
+        'Expert typists with years of experience',
+        'Fast turnaround time',
+        'Error-free documentation',
+        'Confidential handling',
+        'Affordable pricing',
+      ],
+      features: [
+        'Visa application typing',
+        'Emirates ID application typing',
+        'Medical fitness forms',
+        'Immigration document typing',
+        'Labor contract typing',
+        'General document typing',
+      ],
+      process: [
+        'Submit your document requirements',
+        'Our typists prepare the documents',
+        'Quality check and verification',
+        'Final review with client',
+        'Document delivery',
+      ],
+    },
 
-  // Photocopying Services (New)
-  {
-    title: 'Photocopying & Printing',
-    subtitle: 'High-quality document reproduction services',
-    description: 'Professional photocopying, printing, and scanning services for all types of documents. We handle everything from single pages to bulk document processing with utmost quality.',
-    images: ['/services/photocopy1.webp', '/services/photocopy2.webp'],
-    stats: [
-      { value: '500000+', label: 'Pages Processed' },
-      { value: 'High', label: 'Quality Print' },
-      { value: 'Bulk', label: 'Discounts Available' },
-    ],
-    benefits: [
-      'High-quality color and B/W printing',
-      'Fast bulk photocopying',
-      'Document scanning services',
-      'Lamination and binding',
-      'Confidential document handling',
-      'Competitive pricing',
-    ],
-    features: [
-      'Color photocopying',
-      'Black & white printing',
-      'Document scanning',
-      'Lamination services',
-      'Spiral and hard binding',
-      'Bulk order processing',
-    ],
-    process: [
-      'Submit documents for copying/printing',
-      'Select paper quality and format',
-      'Process documents',
-      'Quality check',
-      'Collection or delivery',
-    ],
-  },
+    // Photocopying Services (New)
+    {
+      title: 'Photocopying & Printing',
+      subtitle: 'High-quality document reproduction services',
+      description:
+        'Professional photocopying, printing, and scanning services for all types of documents. We handle everything from single pages to bulk document processing with utmost quality.',
+      images: ['/services/photocopy1.webp', '/services/photocopy2.webp'],
+      stats: [
+        { value: '500000+', label: 'Pages Processed' },
+        { value: 'High', label: 'Quality Print' },
+        { value: 'Bulk', label: 'Discounts Available' },
+      ],
+      benefits: [
+        'High-quality color and B/W printing',
+        'Fast bulk photocopying',
+        'Document scanning services',
+        'Lamination and binding',
+        'Confidential document handling',
+        'Competitive pricing',
+      ],
+      features: [
+        'Color photocopying',
+        'Black & white printing',
+        'Document scanning',
+        'Lamination services',
+        'Spiral and hard binding',
+        'Bulk order processing',
+      ],
+      process: [
+        'Submit documents for copying/printing',
+        'Select paper quality and format',
+        'Process documents',
+        'Quality check',
+        'Collection or delivery',
+      ],
+    },
 
-  // Businessmen Services (New)
-  {
-    title: 'Businessmen Services',
-    subtitle: 'Complete business setup and support',
-    description: 'Comprehensive services for businessmen including company formation, investor visa processing, and commercial registration. We handle all legal and administrative requirements for your business.',
-    images: ['/services/businessmen1.webp', '/services/businessmen2.webp'],
-    stats: [
-      { value: '1000+', label: 'Businesses Served' },
-      { value: '100%', label: 'Success Rate' },
-      { value: 'Fast', label: 'Processing' },
-    ],
-    benefits: [
-      'Business setup consultation',
-      'Investor visa processing',
-      'Commercial registration',
-      'Legal documentation',
-      'Government liaison',
-      'Ongoing business support',
-    ],
-    features: [
-      'Company formation assistance',
-      'Investor visa applications',
-      'Commercial registration',
-      'Business licensing',
-      'Partner visa processing',
-      'Annual renewal services',
-    ],
-    process: [
-      'Initial business consultation',
-      'Document preparation and submission',
-      'Government approvals',
-      'License issuance',
-      'Post-setup support',
-    ],
-  },
+    // Businessmen Services (New)
+    {
+      title: 'Businessmen Services',
+      subtitle: 'Complete business setup and support',
+      description:
+        'Comprehensive services for businessmen including company formation, investor visa processing, and commercial registration. We handle all legal and administrative requirements for your business.',
+      images: ['/services/businessmen1.webp', '/services/businessmen2.webp'],
+      stats: [
+        { value: '1000+', label: 'Businesses Served' },
+        { value: '100%', label: 'Success Rate' },
+        { value: 'Fast', label: 'Processing' },
+      ],
+      benefits: [
+        'Business setup consultation',
+        'Investor visa processing',
+        'Commercial registration',
+        'Legal documentation',
+        'Government liaison',
+        'Ongoing business support',
+      ],
+      features: [
+        'Company formation assistance',
+        'Investor visa applications',
+        'Commercial registration',
+        'Business licensing',
+        'Partner visa processing',
+        'Annual renewal services',
+      ],
+      process: [
+        'Initial business consultation',
+        'Document preparation and submission',
+        'Government approvals',
+        'License issuance',
+        'Post-setup support',
+      ],
+    },
 
-  // Commercial Information Services (New)
-  {
-    title: 'Commercial Information Services',
-    subtitle: 'Market research and business intelligence',
-    description: 'Professional commercial information services including market research, business intelligence, and commercial data processing. We provide valuable insights for business decision-making.',
-    images: ['/services/commercial1.webp', '/services/commercial2.webp'],
-    stats: [
-      { value: '500+', label: 'Reports Generated' },
-      { value: 'Accurate', label: 'Market Data' },
-      { value: 'Timely', label: 'Delivery' },
-    ],
-    benefits: [
-      'Market research reports',
-      'Business intelligence',
-      'Commercial data analysis',
-      'Industry insights',
-      'Competitor analysis',
-      'Customized reports',
-    ],
-    features: [
-      'Market analysis reports',
-      'Business feasibility studies',
-      'Commercial data processing',
-      'Industry trend analysis',
-      'Competitor intelligence',
-      'Custom research projects',
-    ],
-    process: [
-      'Define research requirements',
-      'Data collection and analysis',
-      'Report preparation',
-      'Client review and feedback',
-      'Final report delivery',
-    ],
-  },
+    // Commercial Information Services (New)
+    {
+      title: 'Commercial Information Services',
+      subtitle: 'Market research and business intelligence',
+      description:
+        'Professional commercial information services including market research, business intelligence, and commercial data processing. We provide valuable insights for business decision-making.',
+      images: ['/services/commercial1.webp', '/services/commercial2.webp'],
+      stats: [
+        { value: '500+', label: 'Reports Generated' },
+        { value: 'Accurate', label: 'Market Data' },
+        { value: 'Timely', label: 'Delivery' },
+      ],
+      benefits: [
+        'Market research reports',
+        'Business intelligence',
+        'Commercial data analysis',
+        'Industry insights',
+        'Competitor analysis',
+        'Customized reports',
+      ],
+      features: [
+        'Market analysis reports',
+        'Business feasibility studies',
+        'Commercial data processing',
+        'Industry trend analysis',
+        'Competitor intelligence',
+        'Custom research projects',
+      ],
+      process: [
+        'Define research requirements',
+        'Data collection and analysis',
+        'Report preparation',
+        'Client review and feedback',
+        'Final report delivery',
+      ],
+    },
 
-  // Administrative Services (New)
-  {
-    title: 'Administrative Services',
-    subtitle: 'Complete administrative support',
-    description: 'Professional administrative services including document management, record keeping, and office administration support. We help businesses streamline their administrative processes.',
-    images: ['/services/admin1.webp', '/services/admin2.webp'],
-    stats: [
-      { value: '24/7', label: 'Support Available' },
-      { value: 'Efficient', label: 'Processing' },
-      { value: 'Confidential', label: 'Handling' },
-    ],
-    benefits: [
-      'Document management',
-      'Record keeping',
-      'Office administration',
-      'Filing system setup',
-      'Administrative workflow',
-      'Process optimization',
-    ],
-    features: [
-      'Document organization',
-      'Record maintenance',
-      'Administrative paperwork',
-      'Office documentation',
-      'Process documentation',
-      'Administrative consulting',
-    ],
-    process: [
-      'Assess administrative needs',
-      'Develop process plan',
-      'Implement solutions',
-      'Training and support',
-      'Ongoing maintenance',
-    ],
-  },
+    // Administrative Services (New)
+    {
+      title: 'Administrative Services',
+      subtitle: 'Complete administrative support',
+      description:
+        'Professional administrative services including document management, record keeping, and office administration support. We help businesses streamline their administrative processes.',
+      images: ['/services/admin1.webp', '/services/admin2.webp'],
+      stats: [
+        { value: '24/7', label: 'Support Available' },
+        { value: 'Efficient', label: 'Processing' },
+        { value: 'Confidential', label: 'Handling' },
+      ],
+      benefits: [
+        'Document management',
+        'Record keeping',
+        'Office administration',
+        'Filing system setup',
+        'Administrative workflow',
+        'Process optimization',
+      ],
+      features: [
+        'Document organization',
+        'Record maintenance',
+        'Administrative paperwork',
+        'Office documentation',
+        'Process documentation',
+        'Administrative consulting',
+      ],
+      process: [
+        'Assess administrative needs',
+        'Develop process plan',
+        'Implement solutions',
+        'Training and support',
+        'Ongoing maintenance',
+      ],
+    },
 
-  // Freezone License Processing (New)
-  {
-    title: 'Freezone License Processing',
-    subtitle: 'Complete freezone company setup services',
-    description: 'Professional assistance with freezone company formation and license processing across all UAE freezones including Ajman, RAK, Dubai, and Sharjah freezones.',
-    images: ['/services/freezone1.webp', '/services/freezone2.webp'],
-    stats: [
-      { value: '500+', label: 'Freezone Companies' },
-      { value: '48hrs', label: 'Fast Setup' },
-      { value: '100%', label: 'Foreign Ownership' },
-    ],
-    benefits: [
-      'Ajman Freezone processing',
-      'RAKEZ license setup',
-      'Dubai Freezones (DIFC, JAFZA, DMCC)',
-      'Sharjah Freezones (SAIF Zone)',
-      '100% foreign ownership',
-      'Tax exemptions',
-    ],
-    features: [
-      'Company name reservation',
-      'License application',
-      'Office space solutions',
-      'Visa processing',
-      'Bank account assistance',
-      'Annual renewal services',
-    ],
-    process: [
-      'Freezone selection consultation',
-      'Document preparation',
-      'License application submission',
-      'Government approvals',
-      'License issuance',
-      'Post-setup support',
-    ],
-  }
+    // Freezone License Processing (New)
+    {
+      title: 'Freezone License Processing',
+      subtitle: 'Complete freezone company setup services',
+      description:
+        'Professional assistance with freezone company formation and license processing across all UAE freezones including Ajman, RAK, Dubai, and Sharjah freezones.',
+      images: ['/services/freezone1.webp', '/services/freezone2.webp'],
+      stats: [
+        { value: '500+', label: 'Freezone Companies' },
+        { value: '48hrs', label: 'Fast Setup' },
+        { value: '100%', label: 'Foreign Ownership' },
+      ],
+      benefits: [
+        'Ajman Freezone processing',
+        'RAKEZ license setup',
+        'Dubai Freezones (DIFC, JAFZA, DMCC)',
+        'Sharjah Freezones (SAIF Zone)',
+        '100% foreign ownership',
+        'Tax exemptions',
+      ],
+      features: [
+        'Company name reservation',
+        'License application',
+        'Office space solutions',
+        'Visa processing',
+        'Bank account assistance',
+        'Annual renewal services',
+      ],
+      process: [
+        'Freezone selection consultation',
+        'Document preparation',
+        'License application submission',
+        'Government approvals',
+        'License issuance',
+        'Post-setup support',
+      ],
+    },
   ];
 
   // Process steps
@@ -1326,12 +1333,12 @@ COMPANY_INFO: CompanyInfo = {
         'Transformed from manual paper-based processing to fully digital document management system.',
     },
     {
-      title: 'Service Expansion',
+      title: 'Brand Evolution & Service Expansion',
       location: 'Ajman',
-      before: '',
-      after: '',
+      before: '/albayanbefore.png',
+      after: '/albayanbefore.png',
       description:
-        'Expanded from basic typing to comprehensive government and PRO services.',
+        'Evolved from Al Bayan Typing Services to Al Bayan Businessmen Services - expanding from basic typing to comprehensive business solutions including company formation, investor visas, and complete PRO services.',
     },
     {
       title: 'Customer Experience',
@@ -1471,7 +1478,7 @@ COMPANY_INFO: CompanyInfo = {
     },
   ];
 
-   constructor(
+  constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     private cdRef: ChangeDetectorRef,
     private elementRef: ElementRef,
@@ -1479,7 +1486,7 @@ COMPANY_INFO: CompanyInfo = {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-   ngAfterViewInit() {
+  ngAfterViewInit() {
     if (!this.isBrowser) {
       return;
     }
@@ -1503,7 +1510,6 @@ COMPANY_INFO: CompanyInfo = {
     // Setup scroll animations
     this.setupScrollAnimation();
   }
-
 
   private setupScrollAnimation() {
     if (!this.isBrowser || typeof IntersectionObserver === 'undefined') {
@@ -1569,16 +1575,17 @@ COMPANY_INFO: CompanyInfo = {
     }, 5000);
 
     this.progressTimer = setInterval(() => {
-      this.progressWidth = this.progressWidth >= 100 ? 0 : this.progressWidth + 2;
+      this.progressWidth =
+        this.progressWidth >= 100 ? 0 : this.progressWidth + 2;
     }, 100);
 
     this.testimonialTimer = setInterval(() => {
-      this.currentTestimonial = (this.currentTestimonial + 1) % this.testimonials.length;
+      this.currentTestimonial =
+        (this.currentTestimonial + 1) % this.testimonials.length;
     }, 6000);
   }
 
-
- ngOnDestroy() {
+  ngOnDestroy() {
     // Clean up all listeners and timers
     if (this.isBrowser && typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.handleScroll.bind(this));
@@ -1590,7 +1597,7 @@ COMPANY_INFO: CompanyInfo = {
     if (this.testimonialTimer) clearInterval(this.testimonialTimer);
   }
 
-   private initializeAOS() {
+  private initializeAOS() {
     if (!this.isBrowser || this.aosInitialized) {
       return;
     }
@@ -1606,7 +1613,7 @@ COMPANY_INFO: CompanyInfo = {
       disableMutationObserver: false, // disables automatic mutations' detections (advanced)
       debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
       throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-      
+
       // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
       offset: 120, // offset (in px) from the original trigger point
       delay: 0, // values from 0 to 3000, with step 50ms
@@ -1797,8 +1804,16 @@ COMPANY_INFO: CompanyInfo = {
   }
 
   isToday(day: string): boolean {
-  const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-  const today = new Date().getDay();
-  return days[today] === day.toLowerCase();
-}
+    const days = [
+      'sunday',
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
+    ];
+    const today = new Date().getDay();
+    return days[today] === day.toLowerCase();
+  }
 }

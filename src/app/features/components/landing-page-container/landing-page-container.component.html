@@ -893,6 +893,122 @@
     </div>
   </section>
 
+  <!-- Add this HTML section after the About Section in your component -->
+
+  <!-- Brand Transformation Section -->
+  <section class="brand-transformation-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="header-decoration">
+          <div
+            class="decoration-line"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          ></div>
+          <div
+            class="decoration-text"
+            data-aos="fade-down"
+            data-aos-delay="150"
+          >
+            OUR EVOLUTION
+          </div>
+          <div
+            class="decoration-line"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          ></div>
+        </div>
+        <h2 class="section-title" data-aos="fade-down" data-aos-delay="250">
+          FROM TYPING TO<br />COMPLETE BUSINESS SOLUTIONS
+        </h2>
+        <p
+          class="section-description"
+          data-aos="fade-down"
+          data-aos-delay="300"
+        >
+          Witness our journey from a trusted typing center to a comprehensive
+          businessmen services provider
+        </p>
+      </div>
+
+      <!-- Logo Transformation -->
+      <div
+        class="logo-transformation-wrapper"
+        data-aos="zoom-in"
+        data-aos-delay="400"
+      >
+        <div class="transformation-container">
+          <!-- Before Logo -->
+          <div
+            class="logo-side before-side"
+            data-aos="fade-right"
+            data-aos-delay="500"
+          >
+            <div class="logo-badge">
+              <span class="badge-year">2015</span>
+              <span class="badge-label">Founded As</span>
+            </div>
+            <div class="logo-container">
+              <img
+                src="albayan-old.png"
+                alt="Al Bayan Typing Services - Original Logo"
+                class="transformation-logo"
+              />
+              <div class="logo-glow"></div>
+            </div>
+            <div class="logo-title">
+              <h3>AL BAYAN</h3>
+              <p class="logo-subtitle">TYPING SERVICES</p>
+              <p class="logo-description">
+                Professional document typing and processing
+              </p>
+            </div>
+          </div>
+
+          <!-- Transformation Arrow -->
+          <div
+            class="transformation-arrow"
+            data-aos="zoom-in"
+            data-aos-delay="700"
+          >
+            <div class="arrow-circle">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="transformation-year">{{ yearsOfService }}+ Years</div>
+            <div class="transformation-line"></div>
+          </div>
+
+          <!-- After Logo -->
+          <div
+            class="logo-side after-side"
+            data-aos="fade-left"
+            data-aos-delay="600"
+          >
+            <div class="logo-badge new-badge">
+              <span class="badge-year">2026</span>
+              <span class="badge-label">Evolved To</span>
+            </div>
+            <div class="logo-container">
+              <img
+                src="albayan.png"
+                alt="Al Bayan Businessmen Services - New Logo"
+                class="transformation-logo"
+              />
+              <div class="logo-glow new-glow"></div>
+            </div>
+            <div class="logo-title">
+              <h3>AL BAYAN</h3>
+              <p class="logo-subtitle new-subtitle">BUSINESSMEN SERVICES</p>
+              <p class="logo-description">
+                Complete business setup and corporate solutions
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Mission & Vision Section -->
   <section class="mission-vision-section">
     <div class="container">
@@ -2340,141 +2456,137 @@
     </div>
   </section>
 
-<!-- Professional Map Section with Real Details -->
-<section class="map-section">
-  <!-- Map Header -->
-  <div class="map-header" data-aos="fade-down">
-    <div class="container">
-      <h2 class="map-header-title" data-aos="fade-up" data-aos-delay="100">
-        VISIT OUR OFFICE
-      </h2>
-      <p class="map-header-subtitle" data-aos="fade-up" data-aos-delay="200">
-        Located in the heart of Ajman, we're easily accessible and ready to serve you
-      </p>
+  <!-- Professional Map Section with Real Details -->
+  <section class="map-section">
+    <!-- Map Header -->
+    <div class="map-header" data-aos="fade-down">
+      <div class="container">
+        <h2 class="map-header-title" data-aos="fade-up" data-aos-delay="100">
+          VISIT OUR OFFICE
+        </h2>
+        <p class="map-header-subtitle" data-aos="fade-up" data-aos-delay="200">
+          Located in the heart of Ajman, we're easily accessible and ready to
+          serve you
+        </p>
+      </div>
     </div>
-  </div>
 
-  <!-- Map Container with Sidebar -->
-  <div class="map-container-wrapper">
-    <!-- Location Info Sidebar -->
-    <div class="location-info-sidebar">
-      <!-- Main Location Card -->
-      <div class="location-card" data-aos="fade-right" data-aos-delay="100">
-        <div class="location-card-header">
-          <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+    <!-- Map Container with Sidebar -->
+    <div class="map-container-wrapper">
+      <!-- Location Info Sidebar -->
+      <div class="location-info-sidebar">
+        <!-- Main Location Card -->
+        <div class="location-card" data-aos="fade-right" data-aos-delay="100">
+          <div class="location-card-header">
+            <div class="location-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Our Location</h3>
           </div>
-          <h3>Our Location</h3>
-        </div>
-        <div class="location-details">
-          <div class="detail-row">
-            <i class="fas fa-building"></i>
-            <div>
-              <strong>Address:</strong><br>
-              {{ COMPANY_ADDRESS.shop }}<br>
-              {{ COMPANY_ADDRESS.area }}<br>
-              {{ COMPANY_ADDRESS.city }}, {{ COMPANY_ADDRESS.emirate }}
+          <div class="location-details">
+            <div class="detail-row">
+              <i class="fas fa-building"></i>
+              <div>
+                <strong>Address:</strong><br />
+                {{ COMPANY_ADDRESS.shop }}<br />
+                {{ COMPANY_ADDRESS.area }}<br />
+                {{ COMPANY_ADDRESS.city }}, {{ COMPANY_ADDRESS.emirate }}
+              </div>
+            </div>
+            <div class="detail-row">
+              <i class="fas fa-phone"></i>
+              <div>
+                <strong>Phone:</strong><br />
+                <a href="tel:+97165745454">+971 6 574 5454</a><br />
+                <a href="tel:+971501234567">+971 50 123 4567</a>
+              </div>
+            </div>
+            <div class="detail-row">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <strong>Email:</strong><br />
+                <a href="mailto:info@albayantyping.ae">infoalbayantyping.ae</a>
+              </div>
+            </div>
+            <div class="detail-row">
+              <i class="fas fa-globe"></i>
+              <div>
+                <strong>Coordinates:</strong><br />
+                25.435671°N, 55.553745°E
+              </div>
             </div>
           </div>
-          <div class="detail-row">
-            <i class="fas fa-phone"></i>
-            <div>
-              <strong>Phone:</strong><br>
-              <a href="tel:+97165745454">+971 6 574 5454</a><br>
-              <a href="tel:+971501234567">+971 50 123 4567</a>
-            </div>
-          </div>
-          <div class="detail-row">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <strong>Email:</strong><br>
-              <a href="mailto:info@albayantyping.ae">infoalbayantyping.ae</a>
-            </div>
-          </div>
-          <div class="detail-row">
-            <i class="fas fa-globe"></i>
-            <div>
-              <strong>Coordinates:</strong><br>
-              25.435671°N, 55.553745°E
-            </div>
-          </div>
-        </div>
 
-        <!-- Quick Actions -->
-        <div class="quick-actions">
-          <a 
-            href="https://www.google.com/maps/dir//25.4356709,55.5537453/@25.4356709,55.5511704,17z"
-            target="_blank"
-            class="action-button primary"
-            data-aos="zoom-in"
-            data-aos-delay="300"
-          >
-            <i class="fas fa-directions"></i>
-            Get Directions
-          </a>
-          <a 
-            href="tel:+97165745454" 
-            class="action-button secondary"
-            data-aos="zoom-in"
-            data-aos-delay="350"
-          >
-            <i class="fas fa-phone"></i>
-            Call Now
-          </a>
-          <a 
-            href="https://wa.me/971501234567?text=Hello%20Al%20Bayan%20Typing%20Services"
-            target="_blank"
-            class="action-button whatsapp"
-            data-aos="zoom-in"
-            data-aos-delay="400"
-          >
-            <i class="fab fa-whatsapp"></i>
-            WhatsApp Us
-          </a>
+          <!-- Quick Actions -->
+          <div class="quick-actions">
+            <a
+              href="https://www.google.com/maps/dir//25.4356709,55.5537453/@25.4356709,55.5511704,17z"
+              target="_blank"
+              class="action-button primary"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <i class="fas fa-directions"></i>
+              Get Directions
+            </a>
+            <a
+              href="tel:+97165745454"
+              class="action-button secondary"
+              data-aos="zoom-in"
+              data-aos-delay="350"
+            >
+              <i class="fas fa-phone"></i>
+              Call Now
+            </a>
+            <a
+              href="https://wa.me/971501234567?text=Hello%20Al%20Bayan%20Typing%20Services"
+              target="_blank"
+              class="action-button whatsapp"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
+              <i class="fab fa-whatsapp"></i>
+              WhatsApp Us
+            </a>
+          </div>
         </div>
       </div>
 
- 
-    </div>
+      <!-- Google Map -->
+      <div class="map-container" data-aos="fade-left" data-aos-delay="100">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.8658688968486!2d55.55117037531753!3d25.435670877582436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI2JzA4LjQiTiA1NcKwMzMnMTMuNSJF!5e0!3m2!1sen!2sae!4v1234567890123!5m2!1sen!2sae"
+          width="100%"
+          height="100%"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
 
-    <!-- Google Map -->
-    <div class="map-container" data-aos="fade-left" data-aos-delay="100">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.8658688968486!2d55.55117037531753!3d25.435670877582436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI2JzA4LjQiTiA1NcKwMzMnMTMuNSJF!5e0!3m2!1sen!2sae!4v1234567890123!5m2!1sen!2sae"
-        width="100%"
-        height="100%"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-
-      <!-- Map Overlay Info -->
-      <div class="map-overlay" data-aos="zoom-in" data-aos-delay="300">
-        <div class="overlay-title">
-          <i class="fas fa-map-pin"></i>
-          Al Bayan Typing Center
+        <!-- Map Overlay Info -->
+        <div class="map-overlay" data-aos="zoom-in" data-aos-delay="300">
+          <div class="overlay-title">
+            <i class="fas fa-map-pin"></i>
+            Al Bayan Typing Center
+          </div>
+          <div class="overlay-address">
+            Shabra No. 1, Jurf Industrial Zone 2<br />
+            Ajman, United Arab Emirates
+          </div>
+          <div class="overlay-coordinates">📍 25.435671°N, 55.553745°E</div>
+          <a
+            href="https://maps.app.goo.gl/jqWWwPjrrcqytaAw8?g_st=ipc"
+            target="_blank"
+            class="overlay-button"
+          >
+            <i class="fas fa-route"></i>
+            Navigate Here
+          </a>
         </div>
-        <div class="overlay-address">
-          Shabra No. 1, Jurf Industrial Zone 2<br>
-          Ajman, United Arab Emirates
-        </div>
-        <div class="overlay-coordinates">
-          📍 25.435671°N, 55.553745°E
-        </div>
-        <a 
-          href="https://www.google.com/maps/dir//25.4356709,55.5537453/@25.4356709,55.5511704,17z"
-          target="_blank"
-          class="overlay-button"
-        >
-          <i class="fas fa-route"></i>
-          Navigate Here
-        </a>
       </div>
     </div>
-  </div>
-
-</section>
+  </section>
 
   <!-- Footer -->
   <footer class="footer-new">
@@ -2719,20 +2831,24 @@
         </div>
       </div>
     </div>
-<a 
-  [href]="'https://wa.me/' + COMPANY_CONTACT.whatsappNumber + '?text=Hello%20Al%20Bayan%20Typing%20Services'" 
-  target="_blank"
-  class="whatsapp-float-button"
-  [class.show]="showScrollTop"
-  data-aos="zoom-in"
-  data-aos-delay="300"
->
-  <div class="whatsapp-icon">
-    <i class="fab fa-whatsapp"></i>
-  </div>
-  <span class="whatsapp-tooltip">Chat with us</span>
-  <div class="whatsapp-pulse"></div>
-</a>
+    <a
+      [href]="
+        'https://wa.me/' +
+        COMPANY_CONTACT.whatsappNumber +
+        '?text=Hello%20Al%20Bayan%20Typing%20Services'
+      "
+      target="_blank"
+      class="whatsapp-float-button"
+      [class.show]="showScrollTop"
+      data-aos="zoom-in"
+      data-aos-delay="300"
+    >
+      <div class="whatsapp-icon">
+        <i class="fab fa-whatsapp"></i>
+      </div>
+      <span class="whatsapp-tooltip">Chat with us</span>
+      <div class="whatsapp-pulse"></div>
+    </a>
     <button
       *ngIf="showScrollTop"
       (click)="scrollToTop()"
