@@ -1,4 +1,3 @@
-// albayan-landing-page.component.ts
 import {
   Component,
   OnInit,
@@ -41,7 +40,9 @@ export class LandingPageContainerComponent {
   @ViewChild('statsSection') statsSection!: ElementRef;
   currentSlide = 0;
   previousSlide = -1;
+  isLoading = true;
   private aosInitialized = false;
+  private isComponentReady = false;
   progressWidth = 0;
   isMobileMenuOpen = false;
   private statsAnimationRun = false;
@@ -61,7 +62,7 @@ export class LandingPageContainerComponent {
   showScrollTop = false;
   COMPANY_CONTACT = {
     phone: '+971501234567',
-    whatsappNumber: '9605719902',
+    whatsappNumber: '+971555343873',
   };
   formData = {
     serviceType: '',
@@ -164,7 +165,6 @@ export class LandingPageContainerComponent {
       'Dubai Freezone license processing',
       'Sharjah Freezone license processing',
     ],
-    // NEW: Added as per requirements
 
     administrativeServices: [
       'Document management services',
@@ -245,7 +245,6 @@ export class LandingPageContainerComponent {
     address: 'Shop No. 6, Rashideya 2, Ajman, UAE',
   };
 
-  // Hero slides data
   heroSlides = [
     {
       title: 'AL BAYAN BUSINESSMEN SERVICES',
@@ -344,7 +343,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Jurisdictions
   JURISDICTIONS = [
     {
       title: 'Mainland',
@@ -372,7 +370,7 @@ export class LandingPageContainerComponent {
   get yearsOfService(): number {
     return new Date().getFullYear() - 2015;
   }
-  // Business Support Services
+
   BUSINESS_SUPPORT = [
     {
       icon: 'bi-bank2',
@@ -406,7 +404,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Freezone Benefits
   FREEZONE_BENEFITS = [
     {
       title: 'Company Formation in 1-2 Business Days',
@@ -435,7 +432,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Freezone Setup Steps
   FREEZONE_STEPS = [
     {
       number: '1',
@@ -473,7 +469,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Packages
   PACKAGES = [
     {
       title: 'Visa Package',
@@ -515,7 +510,6 @@ export class LandingPageContainerComponent {
       popular: false,
     },
   ];
-  // Detailed services
   detailedServices = [
     {
       title: 'Visa Processing Services',
@@ -892,237 +886,236 @@ export class LandingPageContainerComponent {
         'Package completion and follow-up',
       ],
     },
-  {
-    title: 'Typing Services',
-    subtitle: 'Professional document typing and processing',
-    description:
-      'Our comprehensive typing services cover all government and legal document requirements with accuracy and efficiency. Our experienced typists ensure error-free documentation for all your needs.',
-    images: [
-      'https://images.unsplash.com/photo-1545235617-9465d2a55698?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
-    ],
-    stats: [
-      { value: '100000+', label: 'Documents Typed' },
-      { value: '100%', label: 'Accuracy' },
-      { value: 'Same Day', label: 'Service Available' },
-    ],
-    benefits: [
-      'Government-approved typing formats',
-      'Expert typists with years of experience',
-      'Fast turnaround time',
-      'Error-free documentation',
-      'Confidential handling',
-      'Affordable pricing',
-    ],
-    features: [
-      'Visa application typing',
-      'Emirates ID application typing',
-      'Medical fitness forms',
-      'Immigration document typing',
-      'Labor contract typing',
-      'General document typing',
-    ],
-    process: [
-      'Submit your document requirements',
-      'Our typists prepare the documents',
-      'Quality check and verification',
-      'Final review with client',
-      'Document delivery',
-    ],
-  },
-  {
-    title: 'Photocopying & Printing',
-    subtitle: 'High-quality document reproduction services',
-    description:
-      'Professional photocopying, printing, and scanning services for all types of documents. We handle everything from single pages to bulk document processing with utmost quality.',
-    images: [
-      'https://images.unsplash.com/photo-1555099962-4199c345e5dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
-    ],
-    stats: [
-      { value: '500000+', label: 'Pages Processed' },
-      { value: 'High', label: 'Quality Print' },
-      { value: 'Bulk', label: 'Discounts Available' },
-    ],
-    benefits: [
-      'High-quality color and B/W printing',
-      'Fast bulk photocopying',
-      'Document scanning services',
-      'Lamination and binding',
-      'Confidential document handling',
-      'Competitive pricing',
-    ],
-    features: [
-      'Color photocopying',
-      'Black & white printing',
-      'Document scanning',
-      'Lamination services',
-      'Spiral and hard binding',
-      'Bulk order processing',
-    ],
-    process: [
-      'Submit documents for copying/printing',
-      'Select paper quality and format',
-      'Process documents',
-      'Quality check',
-      'Collection or delivery',
-    ],
-  },
-  {
-    title: 'Businessmen Services',
-    subtitle: 'Complete business setup and support',
-    description:
-      'Comprehensive services for businessmen including company formation, investor visa processing, and commercial registration. We handle all legal and administrative requirements for your business.',
-    images: [
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
-    ],
-    stats: [
-      { value: '1000+', label: 'Businesses Served' },
-      { value: '100%', label: 'Success Rate' },
-      { value: 'Fast', label: 'Processing' },
-    ],
-    benefits: [
-      'Business setup consultation',
-      'Investor visa processing',
-      'Commercial registration',
-      'Legal documentation',
-      'Government liaison',
-      'Ongoing business support',
-    ],
-    features: [
-      'Company formation assistance',
-      'Investor visa applications',
-      'Commercial registration',
-      'Business licensing',
-      'Partner visa processing',
-      'Annual renewal services',
-    ],
-    process: [
-      'Initial business consultation',
-      'Document preparation and submission',
-      'Government approvals',
-      'License issuance',
-      'Post-setup support',
-    ],
-  },
-  {
-    title: 'Commercial Information Services',
-    subtitle: 'Market research and business intelligence',
-    description:
-      'Professional commercial information services including market research, business intelligence, and commercial data processing. We provide valuable insights for business decision-making.',
-    images: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
-    ],
-    stats: [
-      { value: '500+', label: 'Reports Generated' },
-      { value: 'Accurate', label: 'Market Data' },
-      { value: 'Timely', label: 'Delivery' },
-    ],
-    benefits: [
-      'Market research reports',
-      'Business intelligence',
-      'Commercial data analysis',
-      'Industry insights',
-      'Competitor analysis',
-      'Customized reports',
-    ],
-    features: [
-      'Market analysis reports',
-      'Business feasibility studies',
-      'Commercial data processing',
-      'Industry trend analysis',
-      'Competitor intelligence',
-      'Custom research projects',
-    ],
-    process: [
-      'Define research requirements',
-      'Data collection and analysis',
-      'Report preparation',
-      'Client review and feedback',
-      'Final report delivery',
-    ],
-  },
-  {
-    title: 'Administrative Services',
-    subtitle: 'Complete administrative support',
-    description:
-      'Professional administrative services including document management, record keeping, and office administration support. We help businesses streamline their administrative processes.',
-    images: [
-      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
-    ],
-    stats: [
-      { value: '24/7', label: 'Support Available' },
-      { value: 'Efficient', label: 'Processing' },
-      { value: 'Confidential', label: 'Handling' },
-    ],
-    benefits: [
-      'Document management',
-      'Record keeping',
-      'Office administration',
-      'Filing system setup',
-      'Administrative workflow',
-      'Process optimization',
-    ],
-    features: [
-      'Document organization',
-      'Record maintenance',
-      'Administrative paperwork',
-      'Office documentation',
-      'Process documentation',
-      'Administrative consulting',
-    ],
-    process: [
-      'Assess administrative needs',
-      'Develop process plan',
-      'Implement solutions',
-      'Training and support',
-      'Ongoing maintenance',
-    ],
-  },
-  {
-    title: 'Freezone License Processing',
-    subtitle: 'Complete freezone company setup services',
-    description:
-      'Professional assistance with freezone company formation and license processing across all UAE freezones including Ajman, RAK, Dubai, and Sharjah freezones.',
-    images: [
-      'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
-    ],
-    stats: [
-      { value: '500+', label: 'Freezone Companies' },
-      { value: '48hrs', label: 'Fast Setup' },
-      { value: '100%', label: 'Foreign Ownership' },
-    ],
-    benefits: [
-      'Ajman Freezone processing',
-      'RAKEZ license setup',
-      'Dubai Freezones (DIFC, JAFZA, DMCC)',
-      'Sharjah Freezones (SAIF Zone)',
-      '100% foreign ownership',
-      'Tax exemptions',
-    ],
-    features: [
-      'Company name reservation',
-      'License application',
-      'Office space solutions',
-      'Visa processing',
-      'Bank account assistance',
-      'Annual renewal services',
-    ],
-    process: [
-      'Freezone selection consultation',
-      'Document preparation',
-      'License application submission',
-      'Government approvals',
-      'License issuance',
-      'Post-setup support',
-    ],
-  },
-];
-  // Process steps
+    {
+      title: 'Typing Services',
+      subtitle: 'Professional document typing and processing',
+      description:
+        'Our comprehensive typing services cover all government and legal document requirements with accuracy and efficiency. Our experienced typists ensure error-free documentation for all your needs.',
+      images: [
+        'https://images.unsplash.com/photo-1545235617-9465d2a55698?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1581094794329-c8112a89af12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '100000+', label: 'Documents Typed' },
+        { value: '100%', label: 'Accuracy' },
+        { value: 'Same Day', label: 'Service Available' },
+      ],
+      benefits: [
+        'Government-approved typing formats',
+        'Expert typists with years of experience',
+        'Fast turnaround time',
+        'Error-free documentation',
+        'Confidential handling',
+        'Affordable pricing',
+      ],
+      features: [
+        'Visa application typing',
+        'Emirates ID application typing',
+        'Medical fitness forms',
+        'Immigration document typing',
+        'Labor contract typing',
+        'General document typing',
+      ],
+      process: [
+        'Submit your document requirements',
+        'Our typists prepare the documents',
+        'Quality check and verification',
+        'Final review with client',
+        'Document delivery',
+      ],
+    },
+    {
+      title: 'Photocopying & Printing',
+      subtitle: 'High-quality document reproduction services',
+      description:
+        'Professional photocopying, printing, and scanning services for all types of documents. We handle everything from single pages to bulk document processing with utmost quality.',
+      images: [
+        'https://images.unsplash.com/photo-1555099962-4199c345e5dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '500000+', label: 'Pages Processed' },
+        { value: 'High', label: 'Quality Print' },
+        { value: 'Bulk', label: 'Discounts Available' },
+      ],
+      benefits: [
+        'High-quality color and B/W printing',
+        'Fast bulk photocopying',
+        'Document scanning services',
+        'Lamination and binding',
+        'Confidential document handling',
+        'Competitive pricing',
+      ],
+      features: [
+        'Color photocopying',
+        'Black & white printing',
+        'Document scanning',
+        'Lamination services',
+        'Spiral and hard binding',
+        'Bulk order processing',
+      ],
+      process: [
+        'Submit documents for copying/printing',
+        'Select paper quality and format',
+        'Process documents',
+        'Quality check',
+        'Collection or delivery',
+      ],
+    },
+    {
+      title: 'Businessmen Services',
+      subtitle: 'Complete business setup and support',
+      description:
+        'Comprehensive services for businessmen including company formation, investor visa processing, and commercial registration. We handle all legal and administrative requirements for your business.',
+      images: [
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '1000+', label: 'Businesses Served' },
+        { value: '100%', label: 'Success Rate' },
+        { value: 'Fast', label: 'Processing' },
+      ],
+      benefits: [
+        'Business setup consultation',
+        'Investor visa processing',
+        'Commercial registration',
+        'Legal documentation',
+        'Government liaison',
+        'Ongoing business support',
+      ],
+      features: [
+        'Company formation assistance',
+        'Investor visa applications',
+        'Commercial registration',
+        'Business licensing',
+        'Partner visa processing',
+        'Annual renewal services',
+      ],
+      process: [
+        'Initial business consultation',
+        'Document preparation and submission',
+        'Government approvals',
+        'License issuance',
+        'Post-setup support',
+      ],
+    },
+    {
+      title: 'Commercial Information Services',
+      subtitle: 'Market research and business intelligence',
+      description:
+        'Professional commercial information services including market research, business intelligence, and commercial data processing. We provide valuable insights for business decision-making.',
+      images: [
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '500+', label: 'Reports Generated' },
+        { value: 'Accurate', label: 'Market Data' },
+        { value: 'Timely', label: 'Delivery' },
+      ],
+      benefits: [
+        'Market research reports',
+        'Business intelligence',
+        'Commercial data analysis',
+        'Industry insights',
+        'Competitor analysis',
+        'Customized reports',
+      ],
+      features: [
+        'Market analysis reports',
+        'Business feasibility studies',
+        'Commercial data processing',
+        'Industry trend analysis',
+        'Competitor intelligence',
+        'Custom research projects',
+      ],
+      process: [
+        'Define research requirements',
+        'Data collection and analysis',
+        'Report preparation',
+        'Client review and feedback',
+        'Final report delivery',
+      ],
+    },
+    {
+      title: 'Administrative Services',
+      subtitle: 'Complete administrative support',
+      description:
+        'Professional administrative services including document management, record keeping, and office administration support. We help businesses streamline their administrative processes.',
+      images: [
+        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '24/7', label: 'Support Available' },
+        { value: 'Efficient', label: 'Processing' },
+        { value: 'Confidential', label: 'Handling' },
+      ],
+      benefits: [
+        'Document management',
+        'Record keeping',
+        'Office administration',
+        'Filing system setup',
+        'Administrative workflow',
+        'Process optimization',
+      ],
+      features: [
+        'Document organization',
+        'Record maintenance',
+        'Administrative paperwork',
+        'Office documentation',
+        'Process documentation',
+        'Administrative consulting',
+      ],
+      process: [
+        'Assess administrative needs',
+        'Develop process plan',
+        'Implement solutions',
+        'Training and support',
+        'Ongoing maintenance',
+      ],
+    },
+    {
+      title: 'Freezone License Processing',
+      subtitle: 'Complete freezone company setup services',
+      description:
+        'Professional assistance with freezone company formation and license processing across all UAE freezones including Ajman, RAK, Dubai, and Sharjah freezones.',
+      images: [
+        'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '500+', label: 'Freezone Companies' },
+        { value: '48hrs', label: 'Fast Setup' },
+        { value: '100%', label: 'Foreign Ownership' },
+      ],
+      benefits: [
+        'Ajman Freezone processing',
+        'RAKEZ license setup',
+        'Dubai Freezones (DIFC, JAFZA, DMCC)',
+        'Sharjah Freezones (SAIF Zone)',
+        '100% foreign ownership',
+        'Tax exemptions',
+      ],
+      features: [
+        'Company name reservation',
+        'License application',
+        'Office space solutions',
+        'Visa processing',
+        'Bank account assistance',
+        'Annual renewal services',
+      ],
+      process: [
+        'Freezone selection consultation',
+        'Document preparation',
+        'License application submission',
+        'Government approvals',
+        'License issuance',
+        'Post-setup support',
+      ],
+    },
+  ];
   processSteps = [
     {
       icon: 'bi-file-earmark-text',
@@ -1154,7 +1147,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Team members
   teamMembers = [
     {
       name: 'Expert Typists',
@@ -1187,7 +1179,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Expertise items
   expertise = [
     {
       icon: '🎓',
@@ -1215,7 +1206,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Achievements
   achievements = [
     {
       icon: 'fas fa-award',
@@ -1243,7 +1233,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Projects/Success Stories
   projects = [
     {
       category: 'Visa Services',
@@ -1290,7 +1279,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Testimonials
   testimonials = [
     {
       name: 'Ahmed Al Mansoori',
@@ -1329,7 +1317,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Before/After comparisons
   beforeAfterProjects = [
     {
       title: 'Complete Document Processing',
@@ -1343,9 +1330,9 @@ export class LandingPageContainerComponent {
       title: 'Brand Evolution & Service Expansion',
       location: 'Ajman',
       before: '/albayanbefore.png',
-      after: '/albayanbefore.png',
+      after: '/albayanafter.png',
       description:
-        'Evolved from Al Bayan Typing Services to Al Bayan Businessmen Services - expanding from basic typing to comprehensive business solutions including company formation, investor visas, and complete PRO services.',
+        'Our establishments previous name was Al Bayan Typing Service. It had been that way for many years, and we recently converted it to Al Bayan Businessmen Services.',
     },
     {
       title: 'Customer Experience',
@@ -1357,7 +1344,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Gallery images
   galleryImages = [
     'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -1460,7 +1446,6 @@ export class LandingPageContainerComponent {
     },
   ];
 
-  // Unique services
   uniqueServices = [
     {
       image:
@@ -1498,64 +1483,47 @@ export class LandingPageContainerComponent {
       return;
     }
 
-    // Refresh AOS to detect new elements
+    this.isComponentReady = true;
+
     setTimeout(() => {
-      if (typeof AOS !== 'undefined' && this.aosInitialized) {
-        AOS.refresh();
-      }
+      this.initializeAOS();
+      this.setupScrollAnimation();
+      this.isLoading = false;
+      this.cdRef.detectChanges();
     }, 100);
-
-    // Initialize stats
-    this.statsData = [
-      { value: 0, label: 'Years of Service' },
-      { value: 0, label: 'Documents Processed' },
-      { value: 0, label: 'Happy Clients' },
-      { value: 0, label: 'Success Rate' },
-    ];
-    this.cdRef.detectChanges();
-
-    // Setup scroll animations
-    this.setupScrollAnimation();
   }
 
   private setupScrollAnimation() {
     if (!this.isBrowser || typeof IntersectionObserver === 'undefined') {
-      // Fallback: animate after 1 second if IntersectionObserver not supported
       setTimeout(() => {
         this.animateStats();
       }, 1000);
       return;
     }
 
-    // Create intersection observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !this.statsAnimationRun) {
-            // Start animation when stats section is visible
             this.statsAnimationRun = true;
             this.animateStats();
-
-            // Optionally unobserve after animation starts
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        root: null, // viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.3, // Trigger when 30% of element is visible
+        threshold: 0.3,
       },
     );
 
-    // Find stats section in the DOM
     setTimeout(() => {
       const statsElement =
         this.elementRef.nativeElement.querySelector('#stats');
       if (statsElement) {
         observer.observe(statsElement);
       } else {
-        // Fallback if element not found
         setTimeout(() => {
           this.animateStats();
         }, 1000);
@@ -1567,16 +1535,11 @@ export class LandingPageContainerComponent {
       return;
     }
 
-    // Initialize AOS once
-    this.initializeAOS();
-
-    // Set up scroll listener
     if (typeof window !== 'undefined') {
       this.handleScroll();
       window.addEventListener('scroll', this.handleScroll.bind(this));
     }
 
-    // Set up interval timers
     this.intervalTimer = setInterval(() => {
       this.nextSlide();
     }, 5000);
@@ -1593,7 +1556,6 @@ export class LandingPageContainerComponent {
   }
 
   ngOnDestroy() {
-    // Clean up all listeners and timers
     if (this.isBrowser && typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.handleScroll.bind(this));
     }
@@ -1609,43 +1571,58 @@ export class LandingPageContainerComponent {
       return;
     }
 
-    // Initialize AOS with configuration
-    AOS.init({
-      // Global settings:
-      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-      initClassName: 'aos-init', // class applied after initialization
-      animatedClassName: 'aos-animate', // class applied on animation
-      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+    try {
+      AOS.init({
+        disable: false,
+        startEvent: 'DOMContentLoaded',
+        initClassName: 'aos-init',
+        animatedClassName: 'aos-animate',
+        useClassNames: false,
+        disableMutationObserver: false,
+        debounceDelay: 50,
+        throttleDelay: 99,
+        offset: 120,
+        delay: 0,
+        duration: 800,
+        easing: 'ease-in-out-cubic',
+        once: true,
+        mirror: false,
+        anchorPlacement: 'top-bottom',
+      });
 
-      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-      offset: 120, // offset (in px) from the original trigger point
-      delay: 0, // values from 0 to 3000, with step 50ms
-      duration: 800, // values from 0 to 3000, with step 50ms
-      easing: 'ease-in-out-cubic', // default easing for AOS animations
-      once: true, // whether animation should happen only once - while scrolling down
-      mirror: false, // whether elements should animate out while scrolling past them
-      anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-    });
+      this.aosInitialized = true;
 
-    this.aosInitialized = true;
+      if (typeof window !== 'undefined') {
+        setTimeout(() => {
+          AOS.refresh();
+        }, 500);
 
-    // Add resize listener for AOS refresh
-    window.addEventListener('resize', () => {
-      AOS.refresh();
-    });
+        let resizeTimeout: any;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            if (this.aosInitialized) {
+              AOS.refresh();
+            }
+          }, 250);
+        });
 
-    // Add load listener to refresh AOS after images load
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        AOS.refresh();
-      }, 500);
-    });
+        window.addEventListener(
+          'load',
+          () => {
+            setTimeout(() => {
+              if (this.aosInitialized) {
+                AOS.refresh();
+              }
+            }, 300);
+          },
+          { once: true },
+        );
+      }
+    } catch (error) {
+      console.error('AOS initialization error:', error);
+    }
   }
-
   @HostListener('window:scroll', [])
   handleScroll() {
     if (this.isBrowser && typeof window !== 'undefined') {
@@ -1654,7 +1631,6 @@ export class LandingPageContainerComponent {
     }
   }
 
-  // Functions
   nextSlide() {
     this.previousSlide = this.currentSlide;
     this.currentSlide = (this.currentSlide + 1) % this.heroSlides.length;
@@ -1694,19 +1670,17 @@ export class LandingPageContainerComponent {
     ];
 
     let progress = 0;
-    const duration = 2000; // 2 seconds animation
+    const duration = 2000;
     const startTime = Date.now();
 
     const animate = () => {
       const elapsed = Date.now() - startTime;
       progress = Math.min(elapsed / duration, 1);
 
-      // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
 
       this.statsData = targets.map((target, index) => {
-        // Different easing for each stat for staggered effect
-        const delay = index * 200; // 200ms delay between each counter
+        const delay = index * 200;
         const adjustedProgress = Math.max(
           0,
           (elapsed - delay) / (duration - delay),
@@ -1725,7 +1699,6 @@ export class LandingPageContainerComponent {
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
-        // Ensure final values are set
         this.statsData = targets;
         this.cdRef.detectChanges();
       }

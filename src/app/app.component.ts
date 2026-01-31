@@ -1,37 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+// app.component.ts
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import * as AOS from 'aos';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object,
+  ) {}
 
   ngOnInit() {
-    // Initialize AOS globally
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out-cubic',
-      once: true,
-    });
-
-    // Listen for route changes to refresh AOS
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      // Small delay for DOM to update
-      setTimeout(() => {
-        AOS.refresh();
-      }, 300);
-    });
-
-    // Refresh AOS on window resize
-    window.addEventListener('resize', () => {
-      AOS.refresh();
-    });
+    if (isPlatformBrowser(this.platformId)) {
+  
+      this.router.events
+        .pipe(filter((event) => event instanceof NavigationEnd))
+        .subscribe(() => {
+          window.scrollTo(0, 0);
+        });
+    }
   }
 }

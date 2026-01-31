@@ -5581,9 +5581,6 @@ $tablet-breakpoint: 1024px;
   }
 }
 
-// Add these styles to landing-page-container.component.scss
-
-/* Simplified About Section Preview */
 .about-section-preview {
   background-color: #f5f5f5;
   padding: $spacing-xl 0;
@@ -5707,7 +5704,7 @@ $tablet-breakpoint: 1024px;
 
 .whatsapp-float-button {
   position: fixed;
-  bottom: 100px; // Positioned above scroll-top button
+  bottom: 100px;
   right: $spacing-md;
   width: 60px;
   height: 60px;
@@ -5733,7 +5730,6 @@ $tablet-breakpoint: 1024px;
     pointer-events: all;
   }
 
-  // WhatsApp icon
   .whatsapp-icon {
     position: relative;
     z-index: 2;
@@ -5745,7 +5741,6 @@ $tablet-breakpoint: 1024px;
     }
   }
 
-  // Tooltip "Chat with us"
   .whatsapp-tooltip {
     position: absolute;
     right: 75px;
@@ -5779,7 +5774,6 @@ $tablet-breakpoint: 1024px;
     }
   }
 
-  // Pulsing animation ring
   .whatsapp-pulse {
     position: absolute;
     top: 50%;
@@ -5793,7 +5787,6 @@ $tablet-breakpoint: 1024px;
     opacity: 0;
   }
 
-  // Hover effects
   &:hover {
     transform: scale(1.15) translateY(-5px);
     box-shadow:
@@ -5814,7 +5807,6 @@ $tablet-breakpoint: 1024px;
     }
   }
 
-  // Active/Click effect
   &:active {
     transform: scale(1.05);
   }
@@ -8249,7 +8241,6 @@ $tablet-breakpoint: 1024px;
   }
 }
 
-/* Fix Horizontal Scrolling */
 @media (max-width: $mobile-breakpoint) {
   html,
   body {
