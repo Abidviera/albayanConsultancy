@@ -1333,15 +1333,8 @@ export class LandingPageContainerComponent {
       after: '/albayanafter.png',
       description:
         'Our establishments previous name was Al Bayan Typing Service. It had been that way for many years, and we recently converted it to Al Bayan Businessmen Services.',
-    },
-    {
-      title: 'Customer Experience',
-      location: 'Ajman',
-      before: '',
-      after: '',
-      description:
-        'Enhanced customer experience with digital tracking and SMS updates.',
-    },
+    }
+  
   ];
 
   galleryImages = [

@@ -1,4 +1,3 @@
-
 <div class="app">
 
   <header class="header" [class.header-scrolled]="isScrolled">
@@ -249,216 +248,8 @@
     </div>
   </section>
 
-  <app-test></app-test>
-
-  <section class="services-detailed-section">
-    <div class="container">
-      <h2
-        class="section-title"
-        data-aos="fade-down"
-        data-aos-easing="ease-in-back"
-      >
-        EXPLORE OUR SERVICES<br />IN DETAIL
-      </h2>
-      <p
-        class="section-subtitle"
-        data-aos="fade-down"
-        data-aos-delay="100"
-        data-aos-easing="ease-in-back"
-      >
-        Click on any service below to discover comprehensive details, benefits,
-        our process, and successful services we've completed
-      </p>
-
-      <div class="services-grid">
-        <div
-          *ngFor="let service of detailedServices; let i = index"
-          class="service-card"
-          (click)="selectedService = service"
-          [attr.data-aos]="'flip-left'"
-          [attr.data-aos-delay]="(i * 100).toString()"
-          [attr.data-aos-duration]="'500'"
-        >
-          <div
-            class="service-image-container"
-            [attr.data-aos]="'zoom-in'"
-            [attr.data-aos-delay]="(i * 100 + 300).toString()"
-          >
-            <img
-              [src]="service.images[0]"
-              [alt]="service.title"
-              class="service-image"
-            />
-          </div>
-          <h3 class="service-title">{{ service.title }}</h3>
-          <p class="service-subtitle">{{ service.subtitle }}</p>
-          <div class="learn-more">
-            <span>Learn More</span>
-            <span class="arrow">→</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="modal-overlay"
-      *ngIf="selectedService"
-      (click)="selectedService = null"
-    >
-      <div class="modal-container">
-        <div
-          class="modal-content"
-          (click)="$event.stopPropagation()"
-          data-aos="zoom-in"
-        >
-          <button
-            class="close-button"
-            (click)="selectedService = null"
-            data-aos="fade-left"
-            data-aos-delay="200"
-          >
-            <span class="close-icon">×</span>
-          </button>
-
-          <div class="modal-hero-image" data-aos="fade-up" data-aos-delay="100">
-            <img
-              [src]="selectedService.images[0]"
-              [alt]="selectedService.title"
-            />
-          </div>
-
-          <div class="modal-body">
-            <div
-              class="modal-title-section"
-              data-aos="fade-right"
-              data-aos-delay="200"
-            >
-              <h2 class="modal-main-title">{{ selectedService.title }}</h2>
-              <p class="modal-subtitle">{{ selectedService.subtitle }}</p>
-            </div>
-
-            <div
-              class="modal-description"
-              data-aos="fade-up"
-              data-aos-delay="250"
-            >
-              <p>{{ selectedService.description }}</p>
-            </div>
-
-            <div class="modal-stats">
-              <div
-                *ngFor="let stat of selectedService.stats; let i = index"
-                class="stat-item"
-                [attr.data-aos]="'zoom-in'"
-                [attr.data-aos-delay]="(i * 100 + 300).toString()"
-              >
-                <div
-                  class="stat-value"
-                  [attr.data-aos]="'count-up'"
-                  [attr.data-aos-delay]="(i * 100 + 400).toString()"
-                >
-                  {{ stat.value }}
-                </div>
-                <div class="stat-label">{{ stat.label }}</div>
-              </div>
-            </div>
-
-            <div class="modal-section" data-aos="fade-up" data-aos-delay="400">
-              <div class="section-header">
-                <span class="section-icon">✓</span>
-                <h3>Key Benefits</h3>
-              </div>
-              <div class="benefits-grid">
-                <div
-                  *ngFor="
-                    let benefit of selectedService.benefits;
-                    let i = index
-                  "
-                  class="benefit-item"
-                  [attr.data-aos]="'fade-right'"
-                  [attr.data-aos-delay]="(i * 50 + 450).toString()"
-                >
-                  <span class="check-icon">✓</span>
-                  <p>{{ benefit }}</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal-section" data-aos="fade-up" data-aos-delay="500">
-              <div class="section-header">
-                <span class="section-icon">●</span>
-                <h3>What We Provide</h3>
-              </div>
-              <div class="features-grid">
-                <div
-                  *ngFor="
-                    let feature of selectedService.features;
-                    let i = index
-                  "
-                  class="feature-item"
-                  [attr.data-aos]="'fade-right'"
-                  [attr.data-aos-delay]="(i * 50 + 550).toString()"
-                >
-                  <span class="feature-dot"></span>
-                  <p>{{ feature }}</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal-section" data-aos="fade-up" data-aos-delay="600">
-              <div class="section-header">
-                <span class="section-icon">⏱</span>
-                <h3>Our Process</h3>
-              </div>
-              <div class="process-list">
-                <div
-                  *ngFor="let step of selectedService.process; let i = index"
-                  class="process-step"
-                  [attr.data-aos]="'fade-up'"
-                  [attr.data-aos-delay]="(i * 100 + 650).toString()"
-                >
-                  <div class="step-number">{{ i + 1 }}</div>
-                  <div class="step-content">
-                    <p>{{ step }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="modal-secondary-image"
-              *ngIf="selectedService.images[1]"
-              data-aos="zoom-in"
-              data-aos-delay="750"
-            >
-              <img
-                [src]="selectedService.images[1]"
-                [alt]="selectedService.title + ' Example'"
-              />
-            </div>
-
-            <div class="modal-cta" data-aos="zoom-in" data-aos-delay="800">
-              <h3>Ready to Get Started?</h3>
-              <p class="cta-description">
-                Contact us today for fast and reliable service. Let us handle
-                your documentation needs!
-              </p>
-              <a
-                href="#contact"
-                (click)="selectedService = null"
-                class="cta-button"
-                data-aos="pulse"
-                data-aos-delay="900"
-              >
-                Request Free Consultation
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+   <app-test></app-test>
+  <!-- Business Setup Services Section (Priority) -->
   <section id="jurisdiction" class="jurisdiction-vintage-section">
     <div class="container">
       <div
@@ -688,47 +479,6 @@
     </div>
   </section>
 
-  <!-- Business Support Section -->
-  <section class="business-support-section">
-    <div class="container">
-      <h2
-        class="section-title"
-        data-aos="fade-up"
-        data-aos-easing="ease-out-cubic"
-      >
-        BUSINESS SUPPORT SERVICES
-      </h2>
-      <p
-        class="section-subtitle"
-        data-aos="fade-up"
-        data-aos-delay="100"
-        data-aos-easing="ease-out-cubic"
-      >
-        Complete support for all your business needs in UAE
-      </p>
-
-      <div class="services-grid">
-        <div
-          *ngFor="let service of BUSINESS_SUPPORT; let i = index"
-          class="service-card"
-          [attr.data-aos]="'zoom-in'"
-          [attr.data-aos-delay]="(i * 100).toString()"
-          [attr.data-aos-anchor-placement]="'center-bottom'"
-        >
-          <div
-            class="service-icon-wrapper"
-            [attr.data-aos]="'flip-left'"
-            [attr.data-aos-delay]="(i * 150 + 300).toString()"
-          >
-            <i class="bi {{ service.icon }} service-icon"></i>
-          </div>
-          <h3 class="service-title">{{ service.title }}</h3>
-          <p class="service-description">{{ service.description }}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Freezone Benefits Section -->
   <section class="freezone-benefits-section">
     <div class="container">
@@ -814,6 +564,257 @@
           </div>
           <h3 class="step-title">{{ step.title }}</h3>
           <p class="step-description">{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Support Section -->
+  <section class="business-support-section">
+    <div class="container">
+      <h2
+        class="section-title"
+        data-aos="fade-up"
+        data-aos-easing="ease-out-cubic"
+      >
+        BUSINESS SUPPORT SERVICES
+      </h2>
+      <p
+        class="section-subtitle"
+        data-aos="fade-up"
+        data-aos-delay="100"
+        data-aos-easing="ease-out-cubic"
+      >
+        Complete support for all your business needs in UAE
+      </p>
+
+      <div class="services-grid">
+        <div
+          *ngFor="let service of BUSINESS_SUPPORT; let i = index"
+          class="service-card"
+          [attr.data-aos]="'zoom-in'"
+          [attr.data-aos-delay]="(i * 100).toString()"
+          [attr.data-aos-anchor-placement]="'center-bottom'"
+        >
+          <div
+            class="service-icon-wrapper"
+            [attr.data-aos]="'flip-left'"
+            [attr.data-aos-delay]="(i * 150 + 300).toString()"
+          >
+            <i class="bi {{ service.icon }} service-icon"></i>
+          </div>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="services-detailed-section">
+    <div class="container">
+      <h2
+        class="section-title"
+        data-aos="fade-down"
+        data-aos-easing="ease-in-back"
+      >
+        EXPLORE OUR SERVICES<br />IN DETAIL
+      </h2>
+      <p
+        class="section-subtitle"
+        data-aos="fade-down"
+        data-aos-delay="100"
+        data-aos-easing="ease-in-back"
+      >
+        Click on any service below to discover comprehensive details, benefits,
+        our process, and successful services we've completed
+      </p>
+
+      <div class="services-grid">
+        <div
+          *ngFor="let service of detailedServices; let i = index"
+          class="service-card"
+          (click)="selectedService = service"
+          [attr.data-aos]="'flip-left'"
+          [attr.data-aos-delay]="(i * 100).toString()"
+          [attr.data-aos-duration]="'500'"
+        >
+          <div
+            class="service-image-container"
+            [attr.data-aos]="'zoom-in'"
+            [attr.data-aos-delay]="(i * 100 + 300).toString()"
+          >
+            <img
+              [src]="service.images[0]"
+              [alt]="service.title"
+              class="service-image"
+            />
+          </div>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-subtitle">{{ service.subtitle }}</p>
+          <div class="learn-more">
+            <span>Learn More</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-overlay"
+      *ngIf="selectedService"
+      (click)="selectedService = null"
+    >
+      <div class="modal-container">
+        <div
+          class="modal-content"
+          (click)="$event.stopPropagation()"
+          data-aos="zoom-in"
+        >
+          <button
+            class="close-button"
+            (click)="selectedService = null"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
+            <span class="close-icon">×</span>
+          </button>
+
+          <div class="modal-hero-image" data-aos="fade-up" data-aos-delay="100">
+            <img
+              [src]="selectedService.images[0]"
+              [alt]="selectedService.title"
+            />
+          </div>
+
+          <div class="modal-body">
+            <div
+              class="modal-title-section"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
+              <h2 class="modal-main-title">{{ selectedService.title }}</h2>
+              <p class="modal-subtitle">{{ selectedService.subtitle }}</p>
+            </div>
+
+            <div
+              class="modal-description"
+              data-aos="fade-up"
+              data-aos-delay="250"
+            >
+              <p>{{ selectedService.description }}</p>
+            </div>
+
+            <div class="modal-stats">
+              <div
+                *ngFor="let stat of selectedService.stats; let i = index"
+                class="stat-item"
+                [attr.data-aos]="'zoom-in'"
+                [attr.data-aos-delay]="(i * 100 + 300).toString()"
+              >
+                <div
+                  class="stat-value"
+                  [attr.data-aos]="'count-up'"
+                  [attr.data-aos-delay]="(i * 100 + 400).toString()"
+                >
+                  {{ stat.value }}
+                </div>
+                <div class="stat-label">{{ stat.label }}</div>
+              </div>
+            </div>
+
+            <div class="modal-section" data-aos="fade-up" data-aos-delay="400">
+              <div class="section-header">
+                <span class="section-icon">✓</span>
+                <h3>Key Benefits</h3>
+              </div>
+              <div class="benefits-grid">
+                <div
+                  *ngFor="
+                    let benefit of selectedService.benefits;
+                    let i = index
+                  "
+                  class="benefit-item"
+                  [attr.data-aos]="'fade-right'"
+                  [attr.data-aos-delay]="(i * 50 + 450).toString()"
+                >
+                  <span class="check-icon">✓</span>
+                  <p>{{ benefit }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-section" data-aos="fade-up" data-aos-delay="500">
+              <div class="section-header">
+                <span class="section-icon">●</span>
+                <h3>What We Provide</h3>
+              </div>
+              <div class="features-grid">
+                <div
+                  *ngFor="
+                    let feature of selectedService.features;
+                    let i = index
+                  "
+                  class="feature-item"
+                  [attr.data-aos]="'fade-right'"
+                  [attr.data-aos-delay]="(i * 50 + 550).toString()"
+                >
+                  <span class="feature-dot"></span>
+                  <p>{{ feature }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-section" data-aos="fade-up" data-aos-delay="600">
+              <div class="section-header">
+                <span class="section-icon">⏱</span>
+                <h3>Our Process</h3>
+              </div>
+              <div class="process-list">
+                <div
+                  *ngFor="let step of selectedService.process; let i = index"
+                  class="process-step"
+                  [attr.data-aos]="'fade-up'"
+                  [attr.data-aos-delay]="(i * 100 + 650).toString()"
+                >
+                  <div class="step-number">{{ i + 1 }}</div>
+                  <div class="step-content">
+                    <p>{{ step }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="modal-secondary-image"
+              *ngIf="selectedService.images[1]"
+              data-aos="zoom-in"
+              data-aos-delay="750"
+            >
+              <img
+                [src]="selectedService.images[1]"
+                [alt]="selectedService.title + ' Example'"
+              />
+            </div>
+
+            <div class="modal-cta" data-aos="zoom-in" data-aos-delay="800">
+              <h3>Ready to Get Started?</h3>
+              <p class="cta-description">
+                Contact us today for fast and reliable service. Let us handle
+                your documentation needs!
+              </p>
+              <a
+                href="#contact"
+                (click)="selectedService = null"
+                class="cta-button"
+                data-aos="pulse"
+                data-aos-delay="900"
+              >
+                Request Free Consultation
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
