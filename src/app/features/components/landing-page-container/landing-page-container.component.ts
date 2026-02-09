@@ -7,6 +7,7 @@ import {
   ChangeDetectorRef,
   ElementRef,
   ViewChild,
+  NgZone,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID, Inject } from '@angular/core';
@@ -29,6 +30,45 @@ interface CompanyInfo {
   owner: string;
   address: string;
 }
+
+function debounce(func: Function, wait: number) {
+  let timeout: any;
+  return function executedFunction(...args: any[]) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Throttle function for high-frequency events
+function throttle(func: Function, limit: number) {
+  let inThrottle: boolean;
+  return function (this: any, ...args: any[]) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+// RequestAnimationFrame wrapper
+function rafThrottle(callback: Function) {
+  let requestId: number | null = null;
+
+  return function (this: any, ...args: any[]) {
+    if (requestId === null) {
+      requestId = requestAnimationFrame(() => {
+        callback.apply(this, args);
+        requestId = null;
+      });
+    }
+  };
+}
+
 @Component({
   selector: 'app-landing-page-container',
   standalone: false,
@@ -50,6 +90,26 @@ export class LandingPageContainerComponent {
   isBrowser: boolean;
   currentProjectIndex = 0;
   currentTestimonial = 0;
+  private rafId: number | null = null;
+  private scrollTicking = false;
+  private resizeObserver?: ResizeObserver;
+  private optimizedScrollHandler = rafThrottle(() => {
+    this.ngZone.runOutsideAngular(() => {
+      const scrollY = window.scrollY;
+      const newIsScrolled = scrollY > 50;
+      const newShowScrollTop = scrollY > 300;
+
+      if (
+        this.isScrolled !== newIsScrolled ||
+        this.showScrollTop !== newShowScrollTop
+      ) {
+        this.ngZone.run(() => {
+          this.isScrolled = newIsScrolled;
+          this.showScrollTop = newShowScrollTop;
+        });
+      }
+    });
+  });
   activeTab: 'team' | 'expertise' = 'team';
   selectedService: any = null;
   beforeAfterSliders: { [key: number]: number } = { 0: 50, 1: 50, 2: 50 };
@@ -1524,90 +1584,113 @@ export class LandingPageContainerComponent {
     @Inject(PLATFORM_ID) platformId: Object,
     private cdRef: ChangeDetectorRef,
     private elementRef: ElementRef,
+    private ngZone: NgZone, // Add NgZone
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngAfterViewInit() {
-    if (!this.isBrowser) {
-      return;
-    }
+    if (!this.isBrowser) return;
 
     this.isComponentReady = true;
 
-    setTimeout(() => {
-      this.initializeAOS();
-      this.setupScrollAnimation();
-      this.isLoading = false;
-      this.cdRef.detectChanges();
-    }, 100);
+    // Use RAF for initialization
+    this.ngZone.runOutsideAngular(() => {
+      requestAnimationFrame(() => {
+        this.initializeAOS();
+        this.setupScrollAnimation();
+
+        this.ngZone.run(() => {
+          this.isLoading = false;
+          this.cdRef.detectChanges();
+        });
+      });
+    });
   }
 
   private setupScrollAnimation() {
     if (!this.isBrowser || typeof IntersectionObserver === 'undefined') {
-      setTimeout(() => {
-        this.animateStats();
-      }, 1000);
+      setTimeout(() => this.animateStats(), 1000);
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !this.statsAnimationRun) {
-            this.statsAnimationRun = true;
-            this.animateStats();
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.3,
-      },
-    );
+    this.ngZone.runOutsideAngular(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !this.statsAnimationRun) {
+              this.ngZone.run(() => {
+                this.statsAnimationRun = true;
+                this.animateStats();
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.2, // Reduced from 0.3 for earlier trigger
+        },
+      );
 
-    setTimeout(() => {
-      const statsElement =
-        this.elementRef.nativeElement.querySelector('#stats');
-      if (statsElement) {
-        observer.observe(statsElement);
-      } else {
-        setTimeout(() => {
-          this.animateStats();
-        }, 1000);
-      }
-    }, 100);
+      setTimeout(() => {
+        const statsElement =
+          this.elementRef.nativeElement.querySelector('#stats');
+        if (statsElement) {
+          observer.observe(statsElement);
+        } else {
+          this.ngZone.run(() => {
+            setTimeout(() => this.animateStats(), 1000);
+          });
+        }
+      }, 100);
+    });
   }
   ngOnInit() {
-    if (!this.isBrowser) {
-      return;
-    }
+    if (!this.isBrowser) return;
 
-    if (typeof window !== 'undefined') {
-      this.handleScroll();
-      window.addEventListener('scroll', this.handleScroll.bind(this));
-    }
+    // Run outside Angular zone for better performance
+    this.ngZone.runOutsideAngular(() => {
+      if (typeof window !== 'undefined') {
+        // Use optimized scroll handler
+        window.addEventListener('scroll', this.optimizedScrollHandler as any, {
+          passive: true,
+        });
+      }
 
-    this.intervalTimer = setInterval(() => {
-      this.nextSlide();
-    }, 5000);
+      // Optimized intervals
+      this.intervalTimer = setInterval(() => {
+        this.ngZone.run(() => this.nextSlide());
+      }, 5000);
 
-    this.progressTimer = setInterval(() => {
-      this.progressWidth =
-        this.progressWidth >= 100 ? 0 : this.progressWidth + 2;
-    }, 100);
+      this.progressTimer = setInterval(() => {
+        this.ngZone.run(() => {
+          this.progressWidth =
+            this.progressWidth >= 100 ? 0 : this.progressWidth + 2;
+        });
+      }, 100);
 
-    this.testimonialTimer = setInterval(() => {
-      this.currentTestimonial =
-        (this.currentTestimonial + 1) % this.testimonials.length;
-    }, 6000);
+      this.testimonialTimer = setInterval(() => {
+        this.ngZone.run(() => {
+          this.currentTestimonial =
+            (this.currentTestimonial + 1) % this.testimonials.length;
+        });
+      }, 6000);
+    });
   }
-
   ngOnDestroy() {
+    // Cancel any pending RAF
+    if (this.rafId !== null) {
+      cancelAnimationFrame(this.rafId);
+    }
+
     if (this.isBrowser && typeof window !== 'undefined') {
-      window.removeEventListener('scroll', this.handleScroll.bind(this));
+      window.removeEventListener('scroll', this.optimizedScrollHandler as any);
+    }
+
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
     }
 
     if (this.intervalTimer) clearInterval(this.intervalTimer);
@@ -1617,62 +1700,57 @@ export class LandingPageContainerComponent {
   }
 
   private initializeAOS() {
-    if (!this.isBrowser || this.aosInitialized) {
-      return;
-    }
+    if (!this.isBrowser || this.aosInitialized) return;
 
-    try {
-      AOS.init({
-        disable: false,
-        startEvent: 'DOMContentLoaded',
-        initClassName: 'aos-init',
-        animatedClassName: 'aos-animate',
-        useClassNames: false,
-        disableMutationObserver: false,
-        debounceDelay: 50,
-        throttleDelay: 99,
-        offset: 120,
-        delay: 0,
-        duration: 800,
-        easing: 'ease-in-out-cubic',
-        once: true,
-        mirror: false,
-        anchorPlacement: 'top-bottom',
-      });
-
-      this.aosInitialized = true;
-
-      if (typeof window !== 'undefined') {
-        setTimeout(() => {
-          AOS.refresh();
-        }, 500);
-
-        let resizeTimeout: any;
-        window.addEventListener('resize', () => {
-          clearTimeout(resizeTimeout);
-          resizeTimeout = setTimeout(() => {
-            if (this.aosInitialized) {
-              AOS.refresh();
-            }
-          }, 250);
+    this.ngZone.runOutsideAngular(() => {
+      try {
+        AOS.init({
+          disable: false,
+          startEvent: 'DOMContentLoaded',
+          initClassName: 'aos-init',
+          animatedClassName: 'aos-animate',
+          useClassNames: false,
+          disableMutationObserver: false,
+          debounceDelay: 50,
+          throttleDelay: 99,
+          offset: 80, // Reduced for faster trigger
+          delay: 0,
+          duration: 600, // Reduced from 800 for snappier feel
+          easing: 'ease-out-cubic',
+          once: true,
+          mirror: false,
+          anchorPlacement: 'top-bottom',
         });
 
-        window.addEventListener(
-          'load',
-          () => {
-            setTimeout(() => {
-              if (this.aosInitialized) {
-                AOS.refresh();
-              }
-            }, 300);
-          },
-          { once: true },
-        );
+        this.aosInitialized = true;
+
+        // Debounced refresh
+        const debouncedRefresh = debounce(() => {
+          if (this.aosInitialized) AOS.refresh();
+        }, 150);
+
+        if (typeof window !== 'undefined') {
+          setTimeout(() => AOS.refresh(), 300);
+
+          window.addEventListener('resize', debouncedRefresh as any, {
+            passive: true,
+          });
+          window.addEventListener(
+            'load',
+            () => {
+              setTimeout(() => {
+                if (this.aosInitialized) AOS.refresh();
+              }, 200);
+            },
+            { once: true, passive: true },
+          );
+        }
+      } catch (error) {
+        console.error('AOS initialization error:', error);
       }
-    } catch (error) {
-      console.error('AOS initialization error:', error);
-    }
+    });
   }
+
   @HostListener('window:scroll', [])
   handleScroll() {
     if (this.isBrowser && typeof window !== 'undefined') {
@@ -1700,7 +1778,9 @@ export class LandingPageContainerComponent {
         const offset = 80;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
-        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+
+        // Use smooth scroll with RAF
+        this.smoothScrollTo(offsetPosition, 800);
         this.isMobileMenuOpen = false;
       }
     }
@@ -1708,10 +1788,35 @@ export class LandingPageContainerComponent {
 
   scrollToTop() {
     if (this.isBrowser && typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      this.smoothScrollTo(0, 600);
     }
   }
-  animateStats() {
+
+  private smoothScrollTo(targetPosition: number, duration: number) {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const startTime = performance.now();
+
+    const scroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Easing function for smooth animation
+      const easeInOutCubic =
+        progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      window.scrollTo(0, startPosition + distance * easeInOutCubic);
+
+      if (progress < 1) {
+        requestAnimationFrame(scroll);
+      }
+    };
+
+    requestAnimationFrame(scroll);
+  }
+  private animateStats() {
     const targets = [
       { value: 10, label: 'Years of Service' },
       { value: 50000, label: 'Documents Processed' },
@@ -1719,24 +1824,24 @@ export class LandingPageContainerComponent {
       { value: 100, label: 'Success Rate' },
     ];
 
-    let progress = 0;
-    const duration = 2000;
-    const startTime = Date.now();
+    const duration = 1500; // Reduced from 2000
+    const startTime = performance.now();
 
-    const animate = () => {
-      const elapsed = Date.now() - startTime;
-      progress = Math.min(elapsed / duration, 1);
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
 
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      // Faster easing
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
 
       this.statsData = targets.map((target, index) => {
-        const delay = index * 200;
+        const delay = index * 150; // Reduced from 200
         const adjustedProgress = Math.max(
           0,
           (elapsed - delay) / (duration - delay),
         );
         const easedProgress =
-          1 - Math.pow(1 - Math.min(adjustedProgress, 1), 4);
+          1 - Math.pow(1 - Math.min(adjustedProgress, 1), 3);
 
         return {
           value: Math.floor(target.value * easedProgress),
