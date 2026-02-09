@@ -280,37 +280,8 @@ export class LandingPageContainerComponent {
     },
   ];
 
+  // REORDERED: Business services first
   services = [
-    {
-      icon: '📄',
-      title: 'Visa Services',
-      description:
-        'Complete visa typing services including residence, visit, and renewal applications processed efficiently with all Emirates support.',
-    },
-    {
-      icon: '🆔',
-      title: 'Emirates ID',
-      description:
-        'Emirates ID application, renewal, and modification services with quick turnaround times and ICP direct access.',
-    },
-    {
-      icon: '🏥',
-      title: 'Medical Fitness',
-      description:
-        'Medical fitness typing and processing for employment and residence permits with approved medical centers.',
-    },
-    {
-      icon: '✈️',
-      title: 'Immigration Services',
-      description:
-        'Complete immigration and labor typing services with GDRFA, AMER, and Tasheel integration.',
-    },
-    {
-      icon: '🌐',
-      title: 'Translation Services',
-      description:
-        'Certified English to Arabic and Arabic to English translation for legal, technical, and commercial documents.',
-    },
     {
       icon: '🏢',
       title: 'PRO Services',
@@ -324,16 +295,46 @@ export class LandingPageContainerComponent {
         'Complete assistance with corporate and personal bank account opening in major UAE banks.',
     },
     {
+      icon: '🔄',
+      title: 'License Renewals',
+      description:
+        'Company license renewals for mainland and freezone businesses with Economic Department services.',
+    },
+    {
       icon: '📋',
       title: 'Document Clearing',
       description:
         'Document clearing services for customs, trade, and government departments across UAE.',
     },
     {
-      icon: '🔄',
-      title: 'License Renewals',
+      icon: '📄',
+      title: 'Visa Services',
       description:
-        'Company license renewals for mainland and freezone businesses with Economic Department services.',
+        'Complete visa typing services including residence, visit, and renewal applications processed efficiently with all Emirates support.',
+    },
+    {
+      icon: '🆔',
+      title: 'Emirates ID',
+      description:
+        'Emirates ID application, renewal, and modification services with quick turnaround times and ICP direct access.',
+    },
+    {
+      icon: '🌐',
+      title: 'Translation Services',
+      description:
+        'Certified English to Arabic and Arabic to English translation for legal, technical, and commercial documents.',
+    },
+    {
+      icon: '✈️',
+      title: 'Immigration Services',
+      description:
+        'Complete immigration and labor typing services with GDRFA, AMER, and Tasheel integration.',
+    },
+    {
+      icon: '🏥',
+      title: 'Medical Fitness',
+      description:
+        'Medical fitness typing and processing for employment and residence permits with approved medical centers.',
     },
     {
       icon: '🎁',
@@ -510,7 +511,356 @@ export class LandingPageContainerComponent {
       popular: false,
     },
   ];
+
+  // REORDERED: Business services first, then other services
   detailedServices = [
+    {
+      title: 'PRO Services',
+      subtitle: 'Complete business setup and PRO solutions',
+      description:
+        'Comprehensive PRO services for company formation, trade license processing, and all government-related documentation. We handle everything so you can focus on your business.',
+      images: [
+        'https://images.unsplash.com/photo-1507679799987-c73779587ccf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1521791136064-7986c2920216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '500+', label: 'Companies Formed' },
+        { value: '100%', label: 'Success Rate' },
+        { value: '10+', label: 'Years Experience' },
+      ],
+      benefits: [
+        'Company formation in UAE mainland and freezones',
+        'Trade license application and renewal',
+        'Document attestation and notarization',
+        'Ministry approvals and clearances',
+        'Partner visa processing',
+        'Complete PRO support',
+      ],
+      features: [
+        'Ajman, Dubai, Sharjah mainland licenses',
+        'Rakez, SAIF Zone, and other freezone licenses',
+        'Economic Department services',
+        'Chamber of Commerce registration',
+        'Municipality approvals',
+        'Bank account opening assistance',
+      ],
+      process: [
+        'Consultation on business setup requirements',
+        'Company name reservation and approval',
+        'License application and documentation',
+        'Government approvals and submissions',
+        'License issuance and collection',
+      ],
+    },
+    {
+      title: 'Freezone License Processing',
+      subtitle: 'Complete freezone company setup services',
+      description:
+        'Professional assistance with freezone company formation and license processing across all UAE freezones including Ajman, RAK, Dubai, and Sharjah freezones.',
+      images: [
+        'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '500+', label: 'Freezone Companies' },
+        { value: '48hrs', label: 'Fast Setup' },
+        { value: '100%', label: 'Foreign Ownership' },
+      ],
+      benefits: [
+        'Ajman Freezone processing',
+        'RAKEZ license setup',
+        'Dubai Freezones (DIFC, JAFZA, DMCC)',
+        'Sharjah Freezones (SAIF Zone)',
+        '100% foreign ownership',
+        'Tax exemptions',
+      ],
+      features: [
+        'Company name reservation',
+        'License application',
+        'Office space solutions',
+        'Visa processing',
+        'Bank account assistance',
+        'Annual renewal services',
+      ],
+      process: [
+        'Freezone selection consultation',
+        'Document preparation',
+        'License application submission',
+        'Government approvals',
+        'License issuance',
+        'Post-setup support',
+      ],
+    },
+    {
+      title: 'Businessmen Services',
+      subtitle: 'Complete business setup and support',
+      description:
+        'Comprehensive services for businessmen including company formation, investor visa processing, and commercial registration. We handle all legal and administrative requirements for your business.',
+      images: [
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '1000+', label: 'Businesses Served' },
+        { value: '100%', label: 'Success Rate' },
+        { value: 'Fast', label: 'Processing' },
+      ],
+      benefits: [
+        'Business setup consultation',
+        'Investor visa processing',
+        'Commercial registration',
+        'Legal documentation',
+        'Government liaison',
+        'Ongoing business support',
+      ],
+      features: [
+        'Company formation assistance',
+        'Investor visa applications',
+        'Commercial registration',
+        'Business licensing',
+        'Partner visa processing',
+        'Annual renewal services',
+      ],
+      process: [
+        'Initial business consultation',
+        'Document preparation and submission',
+        'Government approvals',
+        'License issuance',
+        'Post-setup support',
+      ],
+    },
+    {
+      title: 'Bank Account Opening Assistance',
+      subtitle: 'Complete banking solutions for businesses and individuals',
+      description:
+        'Professional assistance with opening corporate and personal bank accounts in major UAE banks. We guide you through the entire process from document preparation to account activation, ensuring compliance with banking regulations.',
+      images: [
+        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '500+', label: 'Accounts Opened' },
+        { value: '15+', label: 'Partner Banks' },
+        { value: '98%', label: 'Success Rate' },
+      ],
+      benefits: [
+        'Corporate bank account opening for companies',
+        'Personal account opening for residents and visitors',
+        'Priority banking services',
+        'Online banking setup assistance',
+        'Credit card and loan facility guidance',
+        'Business credit line assistance',
+      ],
+      features: [
+        'Account opening in UAE local and international banks',
+        'Document preparation and verification',
+        'Bank liaison and follow-up',
+        'Online banking activation support',
+        'Corporate debit/credit card applications',
+        'Trade finance and LC services',
+      ],
+      process: [
+        'Initial consultation and bank selection',
+        'Document checklist and preparation',
+        'Bank appointment scheduling',
+        'Accompanied bank visit (optional)',
+        'Account activation and online banking setup',
+        'Ongoing banking support',
+      ],
+    },
+    {
+      title: 'License Renewal Services',
+      subtitle: 'Complete company license renewal and compliance',
+      description:
+        'Professional license renewal services for mainland and freezone companies. We ensure timely renewals, compliance with regulations, and handle all government procedures.',
+      images: [
+        'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '1000+', label: 'Licenses Renewed' },
+        { value: 'Zero', label: 'Late Penalties' },
+        { value: '30 Day', label: 'Reminder Service' },
+      ],
+      benefits: [
+        'Trade license renewal for all company types',
+        'Municipality license renewal',
+        'Chamber of commerce renewal',
+        'Labor card renewal processing',
+        'Immigration quota renewal',
+        'Complete compliance management',
+      ],
+      features: [
+        'Mainland company license renewal (Ajman, Dubai, Sharjah)',
+        'Freezone license renewal (Rakez, SAIF Zone, etc.)',
+        'Commercial license renewal',
+        'Professional license renewal',
+        'Industrial license renewal',
+        'Tourism license renewal',
+      ],
+      process: [
+        'License expiry reminder and notification',
+        'Document collection and verification',
+        'Renewal application submission',
+        'Fee payment processing',
+        'New license collection',
+        'Updated license delivery',
+      ],
+    },
+    {
+      title: 'Document Clearing Services',
+      subtitle: 'Customs and government document clearance solutions',
+      description:
+        'Complete document clearing services for customs, trade, and government departments across UAE. We handle all types of import/export documentations and clearance procedures.',
+      images: [
+        'https://images.unsplash.com/photo-1519457431-44ccd64a579b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1507679799987-c73779587ccf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '2000+', label: 'Clearances Processed' },
+        { value: 'All', label: 'UAE Ports' },
+        { value: '48hrs', label: 'Average Time' },
+      ],
+      benefits: [
+        'Customs clearance for imports and exports',
+        'Port and airport clearance services',
+        'Bill of entry/exit processing',
+        'Customs duty calculation and payment',
+        'Certificate of origin processing',
+        'Health and safety certificate clearance',
+      ],
+      features: [
+        'Customs declaration preparation',
+        'Import/export permit processing',
+        'Health and agricultural clearance',
+        'Phytosanitary certificate processing',
+        'Certificate of origin attestation',
+        'Customs duty assessment and payment',
+      ],
+      process: [
+        'Document verification and preparation',
+        'Customs declaration submission',
+        'Duty calculation and payment',
+        'Physical inspection coordination (if needed)',
+        'Clearance certificate issuance',
+        'Cargo release and delivery coordination',
+      ],
+    },
+    {
+      title: 'Commercial Information Services',
+      subtitle: 'Market research and business intelligence',
+      description:
+        'Professional commercial information services including market research, business intelligence, and commercial data processing. We provide valuable insights for business decision-making.',
+      images: [
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '500+', label: 'Reports Generated' },
+        { value: 'Accurate', label: 'Market Data' },
+        { value: 'Timely', label: 'Delivery' },
+      ],
+      benefits: [
+        'Market research reports',
+        'Business intelligence',
+        'Commercial data analysis',
+        'Industry insights',
+        'Competitor analysis',
+        'Customized reports',
+      ],
+      features: [
+        'Market analysis reports',
+        'Business feasibility studies',
+        'Commercial data processing',
+        'Industry trend analysis',
+        'Competitor intelligence',
+        'Custom research projects',
+      ],
+      process: [
+        'Define research requirements',
+        'Data collection and analysis',
+        'Report preparation',
+        'Client review and feedback',
+        'Final report delivery',
+      ],
+    },
+    {
+      title: 'Administrative Services',
+      subtitle: 'Complete administrative support',
+      description:
+        'Professional administrative services including document management, record keeping, and office administration support. We help businesses streamline their administrative processes.',
+      images: [
+        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '24/7', label: 'Support Available' },
+        { value: 'Efficient', label: 'Processing' },
+        { value: 'Confidential', label: 'Handling' },
+      ],
+      benefits: [
+        'Document management',
+        'Record keeping',
+        'Office administration',
+        'Filing system setup',
+        'Administrative workflow',
+        'Process optimization',
+      ],
+      features: [
+        'Document organization',
+        'Record maintenance',
+        'Administrative paperwork',
+        'Office documentation',
+        'Process documentation',
+        'Administrative consulting',
+      ],
+      process: [
+        'Assess administrative needs',
+        'Develop process plan',
+        'Implement solutions',
+        'Training and support',
+        'Ongoing maintenance',
+      ],
+    },
+    {
+      title: 'Packages & Special Offers',
+      subtitle: 'Cost-effective bundled services for businesses',
+      description:
+        'Special promotional packages designed to provide complete solutions at discounted rates. Perfect for new businesses and bulk service requirements.',
+      images: [
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      ],
+      stats: [
+        { value: '50%', label: 'Cost Saving' },
+        { value: '200+', label: 'Packages Sold' },
+        { value: '4.9/5', label: 'Customer Rating' },
+      ],
+      benefits: [
+        'All-inclusive business setup packages',
+        'Bulk visa processing discounts',
+        'Translation package deals',
+        'Corporate PRO service bundles',
+        'Annual maintenance packages',
+        'New business special offers',
+      ],
+      features: [
+        'Business setup with visa package',
+        'Corporate banking and PRO bundle',
+        'Document translation bulk packages',
+        'Annual license renewal packages',
+        'Employee visa processing packages',
+        'Customized service bundles',
+      ],
+      process: [
+        'Package selection and customization',
+        'Requirement assessment and quotation',
+        'Package confirmation and payment',
+        'Service implementation as per package',
+        'Regular progress updates',
+        'Package completion and follow-up',
+      ],
+    },
     {
       title: 'Visa Processing Services',
       subtitle: 'Complete visa solutions for all your UAE requirements',
@@ -617,44 +967,6 @@ export class LandingPageContainerComponent {
       ],
     },
     {
-      title: 'PRO Services',
-      subtitle: 'Complete business setup and PRO solutions',
-      description:
-        'Comprehensive PRO services for company formation, trade license processing, and all government-related documentation. We handle everything so you can focus on your business.',
-      images: [
-        'https://images.unsplash.com/photo-1507679799987-c73779587ccf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1521791136064-7986c2920216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
-      stats: [
-        { value: '500+', label: 'Companies Formed' },
-        { value: '100%', label: 'Success Rate' },
-        { value: '10+', label: 'Years Experience' },
-      ],
-      benefits: [
-        'Company formation in UAE mainland and freezones',
-        'Trade license application and renewal',
-        'Document attestation and notarization',
-        'Ministry approvals and clearances',
-        'Partner visa processing',
-        'Complete PRO support',
-      ],
-      features: [
-        'Ajman, Dubai, Sharjah mainland licenses',
-        'Rakez, SAIF Zone, and other freezone licenses',
-        'Economic Department services',
-        'Chamber of Commerce registration',
-        'Municipality approvals',
-        'Bank account opening assistance',
-      ],
-      process: [
-        'Consultation on business setup requirements',
-        'Company name reservation and approval',
-        'License application and documentation',
-        'Government approvals and submissions',
-        'License issuance and collection',
-      ],
-    },
-    {
       title: 'Government Services',
       subtitle: 'Tasheel, AMER, and GDRFA services',
       description:
@@ -728,162 +1040,6 @@ export class LandingPageContainerComponent {
         'We type and submit application',
         'Track medical fitness status',
         'Receive fitness certificate',
-      ],
-    },
-    {
-      title: 'Bank Account Opening Assistance',
-      subtitle: 'Complete banking solutions for businesses and individuals',
-      description:
-        'Professional assistance with opening corporate and personal bank accounts in major UAE banks. We guide you through the entire process from document preparation to account activation, ensuring compliance with banking regulations.',
-      images: [
-        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
-      stats: [
-        { value: '500+', label: 'Accounts Opened' },
-        { value: '15+', label: 'Partner Banks' },
-        { value: '98%', label: 'Success Rate' },
-      ],
-      benefits: [
-        'Corporate bank account opening for companies',
-        'Personal account opening for residents and visitors',
-        'Priority banking services',
-        'Online banking setup assistance',
-        'Credit card and loan facility guidance',
-        'Business credit line assistance',
-      ],
-      features: [
-        'Account opening in UAE local and international banks',
-        'Document preparation and verification',
-        'Bank liaison and follow-up',
-        'Online banking activation support',
-        'Corporate debit/credit card applications',
-        'Trade finance and LC services',
-      ],
-      process: [
-        'Initial consultation and bank selection',
-        'Document checklist and preparation',
-        'Bank appointment scheduling',
-        'Accompanied bank visit (optional)',
-        'Account activation and online banking setup',
-        'Ongoing banking support',
-      ],
-    },
-    {
-      title: 'Document Clearing Services',
-      subtitle: 'Customs and government document clearance solutions',
-      description:
-        'Complete document clearing services for customs, trade, and government departments across UAE. We handle all types of import/export documentations and clearance procedures.',
-      images: [
-        'https://images.unsplash.com/photo-1519457431-44ccd64a579b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1507679799987-c73779587ccf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
-      stats: [
-        { value: '2000+', label: 'Clearances Processed' },
-        { value: 'All', label: 'UAE Ports' },
-        { value: '48hrs', label: 'Average Time' },
-      ],
-      benefits: [
-        'Customs clearance for imports and exports',
-        'Port and airport clearance services',
-        'Bill of entry/exit processing',
-        'Customs duty calculation and payment',
-        'Certificate of origin processing',
-        'Health and safety certificate clearance',
-      ],
-      features: [
-        'Customs declaration preparation',
-        'Import/export permit processing',
-        'Health and agricultural clearance',
-        'Phytosanitary certificate processing',
-        'Certificate of origin attestation',
-        'Customs duty assessment and payment',
-      ],
-      process: [
-        'Document verification and preparation',
-        'Customs declaration submission',
-        'Duty calculation and payment',
-        'Physical inspection coordination (if needed)',
-        'Clearance certificate issuance',
-        'Cargo release and delivery coordination',
-      ],
-    },
-    {
-      title: 'License Renewal Services',
-      subtitle: 'Complete company license renewal and compliance',
-      description:
-        'Professional license renewal services for mainland and freezone companies. We ensure timely renewals, compliance with regulations, and handle all government procedures.',
-      images: [
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
-      stats: [
-        { value: '1000+', label: 'Licenses Renewed' },
-        { value: 'Zero', label: 'Late Penalties' },
-        { value: '30 Day', label: 'Reminder Service' },
-      ],
-      benefits: [
-        'Trade license renewal for all company types',
-        'Municipality license renewal',
-        'Chamber of commerce renewal',
-        'Labor card renewal processing',
-        'Immigration quota renewal',
-        'Complete compliance management',
-      ],
-      features: [
-        'Mainland company license renewal (Ajman, Dubai, Sharjah)',
-        'Freezone license renewal (Rakez, SAIF Zone, etc.)',
-        'Commercial license renewal',
-        'Professional license renewal',
-        'Industrial license renewal',
-        'Tourism license renewal',
-      ],
-      process: [
-        'License expiry reminder and notification',
-        'Document collection and verification',
-        'Renewal application submission',
-        'Fee payment processing',
-        'New license collection',
-        'Updated license delivery',
-      ],
-    },
-    {
-      title: 'Packages & Special Offers',
-      subtitle: 'Cost-effective bundled services for businesses',
-      description:
-        'Special promotional packages designed to provide complete solutions at discounted rates. Perfect for new businesses and bulk service requirements.',
-      images: [
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
-      stats: [
-        { value: '50%', label: 'Cost Saving' },
-        { value: '200+', label: 'Packages Sold' },
-        { value: '4.9/5', label: 'Customer Rating' },
-      ],
-      benefits: [
-        'All-inclusive business setup packages',
-        'Bulk visa processing discounts',
-        'Translation package deals',
-        'Corporate PRO service bundles',
-        'Annual maintenance packages',
-        'New business special offers',
-      ],
-      features: [
-        'Business setup with visa package',
-        'Corporate banking and PRO bundle',
-        'Document translation bulk packages',
-        'Annual license renewal packages',
-        'Employee visa processing packages',
-        'Customized service bundles',
-      ],
-      process: [
-        'Package selection and customization',
-        'Requirement assessment and quotation',
-        'Package confirmation and payment',
-        'Service implementation as per package',
-        'Regular progress updates',
-        'Package completion and follow-up',
       ],
     },
     {
@@ -962,160 +1118,8 @@ export class LandingPageContainerComponent {
         'Collection or delivery',
       ],
     },
-    {
-      title: 'Businessmen Services',
-      subtitle: 'Complete business setup and support',
-      description:
-        'Comprehensive services for businessmen including company formation, investor visa processing, and commercial registration. We handle all legal and administrative requirements for your business.',
-      images: [
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
-      stats: [
-        { value: '1000+', label: 'Businesses Served' },
-        { value: '100%', label: 'Success Rate' },
-        { value: 'Fast', label: 'Processing' },
-      ],
-      benefits: [
-        'Business setup consultation',
-        'Investor visa processing',
-        'Commercial registration',
-        'Legal documentation',
-        'Government liaison',
-        'Ongoing business support',
-      ],
-      features: [
-        'Company formation assistance',
-        'Investor visa applications',
-        'Commercial registration',
-        'Business licensing',
-        'Partner visa processing',
-        'Annual renewal services',
-      ],
-      process: [
-        'Initial business consultation',
-        'Document preparation and submission',
-        'Government approvals',
-        'License issuance',
-        'Post-setup support',
-      ],
-    },
-    {
-      title: 'Commercial Information Services',
-      subtitle: 'Market research and business intelligence',
-      description:
-        'Professional commercial information services including market research, business intelligence, and commercial data processing. We provide valuable insights for business decision-making.',
-      images: [
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
-      stats: [
-        { value: '500+', label: 'Reports Generated' },
-        { value: 'Accurate', label: 'Market Data' },
-        { value: 'Timely', label: 'Delivery' },
-      ],
-      benefits: [
-        'Market research reports',
-        'Business intelligence',
-        'Commercial data analysis',
-        'Industry insights',
-        'Competitor analysis',
-        'Customized reports',
-      ],
-      features: [
-        'Market analysis reports',
-        'Business feasibility studies',
-        'Commercial data processing',
-        'Industry trend analysis',
-        'Competitor intelligence',
-        'Custom research projects',
-      ],
-      process: [
-        'Define research requirements',
-        'Data collection and analysis',
-        'Report preparation',
-        'Client review and feedback',
-        'Final report delivery',
-      ],
-    },
-    {
-      title: 'Administrative Services',
-      subtitle: 'Complete administrative support',
-      description:
-        'Professional administrative services including document management, record keeping, and office administration support. We help businesses streamline their administrative processes.',
-      images: [
-        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
-      stats: [
-        { value: '24/7', label: 'Support Available' },
-        { value: 'Efficient', label: 'Processing' },
-        { value: 'Confidential', label: 'Handling' },
-      ],
-      benefits: [
-        'Document management',
-        'Record keeping',
-        'Office administration',
-        'Filing system setup',
-        'Administrative workflow',
-        'Process optimization',
-      ],
-      features: [
-        'Document organization',
-        'Record maintenance',
-        'Administrative paperwork',
-        'Office documentation',
-        'Process documentation',
-        'Administrative consulting',
-      ],
-      process: [
-        'Assess administrative needs',
-        'Develop process plan',
-        'Implement solutions',
-        'Training and support',
-        'Ongoing maintenance',
-      ],
-    },
-    {
-      title: 'Freezone License Processing',
-      subtitle: 'Complete freezone company setup services',
-      description:
-        'Professional assistance with freezone company formation and license processing across all UAE freezones including Ajman, RAK, Dubai, and Sharjah freezones.',
-      images: [
-        'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      ],
-      stats: [
-        { value: '500+', label: 'Freezone Companies' },
-        { value: '48hrs', label: 'Fast Setup' },
-        { value: '100%', label: 'Foreign Ownership' },
-      ],
-      benefits: [
-        'Ajman Freezone processing',
-        'RAKEZ license setup',
-        'Dubai Freezones (DIFC, JAFZA, DMCC)',
-        'Sharjah Freezones (SAIF Zone)',
-        '100% foreign ownership',
-        'Tax exemptions',
-      ],
-      features: [
-        'Company name reservation',
-        'License application',
-        'Office space solutions',
-        'Visa processing',
-        'Bank account assistance',
-        'Annual renewal services',
-      ],
-      process: [
-        'Freezone selection consultation',
-        'Document preparation',
-        'License application submission',
-        'Government approvals',
-        'License issuance',
-        'Post-setup support',
-      ],
-    },
   ];
+
   processSteps = [
     {
       icon: 'bi-file-earmark-text',
