@@ -122,8 +122,8 @@ export class LandingPageContainerComponent {
 
   showScrollTop = false;
   COMPANY_CONTACT = {
-    phone: '+971501234567',
-    whatsappNumber: '+971555343873',
+    phone: '067428292',
+    whatsappNumber: '+971501740305',
   };
   formData = {
     serviceType: '',
